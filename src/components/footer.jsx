@@ -1,4 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { 
+  FaFacebookF, 
+  FaInstagram, 
+  FaLinkedinIn, 
+  FaYoutube 
+} from "react-icons/fa6";
+import { HiOutlineArrowRight, HiOutlinePhone, HiOutlineEnvelope, HiOutlineClock } from "react-icons/hi2";
 
 const footerColumns = [
   {
@@ -13,9 +22,9 @@ const footerColumns = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Packages", href: "/packages" },
+      { label: "About Us", href: "/about" },
+      { label: "Our Blog", href: "/blog" },
+      { label: "AMC Packages", href: "/packages" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -23,97 +32,100 @@ const footerColumns = [
     title: "Support",
     links: [
       { label: "Get a Quote", href: "/quote" },
-      { label: "FAQ", href: "/legal" },
-      { label: "Customer Care", href: "/contact" },
+      { label: "FAQs", href: "/legal" },
       { label: "Service Areas", href: "/services" },
+      { label: "Privacy Policy", href: "/legal" },
     ],
   },
 ];
 
-const contactItems = [
-  { label: "Call", value: "800-FIX (800-349)", href: "/contact" },
-  { label: "Email", value: "hello@homeexpertrs.com", href: "mailto:hello@homeexpertrs.com" },
-  { label: "Hours", value: "Mon-Sun | 8AM to 10PM", href: "/contact" },
+const socialLinks = [
+  { icon: <FaFacebookF />, href: "#", label: "Facebook" },
+  { icon: <FaInstagram />, href: "#", label: "Instagram" },
+  { icon: <FaLinkedinIn />, href: "#", label: "LinkedIn" },
+  { icon: <FaYoutube />, href: "#", label: "YouTube" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a0c23] text-white">
-      <div className="border-b border-white/10">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-12 md:px-6 lg:grid-cols-[1.2fr_auto] lg:items-center">
-          <div>
-            <p className="text-[clamp(2rem,4vw,4rem)] font-black uppercase leading-[0.95] tracking-[-0.04em] text-white">
-              Ready To Fix What Is Slowing Your Home Down?
-            </p>
-            <p className="mt-4 max-w-[54ch] text-base leading-7 text-white/72 md:text-lg">
-              One trusted team for repairs, maintenance, inspections, and fast
-              support when home life gets interrupted.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row lg:flex-col xl:flex-row">
-            <Link
-              className="inline-flex min-h-14 items-center justify-center rounded-[16px] bg-[#d7ff00] px-7 text-sm font-extrabold uppercase tracking-[0.14em] text-[#23112e] transition hover:bg-[#c5ec00]"
-              href="/quote"
-            >
-              Book A Free Quote
-            </Link>
-            <Link
-              className="inline-flex min-h-14 items-center justify-center rounded-[16px] border border-white/18 bg-white/8 px-7 text-sm font-extrabold uppercase tracking-[0.14em] text-white transition hover:bg-white/12"
-              href="/services"
-            >
-              Explore Services
-            </Link>
+    <footer className="bg-white text-[#0A192F]">
+      {/* ── Top CTA Section: High Impact ── */}
+      <div className="relative overflow-hidden bg-[#0A192F] py-16 md:py-24">
+        {/* Abstract Background Glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#26C6DA] opacity-[0.08] blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <span className="inline-block text-[#26C6DA] text-xs font-black uppercase tracking-[0.3em] mb-6">
+                Premium Maintenance
+              </span>
+              <h2 className="text-4xl md:text-6xl font-black text-white leading-[0.95] tracking-tighter uppercase max-w-[15ch]">
+                Ready to <span className="text-[#26C6DA]">Fix</span> what is slowing you down?
+              </h2>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+              <Link
+                href="/quote"
+                className="group flex items-center justify-center gap-3 bg-[#26C6DA] text-[#0A192F] px-8 py-5 rounded-2xl font-black uppercase tracking-wider text-sm transition-all hover:scale-105 active:scale-95 shadow-[0_20px_40px_rgba(38,198,218,0.2)]"
+              >
+                Book a Free Quote
+                <HiOutlineArrowRight className="text-lg transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/services"
+                className="flex items-center justify-center px-8 py-5 rounded-2xl border border-white/20 text-white font-black uppercase tracking-wider text-sm transition-all hover:bg-white/5"
+              >
+                Explore Services
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1440px] px-4 py-14 md:px-6 md:py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1.8fr]">
-          <div>
-            <Link
-              aria-label="Home Expertrs home"
-              className="inline-flex rounded-[14px] bg-[#7b2b8e] px-5 py-4 text-xl font-black uppercase tracking-[0.08em] text-[#d7ff00] shadow-[0_16px_32px_rgba(123,43,142,0.25)]"
-              href="/"
-            >
-              Homeexpertrs
+      {/* ── Main Footer Links ── */}
+      <div className="mx-auto max-w-7xl px-6 pt-20 pb-12">
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.5fr]">
+          
+          {/* Brand Column */}
+          <div className="space-y-8">
+            <Link href="/" className="inline-block group">
+              <img src="/Logo_Home_Clear.png" alt="Logo" className="h-10 w-auto" />
             </Link>
-
-            <p className="mt-6 max-w-[34ch] text-base leading-7 text-white/68">
-              Premium home maintenance with fast response times, transparent
-              coordination, and technicians homeowners can trust.
+            <p className="text-[#5A6A8A] text-lg leading-relaxed max-w-md">
+              Reliable home maintenance across Dubai. We focus on the details so you can enjoy your home without the stress.
             </p>
-
-            <div className="mt-8 grid gap-4">
-              {contactItems.map((item) => (
-                <Link
-                  key={item.label}
-                  className="rounded-[18px] border border-white/8 bg-white/5 px-5 py-4 transition hover:border-white/16 hover:bg-white/8"
-                  href={item.href}
-                >
-                  <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-[#d7ff00]">
-                    {item.label}
-                  </p>
-                  <p className="mt-2 text-base font-semibold text-white/88">
-                    {item.value}
-                  </p>
-                </Link>
-              ))}
+            
+            {/* Contact Pills */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-4 text-[#0A192F]">
+                <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-[#26C6DA]">
+                  <HiOutlinePhone size={20} />
+                </div>
+                <span className="font-bold text-lg">800-FIX (800-349)</span>
+              </div>
+              <div className="flex items-center gap-4 text-[#0A192F]">
+                <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-[#26C6DA]">
+                  <HiOutlineEnvelope size={20} />
+                </div>
+                <span className="font-bold">hello@homeexperts.com</span>
+              </div>
             </div>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
-            {footerColumns.map((column) => (
-              <div key={column.title}>
-                <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[#d7ff00]">
-                  {column.title}
-                </p>
-                <ul className="mt-5 space-y-3">
-                  {column.links.map((link) => (
+          {/* Links Grid */}
+          <div className="grid gap-10 sm:grid-cols-3">
+            {footerColumns.map((col) => (
+              <div key={col.title}>
+                <h3 className="text-xs font-black uppercase tracking-[0.25em] text-[#0A192F] mb-8">
+                  {col.title}
+                </h3>
+                <ul className="space-y-4">
+                  {col.links.map((link) => (
                     <li key={link.label}>
-                      <Link
-                        className="text-base font-semibold text-white/76 transition hover:text-white"
-                        href={link.href}
+                      <Link 
+                        href={link.href} 
+                        className="text-[#5A6A8A] font-medium transition-all hover:text-[#26C6DA] hover:translate-x-1 inline-block"
                       >
                         {link.label}
                       </Link>
@@ -122,50 +134,26 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
-
-            <div>
-              <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[#d7ff00]">
-                Follow
-              </p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                {["Facebook", "Instagram", "LinkedIn", "YouTube"].map((item) => (
-                  <Link
-                    key={item}
-                    className="inline-flex rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm font-bold uppercase tracking-[0.12em] text-white/86 transition hover:border-white/18 hover:bg-white/10"
-                    href="/contact"
-                  >
-                    {item}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="mt-8 rounded-[22px] border border-white/10 bg-[linear-gradient(145deg,rgba(123,43,142,0.42),rgba(26,12,35,0.96))] p-5">
-                <p className="text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-[#d7ff00]">
-                  Response Promise
-                </p>
-                <p className="mt-3 text-3xl font-black leading-none text-white">
-                  Fast booking.
-                </p>
-                <p className="mt-2 text-base leading-7 text-white/72">
-                  Clear communication from the first quote to final fix.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm font-medium text-white/52 md:flex-row md:items-center md:justify-between">
-          <p>&copy; 2026 Homeexpertrs. All rights reserved.</p>
-          <div className="flex flex-wrap gap-5">
-            <Link className="transition hover:text-white/84" href="/legal">
-              Privacy
-            </Link>
-            <Link className="transition hover:text-white/84" href="/legal">
-              Terms
-            </Link>
-            <Link className="transition hover:text-white/84" href="/contact">
-              Support
-            </Link>
+        {/* ── Bottom Bar ── */}
+        <div className="mt-20 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-sm font-medium text-[#5A6A8A]">
+            &copy; {new Date().getFullYear()} Home Experts Dubai. Built for the modern home.
+          </p>
+          
+          <div className="flex items-center gap-4">
+            {socialLinks.map((social) => (
+              <Link 
+                key={social.label}
+                href={social.href}
+                className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-[#0A192F] transition-all hover:bg-[#26C6DA] hover:border-[#26C6DA] hover:text-white hover:-translate-y-1"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
