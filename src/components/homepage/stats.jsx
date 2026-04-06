@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import Reveal from "@/components/motion/reveal";
+
 const trustStats = [
   {
     value: 4.7,
@@ -129,23 +131,23 @@ export default function Stats() {
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#3BBFBF]/60 to-transparent" />
 
       <div className="relative mx-auto max-w-[1440px]">
+        <Reveal delay={80} y={18} blur={10}>
+          <div className="mb-10 flex items-center justify-center gap-3">
+            <span className="h-px w-10 bg-[#3BBFBF]/50" />
+            <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.25em] text-[#3BBFBF]">
+              Trusted across the UAE
+            </p>
+            <span className="h-px w-10 bg-[#3BBFBF]/50" />
+          </div>
+        </Reveal>
 
-        {/* Eyebrow label */}
-        <div className="mb-10 flex items-center justify-center gap-3">
-          <span className="h-px w-10 bg-[#3BBFBF]/50" />
-          <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.25em] text-[#3BBFBF]">
-            Trusted across the UAE
-          </p>
-          <span className="h-px w-10 bg-[#3BBFBF]/50" />
-        </div>
-
-        {/* Stats grid */}
         <div className="grid gap-10 md:grid-cols-3 md:gap-0">
           {trustStats.map((stat, i) => (
-            <StatCard key={stat.label} stat={stat} index={i} animate={animate} />
+            <Reveal key={stat.label} delay={140 + i * 120} y={24} blur={12}>
+              <StatCard stat={stat} index={i} animate={animate} />
+            </Reveal>
           ))}
         </div>
-
       </div>
 
       {/* Decorative bottom border line */}

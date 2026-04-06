@@ -28,7 +28,7 @@ const navItems = [
   },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/blog", label: "How We Compare" },
+  // { href: "/blog", label: "How We Compare" },
   { href: "/blog", label: "Blog" },
 ];
 

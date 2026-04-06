@@ -7,6 +7,8 @@ export default function PageHero({
   image,
   imageAlt = "",
 }) {
+  const heroImage = "/homexpert.png";
+
   // If titleAccent is provided, split title around it for teal highlight
   const renderTitle = () => {
     if (!titleAccent) return <span>{title}</span>;
@@ -26,8 +28,8 @@ export default function PageHero({
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={image}
-          alt={imageAlt}
+          src={heroImage}
+          alt={imageAlt || title}
           fill
           className="object-cover opacity-50"
           priority

@@ -138,44 +138,7 @@ export default function AMCSection() {
 
   return (
     <>
-      <section className="bg-[#F8FAFC] px-4 pt-10 md:px-6 md:pt-14">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid gap-4 rounded-[2rem] border border-gray-100 bg-white p-4 shadow-sm md:grid-cols-2 md:p-5">
-            <Link
-              href="/packages"
-              className="rounded-[1.5rem] bg-[#2C3E6B] px-6 py-5 text-white shadow-lg shadow-[#2C3E6B]/10"
-            >
-              <p className="text-[10px] font-black uppercase tracking-[0.25em] text-[#3BBFBF]">
-                Current Package
-              </p>
-              <h2 className="mt-2 text-2xl font-black uppercase tracking-tight">
-                Residential AMC
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-white/70">
-                Ideal for villas, apartments, landlords, and tenants who want dependable year-round home maintenance support.
-              </p>
-            </Link>
-
-            <Link
-              href="/packages/commercial"
-              className="group rounded-[1.5rem] border border-[#2C3E6B]/10 px-6 py-5 transition-all hover:border-[#3BBFBF]/40 hover:bg-[#F8FAFC]"
-            >
-              <p className="text-[10px] font-black uppercase tracking-[0.25em] text-[#3BBFBF]">
-                Also Available
-              </p>
-              <div className="mt-2 flex items-center justify-between gap-4">
-                <h2 className="text-2xl font-black uppercase tracking-tight text-[#2C3E6B]">
-                  Commercial AMC
-                </h2>
-                <ArrowRight className="h-5 w-5 text-[#2C3E6B] transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-              <p className="mt-2 text-sm leading-6 text-[#5A6A8A]">
-                Maintenance coverage tailored for offices, retail spaces, facilities, and multi-unit commercial properties.
-              </p>
-            </Link>
-          </div>
-        </div>
-      </section>
+     
 
       <section className="relative overflow-hidden bg-white px-4 py-16 md:px-6 md:py-24">
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -236,7 +199,7 @@ export default function AMCSection() {
             
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl md:aspect-square lg:aspect-[4/5]">
               <Image
-                src="https://images.pexels.com/photos/4421160/pexels-photo-4421160.jpeg" // Professional AC tech image
+                src="/about.jpg" // Professional AC tech image
                 alt="Expert technician performing AC maintenance"
                 fill
                 className="object-cover"

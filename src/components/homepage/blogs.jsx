@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import Reveal from "@/components/motion/reveal";
+
 const blogPosts = [
   {
     title: "All-Inclusive AMC With AC Parts Included: All You Need to Know",
@@ -43,25 +45,29 @@ export default function Blogs() {
   return (
     <section className="bg-[#F4F6F9] px-4 py-16 md:px-20 md:py-24">
       <div className="mx-auto max-w-[1440px]">
-        <div className="mx-auto max-w-[980px] text-center">
+        <Reveal className="mx-auto max-w-[980px] text-center" y={24} blur={14}>
           <p className="text-5xl font-medium uppercase leading-none tracking-[0.03em] text-[#2C3E6B]">
             Our Blogs
           </p>
           <div className="mx-auto mt-6 h-2 w-28 bg-[#3BBFBF] md:w-48" />
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid gap-10 md:grid-cols-2 xl:grid-cols-4">
-          {blogPosts.map((post) => (
-            <article
+          {blogPosts.map((post, index) => (
+            <Reveal
               key={post.title}
-              className="group flex flex-col overflow-hidden text-gray-500 font-medium rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+              className="group"
+              delay={100 + index * 90}
+              y={26}
+              blur={14}
             >
+              <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white font-medium text-gray-500 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
               <Link href={post.href} className="relative h-[240px] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="absolute inset-0 h-full w-full object-cover transition duration-1000 group-hover:scale-110"
+                  className="animate-image-drift absolute inset-0 h-full w-full object-cover transition duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-[#2C3E6B]/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </Link>
@@ -94,18 +100,19 @@ export default function Blogs() {
                   </Link>
                 </div>
               </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <Reveal className="mt-12 flex justify-center" delay={180} y={20} blur={10}>
           <Link
-            className="inline-flex min-h-14 items-center justify-center rounded-[8px] bg-[#2C3E6B] px-10 text-lg font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#3D5490]"
+            className="animate-shine inline-flex min-h-14 items-center justify-center rounded-[8px] bg-[#2C3E6B] px-10 text-lg font-extrabold uppercase tracking-[0.06em] text-white transition hover:-translate-y-0.5 hover:bg-[#3D5490]"
             href="/blog"
           >
             Visit Blog
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

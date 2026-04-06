@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Wrench } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+import Reveal from "@/components/motion/reveal";
 
 const services = [
   {
@@ -83,12 +85,12 @@ export default function ServicesSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 px-4 py-16 md:px-6 md:py-24">
       <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
-        <div className="absolute left-[-10%] top-10 h-64 w-64 rounded-full bg-[#3BBFBF] blur-[80px] md:h-96 md:w-96 md:blur-[120px]" />
-        <div className="absolute bottom-10 right-[-10%] h-64 w-64 rounded-full bg-[#2C3E6B] blur-[80px] md:h-96 md:w-96 md:blur-[120px]" />
+        <div className="animate-drift-glow absolute left-[-10%] top-10 h-64 w-64 rounded-full bg-[#3BBFBF] blur-[80px] md:h-96 md:w-96 md:blur-[120px]" />
+        <div className="animate-float-soft-delayed absolute bottom-10 right-[-10%] h-64 w-64 rounded-full bg-[#2C3E6B] blur-[80px] md:h-96 md:w-96 md:blur-[120px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto mb-12 max-w-3xl text-center md:mb-20">
+        <Reveal className="mx-auto mb-12 max-w-3xl text-center md:mb-20" y={24} blur={14}>
           <span className="mb-4 inline-block rounded-full bg-[#2C3E6B]/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#3BBFBF] md:text-xs">
             Our Expertise
           </span>
@@ -102,14 +104,18 @@ export default function ServicesSection() {
             cost-efficient rates. Rely on our highly trained technicians to get
             the job right the first time.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {services.map((service, index) => (
-            <div
+            <Reveal
               key={service.slug}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-500 hover:border-[#3BBFBF]/30 hover:shadow-2xl"
+              className="group"
+              delay={90 + index * 70}
+              y={28}
+              blur={14}
             >
+              <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:border-[#3BBFBF]/30 hover:shadow-2xl">
               <div className="relative h-48 w-full overflow-hidden md:h-64">
                 <Image
                   src={service.image}
@@ -123,8 +129,6 @@ export default function ServicesSection() {
                 <div className="absolute top-4 left-6 text-4xl font-black text-white/30 drop-shadow-md">
                   {String(index + 1).padStart(2, "0")}
                 </div>
-
-             
               </div>
 
               <div className="flex flex-grow flex-col p-8 pt-10">
@@ -140,15 +144,16 @@ export default function ServicesSection() {
                   <div className="absolute h-full w-0 bg-gradient-to-r from-[#3BBFBF] to-[#2C3E6B] transition-all duration-700 group-hover:w-full" />
                 </div>
 
-            <Link
-  href={service.href}
-  className="mt-auto inline-flex items-center gap-2 self-start rounded-full border-2 border-[#2C3E6B] px-5 py-2.5 text-[0.75rem] font-extrabold uppercase tracking-[0.12em] text-[#2C3E6B] transition hover:bg-[#2C3E6B] hover:text-white"
->
-  Explore Details
-  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
+                <Link
+                  href={service.href}
+                  className="mt-auto inline-flex items-center gap-2 self-start rounded-full border-2 border-[#2C3E6B] px-5 py-2.5 text-[0.75rem] font-extrabold uppercase tracking-[0.12em] text-[#2C3E6B] transition hover:bg-[#2C3E6B] hover:text-white"
+                >
+                  Explore Details
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
               </div>
-            </div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

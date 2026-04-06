@@ -4,7 +4,8 @@ import Reviews from "@/components/homepage/reviews";
 import Services from "@/components/homepage/services";
 import Stats from "@/components/homepage/stats";
 import About from "@/components/homepage/about";
-import CTA from "@/components/homepage/cta";
+import LandingCTA from "@/components/homepage/landing-cta"; 
+import LandingTestimonials from "@/components/homepage/landing-testimonials";
 
 export default function Home() {
   return (
@@ -13,8 +14,8 @@ export default function Home() {
       <Stats />
       <About />
       <Services />
-      <Reviews />
-      <CTA />
+      <LandingTestimonials />
+      <LandingCTA />
   
 
       <Blogs />
