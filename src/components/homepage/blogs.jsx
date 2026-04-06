@@ -72,7 +72,7 @@ export default function Blogs() {
                 </p>
 
                 <Link
-                  className="mb-4 line-clamp-2 text-xl font-black leading-snug text-[#081224] transition-colors duration-300 group-hover:text-[#14284A] hover:!text-[#2C3E6B]"
+                  className="mb-4 line-clamp-2 text-xl font-semibold leading-snug text-[#081224] transition-colors duration-300 group-hover:text-[#14284A] hover:!text-[#2C3E6B]"
                   href={post.href}
                 >
                   {post.title}

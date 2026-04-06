@@ -9,7 +9,7 @@ const services = [
     title: "Annual Contracts",
     href: "/packages",
     slug: "annual-contracts",
-    image: "/Logo_Home_Clear.png",
+    image: "https://images.pexels.com/photos/6682772/pexels-photo-6682772.jpeg",
     description:
       "Comprehensive yearly maintenance plans for total peace of mind and priority support.",
   },
@@ -25,7 +25,7 @@ const services = [
     title: "Electrical",
     href: "/services/electrical",
     slug: "electrical",
-    image: "/ac_repair.jpg",
+    image: "/electrical.jpg",
     description:
       "Safe and reliable electrical repairs, installations, and fault finding by certified pros.",
   },
@@ -33,7 +33,7 @@ const services = [
     title: "Plumbing",
     href: "/services/plumbing",
     slug: "plumbing",
-    image: "/ac_repair.jpg",
+    image: "/plumbing.jpg",
     description:
       "From leak detection to full fixture installations, keeping your water systems flowing.",
   },
@@ -41,7 +41,7 @@ const services = [
     title: "Painting",
     href: "/services/painting",
     slug: "painting",
-    image: "/ac_repair.jpg",
+    image: "https://images.pexels.com/photos/36153946/pexels-photo-36153946.jpeg",
     description:
       "Professional interior and exterior painting services to refresh your living space.",
   },
@@ -49,9 +49,33 @@ const services = [
     title: "Handyman",
     href: "/services/handyman",
     slug: "handyman",
-    image: "/ac_repair.jpg",
+    image: "/handyman.jpg",
     description:
       "Versatile repair and installation services for all those small jobs around the home.",
+  },
+  {
+    title: "Water Tank Cleaning",
+    href: "/services/other",
+    slug: "water-tank-cleaning",
+    image: "/watertankcleaning.jpg",
+    description:
+      "Deep cleaning and sanitization for residential water tanks to keep your water fresh and safe.",
+  },
+  {
+    title: "Duct Cleaning",
+    href: "/services/other",
+    slug: "duct-cleaning",
+    image: "/duct-cleaning.jpg",
+    description:
+      "Professional air duct cleaning that helps improve airflow, indoor air quality, and AC efficiency.",
+  },
+  {
+    title: "Coil Cleaning",
+    href: "/services/other",
+    slug: "coil-cleaning",
+    image: "/coilcleaning.jpg",
+    description:
+      "Thorough evaporator and condenser coil cleaning to boost cooling performance and reduce energy waste.",
   },
 ];
 
@@ -116,13 +140,13 @@ export default function ServicesSection() {
                   <div className="absolute h-full w-0 bg-gradient-to-r from-[#3BBFBF] to-[#2C3E6B] transition-all duration-700 group-hover:w-full" />
                 </div>
 
-                <Link
-                  href={service.href}
-                  className="mt-auto flex items-center gap-2 text-xs   tracking-[0.2em] "
-                >
-                  Explore Details
-                  <ArrowRight className="h-4 w-4 transition-transform text-gray-500 duration-300 group-hover:translate-x-1.5" />
-                </Link>
+            <Link
+  href={service.href}
+  className="mt-auto inline-flex items-center gap-2 self-start rounded-full border-2 border-[#2C3E6B] px-5 py-2.5 text-[0.75rem] font-extrabold uppercase tracking-[0.12em] text-[#2C3E6B] transition hover:bg-[#2C3E6B] hover:text-white"
+>
+  Explore Details
+  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
               </div>
             </div>
           ))}
