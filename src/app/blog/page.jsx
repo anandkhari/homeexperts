@@ -32,15 +32,9 @@ export default function Blog() {
 
   return (
     <main className="bg-white">
-      <PageHero
-        title="Expert Insights &"
-        titleAccent="Maintenance Tips"
-        subtitle="Discover expert advice, seasonal guides, and cost-saving hacks for your home. From AC efficiency to plumbing prevention, our certified technicians share their knowledge to help you keep your UAE home in perfect condition."
-        image="https://images.pexels.com/photos/8292803/pexels-photo-8292803.jpeg"
-        imageAlt="Homeowners and technicians discussing home maintenance and planning"
-      />
+     
 
-      <section className="relative px-4 py-16 md:px-6 md:py-24">
+      <section className="relative px-4 py-16 md:px-6 md:py-20">
         {/* Background Ambient Glows */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
           <div className="absolute left-[-5%] top-20 h-96 w-96 rounded-full bg-[#3BBFBF] blur-[120px]" />
@@ -48,7 +42,23 @@ export default function Blog() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl">
-       
+          {/* HEADER SECTION */}
+          <div className="mx-auto max-w-5xl text-center mb-20">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span className="h-1 w-8 bg-[#3BBFBF] rounded-full" />
+              <span className="text-[#3BBFBF] text-[10px] font-black uppercase tracking-[0.4em]">Our Blog</span>
+              <span className="h-1 w-8 bg-[#3BBFBF] rounded-full" />
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-semibold text-[#2C3E6B] tracking-tight leading-[1.15]">
+              Your Trusted Source For <br className="hidden md:block" />
+              <span className="text-[#3BBFBF]">Home Maintenance Know-How</span>
+            </h1>
+            
+            <p className="mt-8 text-base leading-relaxed text-[#5A6A8A] md:text-base">
+              Wondering why your AC keeps tripping — or finally ready to tackle that leaking tap yourself? The Home Experts blog cuts through the confusion with honest, practical advice written by the same technicians who show up at your door. No jargon, no fluff — just real fixes, smart tips, and the kind of knowledge that saves you time and money before a small issue becomes a big one.
+            </p>
+          </div>
 
           {loading ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -66,7 +76,7 @@ export default function Blog() {
                 <Link
                   key={post.id}
                   href={`/blog/${post.slug}`}
-                  className="group relative flex flex-col overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white transition-all duration-500 hover:-translate-y-2 hover:border-[#3BBFBF]/30 hover:shadow-2xl"
+                  className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-300 bg-white transition-all duration-500 hover:-translate-y-2 hover:border-[#3BBFBF]/30 hover:shadow-2xl"
                 >
                   {/* Image Container */}
                   <div className="relative h-64 w-full overflow-hidden">

@@ -15,6 +15,7 @@ import {
   Wrench,
 } from "lucide-react";
 import LandingCTA from "@/components/homepage/landing-cta";
+import LandingTestimonials from "@/components/homepage/landing-testimonials";
 
 const commercialFeatures = [
   {
@@ -101,9 +102,9 @@ export default function CommercialPackagesPage() {
     <main className="bg-white">
       <PageHero
         title="Commercial"
-        titleAccent="Maintenance Contracts"
+        titleAccent="  Maintenance Contracts"
         subtitle="Flexible annual maintenance coverage for offices, retail units, buildings, and managed commercial spaces across Dubai and the UAE."
-        image="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
+        image="/aivan2.png"
         imageAlt="Commercial property management and maintenance planning"
       />
 
@@ -179,6 +180,43 @@ export default function CommercialPackagesPage() {
         </div>
       </section>
 
+      <section className="relative overflow-hidden bg-[#2C3E6B] px-6 py-14 text-white md:px-10 md:py-18">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,191,191,0.18),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(7,17,31,0.45),transparent_55%)]" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#3BBFBF]/70 to-transparent" />
+
+            <div className="relative z-10">
+              <div className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
+                <div className="mb-5 inline-flex items-center gap-3">
+                  <span className="h-px w-10 bg-[#3BBFBF]/60" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#3BBFBF] md:text-xs">
+                    Who It Helps
+                  </span>
+                  <span className="h-px w-10 bg-[#3BBFBF]/60" />
+                </div>
+                <h2 className="text-3xl font-black uppercase tracking-tight text-white md:text-5xl">
+                  Why commercial clients choose Home Experts
+                </h2>
+                <div className="mx-auto mt-6 h-1 w-32 rounded-full bg-[#3BBFBF]" />
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+                {commercialBenefits.map((item) => (
+                  <article
+                    key={item.title}
+                    className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#3BBFBF]/40 hover:bg-white/8"
+                  >
+                    <h3 className="max-w-[14ch] text-2xl font-black leading-tight text-[#3BBFBF]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-6 text-sm leading-8 text-white/78 md:text-base">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
       <section className="bg-[#F8FAFC] px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-20 text-center">
@@ -218,42 +256,7 @@ export default function CommercialPackagesPage() {
             ))}
           </div>
 
-          <section className="relative overflow-hidden rounded-[3rem] bg-[#2C3E6B] px-6 py-14 text-white md:px-10 md:py-18">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,191,191,0.18),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(7,17,31,0.45),transparent_55%)]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#3BBFBF]/70 to-transparent" />
-
-            <div className="relative z-10">
-              <div className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
-                <div className="mb-5 inline-flex items-center gap-3">
-                  <span className="h-px w-10 bg-[#3BBFBF]/60" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#3BBFBF] md:text-xs">
-                    Who It Helps
-                  </span>
-                  <span className="h-px w-10 bg-[#3BBFBF]/60" />
-                </div>
-                <h2 className="text-3xl font-black uppercase tracking-tight text-white md:text-5xl">
-                  Why commercial clients choose Home Experts
-                </h2>
-                <div className="mx-auto mt-6 h-1 w-32 rounded-full bg-[#3BBFBF]" />
-              </div>
-
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
-                {commercialBenefits.map((item) => (
-                  <article
-                    key={item.title}
-                    className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#3BBFBF]/40 hover:bg-white/8"
-                  >
-                    <h3 className="max-w-[14ch] text-2xl font-black leading-tight text-[#3BBFBF]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-6 text-sm leading-8 text-white/78 md:text-base">
-                      {item.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
+          
 
           <section className="relative mt-16 overflow-hidden rounded-[3rem] bg-[#2C3E6B] px-6 py-14 text-white md:px-10 md:py-18">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,191,191,0.12),transparent_45%),radial-gradient(ellipse_at_bottom_right,rgba(7,17,31,0.4),transparent_55%)]" />
@@ -305,6 +308,8 @@ export default function CommercialPackagesPage() {
       </section>
 
       <LandingCTA />
+
+      <LandingTestimonials />
     </main>
   );
 }

@@ -53,16 +53,16 @@ export default function LandingTestimonials() {
     <section className="bg-[#f5f7fb] px-4 py-18 md:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-3xl text-center" y={24} blur={14}>
-          <span className="rounded-full bg-white px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#3b7dff] shadow-sm">
+          <span className="rounded-full bg-white px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#1e3156] shadow-sm">
             Testimonials
           </span>
-          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-[#091321] md:text-5xl">
+          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.05em] text-[#1e3156] md:text-5xl">
             Customers remember how smooth it feels
           </h2>
         </Reveal>
 
         <Reveal
-          className="mt-14 overflow-hidden rounded-[2.4rem] border border-white bg-white shadow-[0_25px_80px_rgba(15,23,42,0.08)]"
+          className="mt-14 overflow-hidden rounded-lg border border-white bg-white shadow-[0_25px_80px_rgba(15,23,42,0.08)]"
           delay={120}
           y={30}
           blur={16}

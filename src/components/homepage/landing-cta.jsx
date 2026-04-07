@@ -8,7 +8,7 @@ export default function LandingCTA() {
     <section className="relative overflow-hidden bg-white px-4 pb-18 pt-8 md:px-6 md:pb-24">
       <div className="mx-auto max-w-7xl">
         <Reveal
-          className="relative overflow-hidden rounded-[2.8rem] bg-[linear-gradient(135deg,#0a1627_0%,#14335b_45%,#1c6a8f_100%)] px-6 py-12 text-white shadow-[0_28px_90px_rgba(10,22,39,0.28)] md:px-10 md:py-16"
+          className="relative overflow-hidden rounded-lg bg-[linear-gradient(135deg,#0a1627_0%,#14335b_45%,#1c6a8f_100%)] px-6 py-12 text-white shadow-[0_28px_90px_rgba(10,22,39,0.28)] md:px-10 md:py-16"
           y={30}
           blur={16}
         >

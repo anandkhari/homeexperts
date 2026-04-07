@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { ArrowLeft, Save, Globe, Image as ImageIcon, ChevronRight } from "lucide-react";
+import {
+  ArrowLeft,
+  Save,
+  Globe,
+  Image as ImageIcon,
+  ChevronRight,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function NewBlogPost() {
@@ -32,7 +38,9 @@ export default function NewBlogPost() {
 
   const handleSubmit = async () => {
     if (!title || !content) {
-      alert("Please provide at least a title and content for the expert article.");
+      alert(
+        "Please provide at least a title and content for the expert article.",
+      );
       return;
     }
 
@@ -83,48 +91,50 @@ export default function NewBlogPost() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] pb-20">
-   
-
       <div className="max-w-4xl mx-auto px-6">
         <div className="bg-white rounded-[2.5rem] shadow-xl shadow-[#2C3E6B]/5 p-8 md:p-12 border border-gray-50">
-          
           {/* HEADER */}
-        <div className="mb-12">
-  {/* 1. Breadcrumb / Navigation Row */}
-  <div className="mb-6">
-    <Link 
-      href="/admin/blogs" 
-      className="inline-flex items-center gap-2 text-[#5A6A8A] hover:text-[#3BBFBF] transition-all text-[10px] font-black uppercase tracking-[0.15em] group"
-    >
-      <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
-      Back to Dashboard
-    </Link>
-  </div>
+          <div className="mb-12">
+            {/* 1. Breadcrumb / Navigation Row */}
+            <div className="mb-6">
+              <Link
+                href="/admin/blogs"
+                className="inline-flex items-center gap-2 text-[#5A6A8A] hover:text-[#3BBFBF] transition-all text-[10px] font-black uppercase tracking-[0.15em] group"
+              >
+                <ArrowLeft
+                  size={14}
+                  className="transition-transform group-hover:-translate-x-1"
+                />
+                Back to Dashboard
+              </Link>
+            </div>
 
-  {/* 2. Title & Status Tag Wrapper */}
-  <div className="flex flex-col gap-3">
-    <div className="flex items-center gap-3">
-      <span className="h-1 w-8 bg-[#3BBFBF] rounded-full" />
-      <span className="text-[#3BBFBF] text-[10px] font-black uppercase tracking-[0.3em]">
-        Content Creator
-      </span>
-    </div>
-    
-    <h1 className="text-4xl font-black text-[#2C3E6B] tracking-tight md:text-5xl">
-      New Expert <span className="text-[#3BBFBF]">Article</span>
-    </h1>
-    
-    <p className="text-[#5A6A8A] text-sm max-w-xl">
-      Draft and publish a new maintenance guide for the Home Experts UAE community.
-    </p>
-  </div>
-</div>
+            {/* 2. Title & Status Tag Wrapper */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <span className="h-1 w-8 bg-[#3BBFBF] rounded-full" />
+                <span className="text-[#3BBFBF] text-[10px] font-black uppercase tracking-[0.3em]">
+                  Content Creator
+                </span>
+              </div>
+
+              <h1 className="text-4xl font-black text-[#2C3E6B] tracking-tight md:text-5xl">
+                New Expert <span className="text-[#3BBFBF]">Article</span>
+              </h1>
+
+              <p className="text-[#5A6A8A] text-sm max-w-xl">
+                Draft and publish a new maintenance guide for the Home Experts
+                UAE community.
+              </p>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8">
-            
             {/* TITLE INPUT */}
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">Article Title</label>
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">
+                Article Title
+              </label>
               <input
                 className="w-full border-2 border-gray-100 text-lg font-bold text-[#2C3E6B] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#3BBFBF] transition-all placeholder:text-gray-300"
                 placeholder="e.g., 5 Ways to Save on AC Bills this Summer"
@@ -135,17 +145,23 @@ export default function NewBlogPost() {
 
             {/* URL SLUG (AUTO-GENERATED) */}
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-widest text-[#5A6A8A] ml-1">Permalink / Slug</label>
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#5A6A8A] ml-1">
+                Permalink / Slug
+              </label>
               <div className="flex items-center gap-2 px-6 py-3 bg-gray-50 rounded-xl border border-gray-100 text-[#5A6A8A] text-sm italic">
                 <span>homeexperts.ae/blog/</span>
-                <span className="font-bold text-[#2C3E6B]">{slug || "..."}</span>
+                <span className="font-bold text-[#2C3E6B]">
+                  {slug || "..."}
+                </span>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* CATEGORY */}
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">Service Category</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">
+                  Service Category
+                </label>
                 <div className="relative group">
                   <select
                     value={category}
@@ -153,16 +169,23 @@ export default function NewBlogPost() {
                     className="w-full appearance-none border-2 border-gray-100 rounded-2xl text-sm font-bold text-[#2C3E6B] px-6 py-4 focus:outline-none focus:border-[#3BBFBF] transition-all cursor-pointer bg-white"
                   >
                     {blogCategories.map((cat) => (
-                      <option key={cat.id} value={cat.id}>{cat.name}</option>
+                      <option key={cat.id} value={cat.id}>
+                        {cat.name}
+                      </option>
                     ))}
                   </select>
-                  <ChevronRight size={16} className="absolute right-6 top-1/2 -translate-y-1/2 text-[#3BBFBF] rotate-90 pointer-events-none" />
+                  <ChevronRight
+                    size={16}
+                    className="absolute right-6 top-1/2 -translate-y-1/2 text-[#3BBFBF] rotate-90 pointer-events-none"
+                  />
                 </div>
               </div>
 
               {/* IMAGE UPLOAD */}
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">Cover Image</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">
+                  Cover Image
+                </label>
                 <label className="flex items-center gap-3 px-6 py-4 border-2 border-dashed border-gray-200 rounded-2xl cursor-pointer hover:border-[#3BBFBF] hover:bg-[#F0FDFD] transition-all">
                   <ImageIcon size={20} className="text-[#3BBFBF]" />
                   <span className="text-xs font-bold text-[#5A6A8A] truncate">
@@ -180,7 +203,9 @@ export default function NewBlogPost() {
 
             {/* EXCERPT */}
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">Short Preview Description</label>
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">
+                Short Preview Description
+              </label>
               <textarea
                 className="w-full border-2 border-gray-100 rounded-2xl px-6 py-4 text-sm text-[#2C3E6B] focus:outline-none focus:border-[#3BBFBF] transition-all placeholder:text-gray-300 min-h-[100px]"
                 placeholder="Provide a catchy summary for the blog card..."
@@ -191,7 +216,9 @@ export default function NewBlogPost() {
 
             {/* MAIN CONTENT */}
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">Article Body</label>
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">
+                Article Body
+              </label>
               <textarea
                 className="w-full border-2 border-gray-100 rounded-[2rem] px-8 py-8 min-h-[400px] text-base text-[#2C3E6B] leading-relaxed focus:outline-none focus:border-[#3BBFBF] transition-all shadow-inner bg-gray-50/30"
                 placeholder="Start writing your maintenance guide here..."
@@ -209,9 +236,16 @@ export default function NewBlogPost() {
                 onChange={(e) => setPublished(e.target.checked)}
                 className="w-6 h-6 rounded-lg accent-[#3BBFBF] cursor-pointer"
               />
-              <label htmlFor="publish-check" className="flex flex-col cursor-pointer">
-                <span className="text-sm font-black uppercase tracking-wider">Make Article Public</span>
-                <span className="text-[10px] text-white/60">Visible to all UAE customers immediately upon save</span>
+              <label
+                htmlFor="publish-check"
+                className="flex flex-col cursor-pointer"
+              >
+                <span className="text-sm font-black uppercase tracking-wider">
+                  Make Article Public
+                </span>
+                <span className="text-[10px] text-white/60">
+                  Visible to all UAE customers immediately upon save
+                </span>
               </label>
             </div>
 
@@ -231,7 +265,11 @@ export default function NewBlogPost() {
                 disabled={loading}
                 className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#3BBFBF] text-white px-12 py-4 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#2da9a9] transition-all disabled:opacity-50 shadow-xl shadow-[#3BBFBF]/20"
               >
-                {loading ? "Processing..." : published ? "Publish Article" : "Save as Draft"}
+                {loading
+                  ? "Processing..."
+                  : published
+                    ? "Publish Article"
+                    : "Save as Draft"}
                 {!loading && <Save size={18} />}
               </button>
             </div>

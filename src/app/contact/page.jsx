@@ -47,7 +47,7 @@ export default function ContactQuotePage() {
         title="Contact"
         titleAccent="Home Experts"
         subtitle="Have a maintenance emergency, need a routine service, or looking for an annual contract? Reach out to our dedicated team today. We guarantee a rapid 60-minute response time during business hours."
-        image="https://images.pexels.com/photos/8828622/pexels-photo-8828622.jpeg"
+        image="/aivan2.png"
         imageAlt="Friendly Home Experts customer support representative ready to assist"
       />
 
@@ -56,7 +56,7 @@ export default function ContactQuotePage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
             {/* LEFT COLUMN: THE FORM */}
-            <div className="relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 shadow-xl lg:col-span-8">
+            <div className="relative overflow-hidden rounded-sm border border-gray-100 bg-white p-8 shadow-xl lg:col-span-8">
               <div className="absolute left-0 top-0 h-1.5 w-full bg-[#3BBFBF]" />
 
               <div className="mb-10 text-center">
@@ -67,7 +67,7 @@ export default function ContactQuotePage() {
                   </span>
                   <div className="h-px w-6 bg-[#3BBFBF]" />
                 </div>
-                <h1 className="text-3xl font-black text-[#2C3E6B] md:text-4xl">
+                <h1 className="text-3xl font-semibold text-[#2C3E6B] md:text-5xl">
                   Tell us what you need
                 </h1>
                 <p className="mt-3 text-sm font-medium text-[#5A6A8A]">
@@ -85,7 +85,7 @@ export default function ContactQuotePage() {
                     <input
                       type="text"
                       placeholder="First Name"
-                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
+                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
                   </div>
                   <div>
@@ -95,7 +95,7 @@ export default function ContactQuotePage() {
                     <input
                       type="text"
                       placeholder="Last Name"
-                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
+                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export default function ContactQuotePage() {
                     <input
                       type="email"
                       placeholder="Email Address"
-                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
+                      className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
                   </div>
                   <div>
@@ -118,7 +118,7 @@ export default function ContactQuotePage() {
                     <input
                       type="tel"
                       placeholder="Phone Number"
-                      className="w-full rounded-xl border border-[#3BBFBF] bg-[#F0FDFD] px-4 py-3 text-sm focus:outline-none"
+                      className="w-full rounded-xl border border-[#3BBFBF] bg-[#F0FDFD] px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default function ContactQuotePage() {
                   <textarea
                     rows={3}
                     placeholder="Tell us more about the job..."
-                    className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
+                    className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                   />
                 </div>
 
@@ -189,7 +189,7 @@ export default function ContactQuotePage() {
                   <input
                     type="text"
                     placeholder="Coupon Code (optional)"
-                    className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm"
+                    className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                   />
                 </div>
 
@@ -216,18 +216,8 @@ export default function ContactQuotePage() {
             </div>
 
             {/* RIGHT COLUMN: SIDEBAR */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#2C3E6B] p-8 text-white shadow-2xl lg:col-span-4">
+            <div className="relative overflow-hidden rounded-sm bg-[#2C3E6B] p-8 text-white shadow-2xl lg:col-span-4">
               <div className="absolute -right-12 -top-12 h-32 w-32 bg-[#3BBFBF] opacity-20 blur-[60px]" />
-
-              <div className="mb-4 flex items-center gap-2">
-                <Home className="h-8 w-8 text-[#3BBFBF]" />
-                <div className="leading-none">
-                  <div className="text-xl font-black uppercase">Home</div>
-                  <div className="mt-[-4px] text-xl font-light uppercase tracking-[0.2em]">
-                    Experts
-                  </div>
-                </div>
-              </div>
 
               <p className="mb-8 text-sm font-medium text-white/70">
                 UAE&apos;s premium home maintenance partner since 2008.

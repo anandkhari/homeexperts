@@ -17,6 +17,7 @@ import {
 } from "react-icons/hi2";
 
 const navItems = [
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   {
     href: "/packages",
@@ -26,10 +27,10 @@ const navItems = [
       { href: "/packages/commercial", label: "Commercial" },
     ],
   },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+
   // { href: "/blog", label: "How We Compare" },
   { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const socialLinks = [
@@ -37,7 +38,11 @@ const socialLinks = [
   { label: "Instagram", href: "#", icon: <FaInstagram /> },
   { label: "LinkedIn", href: "#", icon: <FaLinkedinIn /> },
   { label: "YouTube", href: "#", icon: <FaYoutube /> },
-  { label: "Email", href: "mailto:hello@homeexperts.com", icon: <HiOutlineEnvelope /> },
+  {
+    label: "Email",
+    href: "mailto:hello@homeexperts.com",
+    icon: <HiOutlineEnvelope />,
+  },
 ];
 
 export default function Navbar() {
@@ -46,11 +51,9 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-[0_1px_0_rgba(44,62,107,0.10)]">
-
       {/* ── Main bar ── */}
       <div className="border-b border-[#DDE3EE]">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-4 py-0 md:px-6">
-
           {/* LEFT: Logo */}
           <Link
             aria-label="Home Maintenance Experts home"
@@ -115,7 +118,6 @@ export default function Navbar() {
 
           {/* RIGHT: CTAs + hamburger */}
           <div className="flex items-center gap-3">
-
             {/* Phone icon pill — always visible */}
             <Link
               href="/contact"
@@ -164,7 +166,6 @@ export default function Navbar() {
         }`}
       >
         <div className="border-b border-[#DDE3EE] bg-white px-4 pb-6 pt-2 md:px-6">
-
           {/* Nav links list */}
           <ul className="flex flex-col divide-y divide-[#DDE3EE]">
             {navItems.map((item) => {
@@ -206,7 +207,7 @@ export default function Navbar() {
                       aria-label={`${isExpanded ? "Collapse" : "Expand"} ${item.label} menu`}
                       onClick={() =>
                         setMobileExpanded((current) =>
-                          current === item.label ? null : item.label
+                          current === item.label ? null : item.label,
                         )
                       }
                       className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#DDE3EE] text-[#2C3E6B] transition hover:border-[#3BBFBF] hover:text-[#3BBFBF]"
@@ -221,7 +222,9 @@ export default function Navbar() {
 
                   <div
                     className={`grid transition-all duration-300 ease-in-out ${
-                      isExpanded ? "grid-rows-[1fr] pb-3 opacity-100" : "grid-rows-[0fr] opacity-0"
+                      isExpanded
+                        ? "grid-rows-[1fr] pb-3 opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
                     }`}
                   >
                     <div className="overflow-hidden">
@@ -270,10 +273,8 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-
         </div>
       </div>
-
     </header>
   );
 }
