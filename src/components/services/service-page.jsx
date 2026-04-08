@@ -1,6 +1,103 @@
 import Link from "next/link";
+import Image from "next/image";
+import {
+  CircleAlert,
+  Droplets,
+  Shield,
+  Wrench,
+} from "lucide-react";
 import ServiceCard from "@/components/services/service-card";
 import { HOMEPAGE_SERVICES } from "@/data/homepage-services";
+
+const signIconStyles = [
+  {
+    icon: CircleAlert,
+    badgeClass: "bg-amber-100 text-amber-600 ring-1 ring-amber-200",
+    glowClass: "bg-amber-200/40",
+  },
+  {
+    icon: Droplets,
+    badgeClass: "bg-cyan-100 text-cyan-600 ring-1 ring-cyan-200",
+    glowClass: "bg-cyan-200/40",
+  },
+  {
+    icon: Shield,
+    badgeClass: "bg-emerald-100 text-emerald-600 ring-1 ring-emerald-200",
+    glowClass: "bg-emerald-200/40",
+  },
+  {
+    icon: Wrench,
+    badgeClass: "bg-violet-100 text-violet-600 ring-1 ring-violet-200",
+    glowClass: "bg-violet-200/40",
+  },
+];
+
+const serviceHeroImageMap = [
+  {
+    match: (service) =>
+      service.title.includes("AC Service") || service.category.includes("Air Conditioning"),
+    image: "/ac_repair.jpg",
+    alt: "Air conditioning service technician at work",
+  },
+  {
+    match: (service) => service.title.includes("Electrical") || service.category.includes("Electrical"),
+    image: "/electrical.jpg",
+    alt: "Electrical repair and installation service",
+  },
+  {
+    match: (service) => service.title.includes("Plumbing") || service.category.includes("Plumbing"),
+    image: "/plumbing.jpg",
+    alt: "Professional plumbing service",
+  },
+  {
+    match: (service) => service.title.includes("Painting") || service.category.includes("Painting"),
+    image: "https://images.pexels.com/photos/36153946/pexels-photo-36153946.jpeg",
+    alt: "Professional painting service",
+  },
+  {
+    match: (service) => service.title.includes("Handyman") || service.category.includes("Handyman"),
+    image: "/handyman.jpg",
+    alt: "Handyman service at work",
+  },
+  {
+    match: (service) => service.title.includes("Water Tank"),
+    image: "/watertankcleaning.jpg",
+    alt: "Water tank cleaning service",
+  },
+  {
+    match: (service) => service.title.includes("Duct Cleaning") || service.category.includes("Duct"),
+    image: "/duct-cleaning.jpg",
+    alt: "Air duct cleaning service",
+  },
+  {
+    match: (service) => service.title.includes("Coil Cleaning") || service.category.includes("Coil"),
+    image: "/coilcleaning.jpg",
+    alt: "AC coil cleaning service",
+  },
+];
+
+function getServiceHeroImage(service) {
+  if (service.heroImage) {
+    return {
+      image: service.heroImage,
+      alt: service.heroImageAlt || `${service.title} service illustration`,
+    };
+  }
+
+  const matchedImage = serviceHeroImageMap.find((item) => item.match(service));
+
+  if (matchedImage) {
+    return {
+      image: matchedImage.image,
+      alt: matchedImage.alt,
+    };
+  }
+
+  return {
+    image: "/aivan.png",
+    alt: `${service.title} service illustration`,
+  };
+}
 
 function SectionHeading({ eyebrow, title, description, centered = false }) {
   return (
@@ -92,19 +189,29 @@ function SignsSection({ service }) {
           }
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {service.signs.map((sign) => (
+          {service.signs.map((sign, index) => {
+            const signStyle = signIconStyles[index % signIconStyles.length];
+            const Icon = signStyle.icon;
+
+            return (
             <div
               key={sign}
-              className="rounded-[24px] border border-[#DDE3EE] bg-white p-6 shadow-sm"
+              className="group relative overflow-hidden rounded-[24px] border border-[#DDE3EE] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#3BBFBF]/10 text-lg font-bold text-[#3BBFBF]">
-                !
+              <div
+                className={`pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${signStyle.glowClass}`}
+              />
+              <span
+                className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110 ${signStyle.badgeClass}`}
+              >
+                <Icon className="h-5 w-5" />
               </span>
               <p className="mt-5 text-base font-semibold leading-7 text-[#2C3E6B]">
                 {sign}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
         <QuoteActions className="mt-10" />
       </div>
@@ -377,6 +484,8 @@ function RelatedServices({ service }) {
 }
 
 export default function ServicePage({ service }) {
+  const heroVisual = getServiceHeroImage(service);
+
   return (
     <main className="bg-white text-[#2C3E6B]">
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#F6FBFB_0%,#ffffff_42%,#EAF4FB_100%)] px-4 py-18 md:px-6 md:py-24">
@@ -401,21 +510,25 @@ export default function ServicePage({ service }) {
 
           <div className="relative">
             <div className="absolute inset-4 rounded-[34px] bg-[#2C3E6B]" />
-            <div className="relative rounded-[34px] border border-[#DDE3EE] bg-white p-8 shadow-[0_24px_80px_rgba(44,62,107,0.16)]">
-              <p className="text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">
-                Service Snapshot
-              </p>
-              <div className="mt-8 grid gap-5">
-                {(service.highlights || []).map((highlight) => (
-                  <div key={highlight.title} className="rounded-[22px] bg-[#F7FAFD] p-5">
-                    <p className="text-sm font-black uppercase tracking-[0.16em] text-[#3BBFBF]">
-                      {highlight.title}
-                    </p>
-                    <p className="mt-2 text-sm leading-7 text-[#5A6A8A]">
-                      {highlight.description}
-                    </p>
-                  </div>
-                ))}
+            <div className="relative overflow-hidden rounded-[34px] border border-[#DDE3EE] bg-white shadow-[0_24px_80px_rgba(44,62,107,0.16)]">
+              <div className="relative aspect-[4/4.6] min-h-[320px] w-full">
+                <Image
+                  src={heroVisual.image}
+                  alt={heroVisual.alt}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E6B]/72 via-[#2C3E6B]/16 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-8">
+                  <p className="text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">
+                    Service Snapshot
+                  </p>
+                  <p className="mt-3 max-w-md text-sm leading-7 text-white/88">
+                    {service.heroImageCaption ||
+                      "Trusted technicians, responsive booking, and practical support for homes across the UAE."}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
