@@ -1,7 +1,6 @@
+import ServicePage from "@/components/services/service-page";
+import { AC_SERVICE } from "@/data/service-pages";
+
 export default function AC() {
-  return (
-    <main>
-      <h1>Air Conditioning Services</h1>
-    </main>
-  )
+  return <ServicePage service={AC_SERVICE} />;
 }

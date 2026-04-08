@@ -1,7 +1,6 @@
+import ServicePage from "@/components/services/service-page";
+import { HANDYMAN_SERVICE } from "@/data/service-pages";
+
 export default function Handyman() {
-  return (
-    <main>
-      <h1>Handyman Services</h1>
-    </main>
-  )
+  return <ServicePage service={HANDYMAN_SERVICE} />;
 }
