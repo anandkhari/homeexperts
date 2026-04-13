@@ -33,6 +33,7 @@ const navItems = [
     children: [
       { href: "/packages/residential", label: "Residential" },
       { href: "/packages/commercial", label: "Commercial" },
+       { href: "/packages/events", label: "Event & Activation" },
     ],
   },
   { href: "/blog", label: "Blog" },

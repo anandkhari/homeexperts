@@ -24,8 +24,10 @@ const footerColumns = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Our Blog", href: "/blog" },
+      { label: "Services", href: "/services" },
       { label: "AMC Packages", href: "/packages" },
       { label: "Contact", href: "/contact" },
+      
     ],
   },
   {
@@ -69,22 +71,22 @@ export default function Footer() {
 
             <div className="space-y-3">
               <a
-                href="tel:800349"
+                href="tel:+97142945885"
                 className="group flex items-center gap-3 text-[0.88rem] font-semibold text-white transition hover:text-[#3BBFBF]"
               >
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#3BBFBF] transition group-hover:border-[#3BBFBF] group-hover:bg-[#3BBFBF] group-hover:text-white">
                   <HiOutlinePhone className="text-sm" />
                 </span>
-                800-FIX (800-349)
+                +971 4 294 5885
               </a>
               <a
-                href="mailto:hello@homeexperts.com"
+                href="mailto:info@azconinfra.com"
                 className="group flex items-center gap-3 text-[0.88rem] font-semibold text-white transition hover:text-[#3BBFBF]"
               >
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#3BBFBF] transition group-hover:border-[#3BBFBF] group-hover:bg-[#3BBFBF] group-hover:text-white">
                   <HiOutlineEnvelope className="text-sm" />
                 </span>
-                hello@homeexperts.com
+                info@azconinfra.com
               </a>
             </div>
           </div>

@@ -6,25 +6,25 @@ import Reveal from "@/components/motion/reveal";
 
 const trustStats = [
   {
-    value: 4.7,
-    display: "4.7",
+    value: 4.8,
+    display: "4.8",
     suffix: "★",
-    label: "Average Google Rating",
-    sub: "From 2,000+ verified reviews",
+    label: "Google Review Rating",
+    sub: "Rated by our customers",
   },
   {
-    value: 427132,
-    display: "427,132",
+    value: 12588,
+    display: "12,588",
     suffix: "+",
-    label: "Jobs Completed",
-    sub: "Trusted since 2008",
+    label: "Job Completed",
+    sub: "12,588 clients above",
   },
   {
-    value: 47219,
-    display: "47,219",
+    value: 12588,
+    display: "12,588",
     suffix: "+",
-    label: "Happy Customers",
-    sub: "And growing every day",
+    label: "Happy Customer",
+    sub: "12,588 above",
   },
 ];
 

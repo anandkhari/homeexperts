@@ -89,12 +89,12 @@ export default function About() {
               {/* Floating stat badge */}
               <div className="animate-float-soft-delayed absolute bottom-6 left-6 rounded-2xl border border-white/20 bg-[#2C3E6B]/90 px-5 py-4 backdrop-blur-sm">
                 <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.2em] text-[#3BBFBF]">
-                  Trusted since 2008
+                  Trusted since 2014
                 </p>
                 <div className="mt-2 flex items-end gap-5">
                   <div>
                     <p className="text-2xl font-black leading-none text-white">
-                      427K+
+                     12,588 +
                     </p>
                     <p className="mt-1 text-[0.7rem] text-white/60">
                       jobs completed
@@ -103,7 +103,7 @@ export default function About() {
                   <div className="h-8 w-px bg-white/15" />
                   <div>
                     <p className="text-2xl font-black leading-none text-white">
-                      4.7★
+                      4.8★
                     </p>
                     <p className="mt-1 text-[0.7rem] text-white/60">
                       google rating

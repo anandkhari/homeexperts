@@ -1,5 +1,5 @@
 import PageHero from "@/components/pageshero";
-import ServicesSection from "@/components/homepage/services";
+import ServicesCatalog from "@/components/services/services-catalog";
 import CTA from "@/components/homepage/cta";
 import Blogs from "@/components/homepage/blogs";
 
@@ -13,7 +13,7 @@ export default function Services() {
         image="/aivan.png"
         imageAlt="Professional technician with a toolkit ready to provide various home services"
       />
-      <ServicesSection />
+      <ServicesCatalog />
       <CTA />
       <Blogs />
     </main>

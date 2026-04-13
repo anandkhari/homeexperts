@@ -61,7 +61,7 @@ const values = [
 
 const milestones = [
   {
-    year: "2008",
+    year: "2014",
     title: "Founded",
     label: "UAE's Trusted Maintenance Partner",
   },
@@ -70,8 +70,8 @@ const milestones = [
     title: "10,000 Customers",
   },
   {
-    year: "2024",
-    title: "427K+ Jobs",
+    year: "2026",
+    title: "12,588  Jobs",
   },
 ];
 
@@ -113,7 +113,7 @@ export default function About() {
               {/* The 'Est. 2008' floating card */}
               <div className="absolute -bottom-8 -left-8 rounded-2xl bg-white p-6 shadow-2xl">
                 <span className="text-4xl font-semibold text-[#2C3E6B]">
-                  Est. 2008
+                  Est. 2014
                 </span>
                 <p className="mt-2 text-xs font-semibold tracking-wide text-[#5A6A8A]">
                   UAE's Trusted Maintenance Partner
@@ -129,13 +129,13 @@ export default function About() {
               </span>
 
               <h2 className="mt-2 mb-10 text-4xl font-semibold leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl">
-                15 years of showing up, <br className="hidden md:block" />
+                12 years of showing up, <br className="hidden md:block" />
                 and never letting you down.
               </h2>
 
               <div className="space-y-6 max-w-2xl text-[0.95rem] leading-[1.7] text-[#2C3E6B]/65">
                 <p>
-                  It started in 2008 with a single promise — that every home
+                  It started in 2014 with a single promise — that every home
                   deserves expert care, and every homeowner deserves to be
                   treated with honesty. What began as a small team with big
                   ambitions has grown into one of the UAE's most trusted names
@@ -150,34 +150,10 @@ export default function About() {
                 </p>
               </div>
 
-              {/* Milestones / Stats */}
-              <div className="mt-12 mb-14 flex flex-wrap gap-x-12 gap-y-6">
-                {milestones.map((milestone) => (
-                  <div key={milestone.year} className="flex items-center gap-3">
-                    <div className="flex h-12 flex-col items-center justify-center gap-0.5">
-                      <span className="h-2 w-2 rounded-full bg-[#3BBFBF]" />
-                      <span className="h-full w-px bg-gray-200" />
-                    </div>
-                    <div>
-                      <span className="text-2xl font-extrabold text-[#2C3E6B]">
-                        {milestone.year}
-                        <span className="ml-1 text-[#5A6A8A]/50">——</span>
-                      </span>
-                      <p className="text-sm font-semibold text-[#5A6A8A]">
-                        {milestone.title}
-                      </p>
-                      {milestone.label && (
-                        <p className="text-xs text-[#2C3E6B]/65">
-                          {milestone.label}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
+             
 
               {/* Primary & Secondary Buttons */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 mt-10">
                 <Link
                   href="/our-team"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-[#3BBFBF] bg-[#3BBFBF] px-7 py-3 text-xs font-extrabold uppercase tracking-widest text-white transition hover:bg-[#3BBFBF]/90"

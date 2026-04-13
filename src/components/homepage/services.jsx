@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Reveal from "@/components/motion/reveal";
 import ServiceCard from "@/components/services/service-card";
 import { HOMEPAGE_SERVICES } from "@/data/homepage-services";
@@ -42,6 +43,15 @@ export default function ServicesSection() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-10 flex justify-center md:mt-14" y={16} blur={10}>
+          <Link
+            href="/services"
+            className="inline-flex items-center justify-center rounded-full border-2 border-[#2C3E6B] px-7 py-3 text-[0.75rem] font-extrabold uppercase tracking-[0.12em] text-[#2C3E6B] transition hover:bg-[#2C3E6B] hover:text-white"
+          >
+            View All Services
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

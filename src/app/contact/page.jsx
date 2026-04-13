@@ -147,28 +147,7 @@ export default function ContactQuotePage() {
                     </div>
                   </div>
 
-                  <div className="relative">
-                    <label className="mb-2 block text-[10px] font-black uppercase tracking-wider text-[#2C3E6B]">
-                      Which specific service?
-                    </label>
-                    <div className="group relative">
-                      <select
-                        value={selectedSubService}
-                        onChange={(e) => setSelectedSubService(e.target.value)}
-                        className="w-full cursor-pointer appearance-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
-                      >
-                        <option value="" disabled>
-                          Choose sub-option
-                        </option>
-                        {acSubServices.map((sub) => (
-                          <option key={sub} value={sub}>
-                            {sub}
-                          </option>
-                        ))}
-                      </select>
-                      <ChevronDown className="pointer-events-none absolute inset-y-0 right-4 my-auto h-4 w-4 text-[#2C3E6B]/40 transition-colors group-focus-within:text-[#3BBFBF]" />
-                    </div>
-                  </div>
+                 
                 </div>
 
                 <div>
@@ -202,7 +181,7 @@ export default function ContactQuotePage() {
               <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-gray-100 pt-6 text-[10px] font-bold text-[#5A6A8A]">
                 <div className="flex items-center gap-1">
                   <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                  <span>4.7/5 from 2,200+ Google reviews</span>
+                  <span>4.8/5 from 2,200+ Google reviews</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Check className="h-3 w-3 text-[#3BBFBF]" />
@@ -228,14 +207,14 @@ export default function ContactQuotePage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BBFBF]/20 text-[#3BBFBF]">
                     <Phone className="h-5 w-5" />
                   </div>
-                  <span className="text-sm font-bold">800-FIX (800-349)</span>
+                  <span className="text-sm font-bold">+971 4 294 5885 </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BBFBF]/20 text-[#3BBFBF]">
                     <Mail className="h-5 w-5" />
                   </div>
                   <span className="text-sm font-bold">
-                    hello@homeexperts.com
+                     info@azconinfra.com
                   </span>
                 </div>
                 <div className="flex items-center gap-4">
@@ -243,9 +222,8 @@ export default function ContactQuotePage() {
                     <Clock className="h-5 w-5" />
                   </div>
                   <div className="text-xs font-bold leading-tight">
-                    Mon—Sat: 8am — 8pm
-                    <br />
-                    Sun: 9am — 6pm
+                    Mon—Sun 24/7
+                
                   </div>
                 </div>
               </div>
@@ -258,9 +236,8 @@ export default function ContactQuotePage() {
               <ul className="mb-10 space-y-4">
                 {[
                   "100% transparent pricing — no hidden fees",
-                  "Vetted, uniformed technicians",
-                  "Trusted in the UAE since 2008",
-                  "427,000+ jobs completed",
+                  "Trusted in the UAE since 2014",
+                  "500,000+ jobs completed",
                 ].map((text, i) => (
                   <li
                     key={i}
