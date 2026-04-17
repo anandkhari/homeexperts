@@ -73,6 +73,7 @@ export default function LandingTestimonials() {
                 src={active.image}
                 alt={active.name}
                 fill
+                sizes="(max-width: 1023px) 100vw, 46vw"
                 className="animate-image-drift object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,17,31,0.15),rgba(8,17,31,0.82))]" />

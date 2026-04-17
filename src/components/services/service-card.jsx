@@ -4,7 +4,10 @@ import { ArrowRight } from "lucide-react";
 
 export default function ServiceCard({ service, index = 0 }) {
   return (
-    <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:border-[#3BBFBF]/30 hover:shadow-2xl">
+    <Link
+      href={service.href}
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:border-[#3BBFBF]/30 hover:shadow-2xl"
+    >
       <div className="relative h-48 w-full overflow-hidden md:h-64">
         <Image
           src={service.image}
@@ -33,14 +36,11 @@ export default function ServiceCard({ service, index = 0 }) {
           <div className="absolute h-full w-0 bg-gradient-to-r from-[#3BBFBF] to-[#2C3E6B] transition-all duration-700 group-hover:w-full" />
         </div>
 
-        <Link
-          href={service.href}
-          className="mt-auto inline-flex items-center gap-2 self-start rounded-full border-2 border-[#2C3E6B] px-5 py-2.5 text-[0.75rem] font-extrabold uppercase tracking-[0.12em] text-[#2C3E6B] transition hover:bg-[#2C3E6B] hover:text-white"
-        >
+        <span className="mt-auto inline-flex items-center gap-2 self-start rounded-full border-2 border-[#2C3E6B] px-5 py-2.5 text-[0.75rem] font-extrabold uppercase tracking-[0.12em] text-[#2C3E6B] transition group-hover:bg-[#2C3E6B] group-hover:text-white">
           Explore Details
           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }

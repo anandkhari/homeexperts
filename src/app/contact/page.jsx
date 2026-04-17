@@ -16,19 +16,13 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import PageHero from "@/components/pageshero";
+import { ALL_SERVICES } from "@/data/all-services";
 
 const mainServices = [
   "Annual Contract",
-  "AC Servicing",
-  "AC Replacement",
-  "Duct Cleaning",
-  "Coil Cleaning",
-  "Plumbing",
-  "Electrical",
-  "Handyman",
-  "Painting",
-  "Water Tank Cleaning",
-];
+  ...ALL_SERVICES.map((service) => service.title),
+ 
+].filter((service, index, services) => services.indexOf(service) === index);
 
 const acSubServices = [
   "Standard AC Service",
@@ -214,7 +208,7 @@ export default function ContactQuotePage() {
                     <Mail className="h-5 w-5" />
                   </div>
                   <span className="text-sm font-bold">
-                     info@azconinfra.com
+                     helpdesk@homeexperts.ae
                   </span>
                 </div>
                 <div className="flex items-center gap-4">

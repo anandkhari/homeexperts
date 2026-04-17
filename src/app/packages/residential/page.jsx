@@ -168,13 +168,13 @@ export default function AMCSection() {
 
   return (
     <>
-      <PageHero
+      {/* <PageHero
         title="Residential"
         titleAccent="  Maintenance Contracts"
         subtitle="Flexible annual maintenance coverage for villas, apartments, and residential spaces across Dubai and the UAE."
         image="/aivan2.png"
         imageAlt="Residential property management and maintenance planning"
-      />
+      /> */}
       <section className="relative overflow-hidden bg-white px-4 py-16 md:px-6 md:py-24">
         <div className="relative z-10 mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
@@ -187,18 +187,18 @@ export default function AMCSection() {
                 </span>
               </div>
 
-              <h2 className="mb-8 text-4xl font-medium leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl  uppercase">
+              <h2 className="mb-8 text-4xl font-medium leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl ">
                 Essential AMC{" "}
                 <span className="text-[#3BBFBF]">Contract Dubai</span> — 24/7
                 Support
               </h2>
 
-              <div className="space-y-6 text-base leading-relaxed text-[#5A6A8A] md:text-lg">
+              <div className="space-y-6 text-base leading-relaxed text-[#5A6A8A] md:text-base">
                 <p>
-                  At{" "}
-                  <span className="font-bold text-[#2C3E6B]">
-                    Home Experts UAE
-                  </span>
+              
+                  
+                   At Home Experts UAE
+                  
                   , your peace of mind is our priority. We have developed a
                   comprehensive, cost-saving annual maintenance contract
                   designed for Dubai homeowners that covers all your essential
@@ -241,7 +241,7 @@ export default function AMCSection() {
 
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl md:aspect-square lg:aspect-[4/5]">
                 <Image
-                  src="/about.jpg" // Professional AC tech image
+                  src="/residential.jpg" // Professional AC tech image
                   alt="Expert technician performing AC maintenance"
                   fill
                   className="object-cover"
@@ -293,7 +293,7 @@ export default function AMCSection() {
               <span className="h-px w-10 bg-[#3BBFBF]/60" />
             </div>
 
-            <h2 className="text-3xl font-semibold uppercase tracking-tight text-white md:text-5xl">
+            <h2 className="text-3xl font-semibold  tracking-tight text-white md:text-5xl">
               Benefits of Annual Home Maintenance Contracts in Dubai
             </h2>
 

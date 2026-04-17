@@ -47,7 +47,7 @@ export default function Hero() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <Link
                   className="animate-shine inline-flex min-h-12 items-center justify-center rounded-[16px] bg-[#3BBFBF] px-6 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_4px_16px_rgba(59,191,191,0.40)] transition hover:-translate-y-0.5 hover:bg-[#2eacac] sm:min-h-14 sm:px-7"
-                  href="/quote"
+                  href="/contact"
                 >
                   Book A Free Quote
                 </Link>

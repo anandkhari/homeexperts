@@ -58,13 +58,13 @@ export default function About() {
                 href="/about"
                 className="animate-shine inline-flex items-center justify-center rounded-full bg-[#3BBFBF] px-7 py-3 text-[0.82rem] font-extrabold uppercase tracking-[0.1em] text-white transition hover:-translate-y-0.5 hover:bg-[#2eacac]"
               >
-                Meet Our Team
+                Learn More
               </Link>
               <Link
-                href="/reviews"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full border-2 border-[#2C3E6B] px-7 py-3 text-[0.82rem] font-extrabold uppercase tracking-[0.1em] text-[#2C3E6B] transition hover:-translate-y-0.5 hover:bg-[#2C3E6B] hover:text-white"
               >
-                Client Reviews
+                Contact Us
               </Link>
             </div>
             </div>
@@ -81,7 +81,7 @@ export default function About() {
 
             <div className="relative overflow-hidden rounded-[24px] shadow-[0_24px_64px_rgba(44,62,107,0.14)]">
               <img
-                src="/about.jpg"
+                src="/about2.jpg"
                 alt="Home Experts team of professional technicians"
                 className="animate-image-drift h-[520px] w-full object-cover object-top transition duration-700 hover:scale-[1.02]"
               />

@@ -8,18 +8,19 @@ export const HOMEPAGE_SERVICES = [
       "Comprehensive yearly maintenance plans for total peace of mind and priority support.",
   },
   {
-    title: "AC Servicing",
+    title: "AC Servicing, Repair & Replacement",
     href: "/services/ac",
-    slug: "ac-servicing",
+    slug: "ac-servicing-repair-replacement",
     image: "/ac_repair.jpg",
     description:
-      "Expert cooling solutions including filter cleaning, gas top-ups, and efficiency checks.",
+      "Comprehensive cooling solutions including routine servicing, diagnostics, and full unit replacements.",
+    keywords: ["ac", "service", "repair", "installation", "replacement", "cooling"],
   },
   {
     title: "Electrical",
     href: "/services/electrical",
     slug: "electrical",
-    image: "/electrical.jpg",
+    image: "https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg",
     description:
       "Safe and reliable electrical repairs, installations, and fault finding by certified pros.",
   },
@@ -35,7 +36,7 @@ export const HOMEPAGE_SERVICES = [
     title: "Painting",
     href: "/services/painting",
     slug: "painting",
-    image: "https://images.pexels.com/photos/36153946/pexels-photo-36153946.jpeg",
+    image: "/painting.jpeg",
     description:
       "Professional interior and exterior painting services to refresh your living space.",
   },
@@ -56,19 +57,20 @@ export const HOMEPAGE_SERVICES = [
       "Deep cleaning and sanitization for residential water tanks to keep your water fresh and safe.",
   },
   {
-    title: "Duct Cleaning",
+    title: "Duct & Coil Cleaning",
     href: "/services/duct-cleaning",
-    slug: "duct-cleaning",
+    slug: "duct-coil-cleaning",
     image: "/duct-cleaning.jpg",
     description:
-      "Professional air duct cleaning that helps improve airflow, indoor air quality, and AC efficiency.",
+      "Deep duct and coil cleaning to improve airflow, indoor air quality, and AC efficiency.",
   },
-  {
-    title: "Coil Cleaning",
-    href: "/services/coil-cleaning",
-    slug: "coil-cleaning",
-    image: "/coilcleaning.jpg",
+   {
+    title: "Pet Housing Solutions",
+    href: "/quote",
+    slug: "pet-housing-solutions",
+    image: "/pet-housing.jpeg",
     description:
-      "Thorough evaporator and condenser coil cleaning to boost cooling performance and reduce energy waste.",
+      "Custom-designed pet housing and utility-friendly setups focused on comfort and durability.",
+    keywords: ["pet", "housing", "kennel", "custom", "pets"],
   },
 ];

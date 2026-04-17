@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import PageHero from "@/components/pageshero";
+import Link from "next/link";
 import {
   ArrowRight,
   Mic2,
@@ -14,9 +15,12 @@ import {
   ChevronRight,
   Boxes,
   MonitorPlay,
+  MessageCircle,
+  Store,
 } from "lucide-react";
 import LandingCTA from "@/components/homepage/landing-cta";
 import LandingTestimonials from "@/components/homepage/landing-testimonials";
+import CTA from "@/components/homepage/cta";
 
 const eventFeatures = [
   {
@@ -50,16 +54,19 @@ const eventBenefits = [
     title: "Malls & Retail",
     description:
       "Maintain premium presentation standards in high-traffic retail environments. Our AMC ensures that lighting, kiosks, and digital displays stay functional and visually perfect for every customer interaction.",
+    icon: <Store className="h-6 w-6" />,
   },
   {
     title: "Exhibitions & Stands",
     description:
       "Protect your exhibition investment with proactive upkeep. We handle the technical integrity of stands and trade show booths, ensuring all electrical and mechanical systems perform throughout the event duration.",
+    icon: <Layout className="h-6 w-6" />,
   },
   {
     title: "Outdoor Activations",
     description:
       "Combat the elements with specialized maintenance for outdoor setups. We focus on structural stability and weather-proofing for temporary campaigns and semi-permanent brand installations.",
+    icon: <Zap className="h-6 w-6" />,
   },
 ];
 
@@ -91,13 +98,13 @@ export default function EventMaintenancePage() {
 
   return (
     <main className="bg-white">
-      <PageHero
+      {/* <PageHero
         title="Event & Activation"
         titleAccent=" Maintenance Contracts"
         subtitle="Ensure your brand installations and event setups stay flawless with proactive maintenance and 24/7 technical support."
         image="/aivan2.png" // Update with your actual image path
         imageAlt="Event and activation maintenance support"
-      />
+      /> */}
 
       {/* Narrative Section */}
       <section className="relative overflow-hidden px-4 py-16 md:px-6 md:py-24">
@@ -116,7 +123,7 @@ export default function EventMaintenancePage() {
                 </span>
               </div>
 
-              <h2 className="mb-8 text-4xl font-medium uppercase leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl">
+              <h2 className="mb-8 text-4xl font-medium  leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl">
                 Protect your <span className="text-[#3BBFBF]">brand image</span> with seamless installations
               </h2>
 
@@ -127,14 +134,24 @@ export default function EventMaintenancePage() {
                 <p>
                   Instead of reacting to breakdowns, our proactive approach ensures your assets—from lighting and AV to structural components—are regularly inspected and supported by experts. We minimize downtime so you can focus on your audience.
                 </p>
-                <div className="rounded-2xl border-l-4 border-[#3BBFBF] bg-[#F8FAFC] p-6 shadow-sm">
-                  <p className="text-sm font-bold text-[#2C3E6B]">
-                    <span className="mb-2 block text-[10px] uppercase tracking-widest text-[#3BBFBF]">
-                      What We Cover
-                    </span>
-                    Event structures, branding elements, signage, AV/digital installations, and electrical components for mall activations and outdoor campaigns.
-                  </p>
-                </div>
+               <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  href="/packages"
+                  className="inline-flex items-center gap-3 rounded-full bg-[#2C3E6B] px-8 py-4 text-xs font-black uppercase tracking-widest text-white transition-all hover:bg-[#3BBFBF] hover:shadow-xl shadow-[#2C3E6B]/20"
+                >
+                  View AMC Packages
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="https://wa.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 rounded-full border-2 border-[#25D366] bg-transparent px-8 py-4 text-xs font-black uppercase tracking-widest text-[#25D366] transition-all hover:bg-[#25D366] hover:text-white"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp Us Now
+                </Link>
+              </div>
               </div>
             </div>
 
@@ -142,7 +159,7 @@ export default function EventMaintenancePage() {
               <div className="absolute -bottom-6 -right-6 h-64 w-64 rounded-full bg-[#3BBFBF]/10 blur-3xl" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl">
                 <Image
-                  src="/event-team.jpg" // Update with your actual image path
+                  src="/event.jpg" // Update with your actual image path
                   alt="Professional event maintenance team"
                   fill
                   className="object-cover"
@@ -169,7 +186,7 @@ export default function EventMaintenancePage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="relative overflow-hidden bg-[#2C3E6B] px-6 py-14 text-white md:px-10 md:py-18">
+      <section className="relative overflow-hidden bg-[#2C3E6B] px-6 py-14 text-white md:px-20 md:py-18">
         <div className="relative z-10">
           <div className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
             <div className="mb-5 inline-flex items-center gap-3">
@@ -191,6 +208,9 @@ export default function EventMaintenancePage() {
                 key={item.title}
                 className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#3BBFBF]/40 hover:bg-white/8"
               >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3BBFBF]">
+                  {item.icon}
+                </div>
                 <h3 className="max-w-[14ch] text-2xl font-black leading-tight text-[#3BBFBF]">
                   {item.title}
                 </h3>
@@ -214,7 +234,7 @@ export default function EventMaintenancePage() {
               </span>
               <span className="h-1 w-8 rounded-full bg-[#3BBFBF]" />
             </div>
-            <h2 className="text-4xl font-black uppercase leading-none tracking-tight text-[#2C3E6B] md:text-5xl">
+            <h2 className="text-4xl font-medium leading-none tracking-tight text-[#2C3E6B] md:text-5xl">
               Your comprehensive <br />
               <span className="text-[#3BBFBF]">Event Maintenance Solution</span>
             </h2>
@@ -244,7 +264,7 @@ export default function EventMaintenancePage() {
           </div>
 
           {/* FAQ Section */}
-          <section className="relative mt-16 overflow-hidden rounded-[3rem] bg-[#2C3E6B] px-6 py-14 text-white md:px-10 md:py-18">
+          <section className="relative mt-20 overflow-hidden rounded-[3rem] bg-[#2C3E6B] px-6 py-14 text-white md:px-10 md:py-18">
             <div className="relative z-10 mx-auto max-w-6xl">
               <div className="mb-10 text-center md:mb-14">
                 <h2 className="text-3xl font-black uppercase tracking-tight text-white md:text-5xl">
@@ -288,7 +308,7 @@ export default function EventMaintenancePage() {
         </div>
       </section>
 
-      <LandingCTA />
+      <CTA />
       <LandingTestimonials />
     </main>
   );

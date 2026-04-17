@@ -1,329 +1,306 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
-  CircleAlert,
-  Droplets,
+  // Brand/Specific
+  WhatsappLogo,
+  // Mapping Icons
+  Warning,
+  Wind,
+  SealCheck,
+  Lightning,
+  Briefcase,
+  CheckCircle,
+  WarningCircle,
+  Clock,
+  Drop,
+  Fan,
+  HardHat,
+  Handshake,
+  House,
+  Lightbulb,
+  PaintRoller,
+  Repeat,
+  MagnifyingGlass,
   Shield,
+  ShieldCheck,
+  Snowflake,
+  Sparkle,
+  Wallet,
   Wrench,
+  CurrencyDollar,
+} from "@phosphor-icons/react";
+import {
+  Activity,
+  AlertCircle,
+  BatteryCharging,
+  Box,
+  Bug,
+  Calendar,
+  CheckCircle2,
+  ClipboardCheck,
+  ClipboardList,
+  CloudRain,
+  Compass,
+  Dog,
+  Eye,
+  Hammer,
+  Heart,
+  HeartPulse,
+  History,
+  Home,
+  Layers,
+  Layout,
+  Leaf,
+  Lock,
+  MapPin,
+  Maximize,
+  Palette,
+  Plus,
+  PlusSquare,
+  RefreshCw,
+  RotateCcw,
+  ShieldAlert,
+  Smartphone,
+  Smile,
+  Square,
+  Sun,
+  TreePine,
+  TrendingDown,
+  TrendingUp,
+  UploadCloud,
+  Zap,
 } from "lucide-react";
 import ServiceCard from "@/components/services/service-card";
-import { HOMEPAGE_SERVICES } from "@/data/homepage-services";
 
-const signIconStyles = [
-  {
-    icon: CircleAlert,
-    badgeClass: "bg-amber-100 text-amber-600 ring-1 ring-amber-200",
-    glowClass: "bg-amber-200/40",
-  },
-  {
-    icon: Droplets,
-    badgeClass: "bg-cyan-100 text-cyan-600 ring-1 ring-cyan-200",
-    glowClass: "bg-cyan-200/40",
-  },
-  {
-    icon: Shield,
-    badgeClass: "bg-emerald-100 text-emerald-600 ring-1 ring-emerald-200",
-    glowClass: "bg-emerald-200/40",
-  },
-  {
-    icon: Wrench,
-    badgeClass: "bg-violet-100 text-violet-600 ring-1 ring-violet-200",
-    glowClass: "bg-violet-200/40",
-  },
-];
+/**
+ * PRODUCTION ICON MAP
+ * Unified to Phosphor Icons only. 
+ * Both Droplet and Droplets now map to "Drop".
+ */
+const iconComponentMap = {
+  AlertTriangle: Warning,
+  AirVent: Wind,
+  BadgeCheck: SealCheck,
+  Bolt: Lightning,
+  Activity: Activity,
+  AlertCircle: AlertCircle,
+  Briefcase: Briefcase,
+  BatteryCharging: BatteryCharging,
+  Box: Box,
+  Breathe: Wind,
+  Bug: Bug,
+  Calendar: Calendar,
+  CircleAlert: WarningCircle,
+  CircleCheckBig: CheckCircle,
+  CheckCircle: CheckCircle2,
+  ClipboardCheck: ClipboardCheck,
+  ClipboardList: ClipboardList,
+  Clock3: Clock,
+  CloudRain: CloudRain,
+  Compass: Compass,
+  CurrencyDollar: CurrencyDollar,
+  Dog: Dog,
+  Droplet: Drop,
+  Droplets: Drop, // Fixed: Phosphor uses 'Drop' for both
+  Eye: Eye,
+  Fan: Fan,
+  HardHat: HardHat,
+  Hammer: Hammer,
+  Heart: Heart,
+  HeartPulse: HeartPulse,
+  HeartHandshake: Handshake,
+  History: History,
+  Home: Home,
+  HousePlus: House,
+  Layers: Layers,
+  Layout: Layout,
+  Leaf: Leaf,
+  Lightbulb: Lightbulb,
+  Lightning: Lightning,
+  Lock: Lock,
+  MapPin: MapPin,
+  Maximize: Maximize,
+  PaintRoller: PaintRoller,
+  Palette: Palette,
+  Plus: Plus,
+  PlusSquare: PlusSquare,
+  RefreshCw: RefreshCw,
+  Repeat: Repeat,
+  RotateCcw: RotateCcw,
+  Search: MagnifyingGlass,
+  Shield: Shield,
+  ShieldAlert: ShieldAlert,
+  ShieldCheck: ShieldCheck,
+  Smartphone: Smartphone,
+  Smile: Smile,
+  Snowflake: Snowflake,
+  Sparkles: Sparkle,
+  Square: Square,
+  Sun: Sun,
+  Tree: TreePine,
+  TriangleAlert: Warning,
+  TrendingDown: TrendingDown,
+  TrendingUp: TrendingUp,
+  UploadCloud: UploadCloud,
+  Wallet: Wallet,
+  Wind: Wind,
+  Wrench: Wrench,
+  Zap: Zap,
+};
 
-const serviceHeroImageMap = [
-  {
-    match: (service) =>
-      service.title.includes("AC Service") || service.category.includes("Air Conditioning"),
-    image: "/ac_repair.jpg",
-    alt: "Air conditioning service technician at work",
-  },
-  {
-    match: (service) => service.title.includes("Electrical") || service.category.includes("Electrical"),
-    image: "/electrical.jpg",
-    alt: "Electrical repair and installation service",
-  },
-  {
-    match: (service) => service.title.includes("Plumbing") || service.category.includes("Plumbing"),
-    image: "/plumbing.jpg",
-    alt: "Professional plumbing service",
-  },
-  {
-    match: (service) => service.title.includes("Painting") || service.category.includes("Painting"),
-    image: "https://images.pexels.com/photos/36153946/pexels-photo-36153946.jpeg",
-    alt: "Professional painting service",
-  },
-  {
-    match: (service) => service.title.includes("Handyman") || service.category.includes("Handyman"),
-    image: "/handyman.jpg",
-    alt: "Handyman service at work",
-  },
-  {
-    match: (service) => service.title.includes("Water Tank"),
-    image: "/watertankcleaning.jpg",
-    alt: "Water tank cleaning service",
-  },
-  {
-    match: (service) => service.title.includes("Duct Cleaning") || service.category.includes("Duct"),
-    image: "/duct-cleaning.jpg",
-    alt: "Air duct cleaning service",
-  },
-  {
-    match: (service) => service.title.includes("Coil Cleaning") || service.category.includes("Coil"),
-    image: "/coilcleaning.jpg",
-    alt: "AC coil cleaning service",
-  },
-];
+function resolveIcon(iconValue) {
+  if (!iconValue) return null;
+  if (typeof iconValue === "function") return iconValue;
+  if (typeof iconValue === "string" && iconComponentMap[iconValue]) {
+    return iconComponentMap[iconValue];
+  }
+  return null;
+}
+
+// --- SUB-COMPONENTS ---
+
+function IconBadge({
+  icon,
+  fallback,
+  className = "",
+  iconClassName = "h-5 w-5",
+  textClassName = "text-sm font-black uppercase tracking-[0.12em]",
+}) {
+  const ResolvedIcon = resolveIcon(icon);
+  return (
+    <span className={className}>
+      {ResolvedIcon ? (
+        <ResolvedIcon className={iconClassName} weight="bold" />
+      ) : (
+        <span className={textClassName}>{fallback || "*"}</span>
+      )}
+    </span>
+  );
+}
+
+function normalizeSign(sign) {
+  if (typeof sign === "string") return { text: sign };
+  return {
+    text: sign?.text || sign?.label || sign?.title || "",
+    icon: sign?.icon,
+  };
+}
+
+function normalizeParagraphs(content) {
+  if (Array.isArray(content)) return content.filter(Boolean);
+  if (typeof content === "string" && content.trim()) return [content];
+  return [];
+}
 
 function getServiceHeroImage(service) {
   if (service.heroImage) {
-    return {
-      image: service.heroImage,
-      alt: service.heroImageAlt || `${service.title} service illustration`,
-    };
+    return { image: service.heroImage, alt: service.heroImageAlt || `${service.title} service` };
   }
-
-  const matchedImage = serviceHeroImageMap.find((item) => item.match(service));
-
-  if (matchedImage) {
-    return {
-      image: matchedImage.image,
-      alt: matchedImage.alt,
-    };
-  }
-
-  return {
-    image: "/aivan.png",
-    alt: `${service.title} service illustration`,
-  };
+  return { image: "/aivan.png", alt: service.title };
 }
 
 function SectionHeading({ eyebrow, title, description, centered = false }) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      {eyebrow ? (
+      {eyebrow && (
         <p className="mb-4 text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">
           {eyebrow}
         </p>
-      ) : null}
+      )}
       <h2 className="text-3xl font-semibold tracking-tight text-[#2C3E6B] md:text-5xl">
         {title}
       </h2>
-      {description ? (
+      {description && (
         <p className="mt-5 text-[0.98rem] leading-8 text-[#5A6A8A]">
           {description}
         </p>
-      ) : null}
+      )}
     </div>
   );
 }
 
-function QuoteActions({ primaryLabel = "Get a Quote", className = "" }) {
+function QuoteActions({ primaryLabel = "Get a Quote", className = "", theme = "default" }) {
+  const isLight = theme === "light";
+  const primaryBtnClass = "bg-[#3BBFBF] text-white hover:bg-[#2eacac] inline-flex items-center justify-center rounded-full px-6 py-3 text-[0.78rem] font-extrabold uppercase tracking-[0.12em] transition";
+  
+  const secondaryBtnClass = isLight
+    ? "border-white/70 text-white hover:bg-white hover:text-[#2C3E6B]"
+    : "border-[#2C3E6B] text-[#2C3E6B] hover:bg-[#2C3E6B] hover:text-white";
+
   return (
     <div className={`flex flex-wrap gap-4 ${className}`}>
-      <Link
-        href="/quote"
-        className="inline-flex items-center justify-center rounded-full bg-[#3BBFBF] px-6 py-3 text-[0.78rem] font-extrabold uppercase tracking-[0.12em] text-white transition hover:bg-[#2eacac]"
-      >
+      <Link href="/quote" className={primaryBtnClass}>
         {primaryLabel}
       </Link>
-      <Link
-        href="/contact"
-        className="inline-flex items-center justify-center rounded-full border-2 border-[#2C3E6B] px-6 py-3 text-[0.78rem] font-extrabold uppercase tracking-[0.12em] text-[#2C3E6B] transition hover:bg-[#2C3E6B] hover:text-white"
+      <a
+        href="https://wa.me/971554753102"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`inline-flex items-center justify-center rounded-full border-2 px-6 py-3 text-[0.78rem] font-extrabold uppercase tracking-[0.12em] transition ${secondaryBtnClass}`}
       >
-        Book a Visit
-      </Link>
+        <WhatsappLogo className="mr-2 h-5 w-5 shrink-0" weight="fill" />
+        Chat on WhatsApp
+      </a>
     </div>
   );
 }
 
-function IntroSection({ service }) {
-  if (!service.introTitle && !service.introText) return null;
+// --- SECTIONS ---
+
+function SignsSection({ title = "Is your AC in need of repair?", description, signs, primaryLabel = "Get a Quote" }) {
+  if (!signs?.length) return null;
+  const paragraphs = normalizeParagraphs(description);
 
   return (
-    <section className="bg-white px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-        <SectionHeading
-          eyebrow="Service Overview"
-          title={service.introTitle || service.title}
-          description={service.introText}
-        />
-        <div className="rounded-[28px] border border-[#DDE3EE] bg-[#F6FBFB] p-8 shadow-sm">
-          <p className="text-[0.74rem] font-black uppercase tracking-[0.24em] text-[#3BBFBF]">
-            Why homeowners call us
-          </p>
-          <div className="mt-6 space-y-5">
-            {(service.quickFacts || []).map((fact) => (
-              <div
-                key={fact.label}
-                className="border-b border-[#DDE3EE] pb-5 last:border-b-0 last:pb-0"
-              >
-                <p className="text-2xl font-semibold text-[#2C3E6B]">
-                  {fact.value}
-                </p>
-                <p className="mt-1 text-sm leading-6 text-[#5A6A8A]">
-                  {fact.label}
-                </p>
-              </div>
-            ))}
+    <section className="relative overflow-hidden bg-[#F7FAFD] px-4 py-16 md:px-6 md:py-24">
+      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-16">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-semibold leading-[1.08] tracking-tight text-[#2C3E6B] md:text-5xl">{title}</h2>
+          <div className="mt-8 space-y-8 text-base leading-6 text-[#5A6A8A]">
+            {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
           </div>
+          <QuoteActions primaryLabel={primaryLabel} className="mt-8" />
         </div>
-      </div>
-    </section>
-  );
-}
-
-function SignsSection({ service }) {
-  if (!service.signs?.length) return null;
-
-  return (
-    <section className="bg-[#F7FAFD] px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Warning Signs"
-          title={service.signsTitle || `When to book ${service.title}`}
-          description={
-            service.signsSubtitle ||
-            "If any of these sound familiar, it is a good time to have one of our technicians take a look."
-          }
-        />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {service.signs.map((sign, index) => {
-            const signStyle = signIconStyles[index % signIconStyles.length];
-            const Icon = signStyle.icon;
-
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {signs.slice(0, 4).map((sign) => {
+            const item = normalizeSign(sign);
             return (
-            <div
-              key={sign}
-              className="group relative overflow-hidden rounded-[24px] border border-[#DDE3EE] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div
-                className={`pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full blur-2xl transition-opacity duration-300 group-hover:opacity-100 ${signStyle.glowClass}`}
-              />
-              <span
-                className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110 ${signStyle.badgeClass}`}
-              >
-                <Icon className="h-5 w-5" />
-              </span>
-              <p className="mt-5 text-base font-semibold leading-7 text-[#2C3E6B]">
-                {sign}
-              </p>
-            </div>
+              <div key={item.text} className="flex min-h-[196px] flex-col items-center justify-center rounded-[18px] border border-[#DDE3EE] bg-white px-6 py-8 text-center shadow-[0_14px_30px_rgba(44,62,107,0.1)] transition-transform duration-300 hover:-translate-y-1">
+                <IconBadge icon={item.icon} className="text-[#3BBFBF]" iconClassName="h-11 w-11" />
+                <p className="mt-6 max-w-[12rem] text-xl font-semibold leading-9 text-[#2C3E6B]">{item.text}</p>
+              </div>
             );
           })}
         </div>
-        <QuoteActions className="mt-10" />
       </div>
+      
     </section>
   );
 }
 
-function FeatureGrid({ items, eyebrow, title, description, dark = false }) {
+function FeatureGrid({ items, eyebrow, title, description }) {
   if (!items?.length) return null;
-
   return (
-    <section
-      className={
-        dark
-          ? "bg-[#2C3E6B] px-4 py-16 md:px-6 md:py-24"
-          : "bg-white px-4 py-16 md:px-6 md:py-24"
-      }
-    >
+    <section className="bg-[#fdfdfd] px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <p className="mb-4 text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">
-            {eyebrow}
-          </p>
-          <h2
-            className={`text-3xl font-semibold tracking-tight md:text-5xl ${
-              dark ? "text-white" : "text-[#2C3E6B]"
-            }`}
-          >
-            {title}
-          </h2>
-          {description ? (
-            <p
-              className={`mt-5 text-[0.98rem] leading-8 ${
-                dark ? "text-white/70" : "text-[#5A6A8A]"
-              }`}
-            >
-              {description}
-            </p>
-          ) : null}
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">{eyebrow}</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#2C3E6B] md:text-5xl">{title}</h2>
+          {description && <p className="mt-5 text-[0.98rem] leading-8 text-[#5A6A8A]">{description}</p>}
         </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-y-12 text-center md:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
-            <div
-              key={item.title}
-              className={
-                dark
-                  ? "rounded-[28px] border border-white/10 bg-white/5 p-7 shadow-lg shadow-black/10"
-                  : "rounded-[28px] border border-[#DDE3EE] bg-[#F9FBFD] p-7 shadow-sm"
-              }
-            >
-              <div
-                className={
-                  dark
-                    ? "inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3BBFBF]/15 text-2xl text-[#3BBFBF]"
-                    : "inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2C3E6B] text-2xl text-white"
-                }
-              >
-                {item.icon || "*"}
+            <div key={item.title} className="flex flex-col items-center">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#3BBFBF]">
+                <IconBadge icon={item.icon} iconClassName="h-10 w-10 text-white" />
               </div>
-              <h3
-                className={`mt-5 text-xl font-bold ${
-                  dark ? "text-white" : "text-[#2C3E6B]"
-                }`}
-              >
-                {item.title}
-              </h3>
-              <p
-                className={`mt-3 text-sm leading-7 ${
-                  dark ? "text-white/70" : "text-[#5A6A8A]"
-                }`}
-              >
-                {item.description}
-              </p>
+              <h3 className="mt-6 text-lg font-bold uppercase tracking-wide text-[#2C3E6B]">{item.title}</h3>
+              <p className="mt-3 max-w-xs text-sm leading-7 text-[#5A6A8A]">{item.description}</p>
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function StepsSection({ service }) {
-  if (!service.steps?.length) return null;
-
-  return (
-    <section className="bg-white px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="How It Works"
-          title={service.stepsTitle || "Our Process"}
-          description={service.stepsSubtitle}
-        />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {service.steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="rounded-[28px] border border-[#DDE3EE] bg-[#F9FBFD] p-7 shadow-sm"
-            >
-              <p className="text-[0.72rem] font-black uppercase tracking-[0.24em] text-[#3BBFBF]">
-                Step {String(index + 1).padStart(2, "0")}
-              </p>
-              <h3 className="mt-4 text-xl font-bold text-[#2C3E6B]">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-[#5A6A8A]">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-        <QuoteActions className="mt-10" />
       </div>
     </section>
   );
@@ -331,27 +308,15 @@ function StepsSection({ service }) {
 
 function TopIssuesSection({ service }) {
   if (!service.topIssues?.length) return null;
-
   return (
     <section className="bg-[#F7FAFD] px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Common Problems"
-          title={service.topIssuesTitle || "Issues We Fix Every Day"}
-          description={service.topIssuesSubtitle}
-        />
+        <SectionHeading eyebrow="Common Problems" title={service.topIssuesTitle || "Issues We Fix Every Day"} description={service.topIssuesSubtitle} />
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {service.topIssues.map((issue) => (
-            <div
-              key={issue.title}
-              className="rounded-[24px] border border-[#DDE3EE] bg-white p-6 shadow-sm"
-            >
-              <h3 className="text-base font-bold uppercase tracking-[0.08em] text-[#2C3E6B]">
-                {issue.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-[#5A6A8A]">
-                {issue.description}
-              </p>
+            <div key={issue.title} className="rounded-[24px] border border-[#DDE3EE] bg-white p-6 shadow-sm">
+              <h3 className="text-base font-bold uppercase tracking-[0.08em] text-[#2C3E6B]">{issue.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#5A6A8A]">{issue.description}</p>
             </div>
           ))}
         </div>
@@ -362,55 +327,35 @@ function TopIssuesSection({ service }) {
 
 function TrustSection({ service }) {
   if (!service.trustPoints?.length) return null;
-
   return (
-    <section className="bg-white px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <SectionHeading
-          eyebrow="Built On Trust"
-          title={service.trustTitle || "The details that make the difference"}
-          description={service.trustSubtitle}
-        />
-        <div className="grid gap-4">
-          {service.trustPoints.map((point) => (
-            <div
-              key={point.title}
-              className="flex gap-4 rounded-[24px] border border-[#DDE3EE] bg-[#F9FBFD] p-6 shadow-sm"
-            >
-              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#3BBFBF] text-base font-black text-white">
-                OK
-              </span>
-              <div>
-                <h3 className="text-base font-bold text-[#2C3E6B]">
-                  {point.title}
-                </h3>
-                <p className="mt-2 text-sm leading-7 text-[#5A6A8A]">
-                  {point.description}
-                </p>
-              </div>
-            </div>
-          ))}
+    <section className="bg-[#F7FAFD] px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="relative h-[500px] w-full overflow-hidden rounded-[16px] md:h-[420px]">
+          <Image
+            src={service.trustImage || "/van-backview.jpg"}
+            alt={service.trustImageAlt || "Service Trust"}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
         </div>
-      </div>
-    </section>
-  );
-}
-
-function TestimonialSection({ service }) {
-  if (!service.testimonial) return null;
-
-  return (
-    <section className="bg-[#2C3E6B] px-4 py-16 md:px-6 md:py-24">
-      <div className="mx-auto max-w-4xl rounded-[32px] border border-white/10 bg-white/5 px-8 py-12 text-center shadow-xl shadow-black/10 md:px-14">
-        <p className="text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">
-          Customer Feedback
-        </p>
-        <p className="mt-8 text-2xl font-medium leading-10 text-white md:text-3xl">
-          &ldquo;{service.testimonial.quote}&rdquo;
-        </p>
-        <p className="mt-8 text-sm font-black uppercase tracking-[0.18em] text-[#3BBFBF]">
-          {service.testimonial.author}
-        </p>
+        <div>
+          <p className="mb-3 px-5 text-[0.7rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">Built On Trust</p>
+          <h2 className="px-5 text-3xl font-bold leading-tight text-[#2C3E6B] md:text-5xl">{service.trustTitle || "Why customers choose us"}</h2>
+          <div className="mt-8 space-y-6">
+            {service.trustPoints.map((point) => (
+              <div key={point.title} className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E8F9F9]">
+                  <span className="font-bold text-[#3BBFBF]">✓</span>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#2C3E6B]">{point.title}</h3>
+                  <p className="mt-1 text-sm leading-7 text-[#5A6A8A]">{point.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -418,31 +363,18 @@ function TestimonialSection({ service }) {
 
 function FAQSection({ service }) {
   if (!service.faqs?.length) return null;
-
   return (
-    <section className="bg-[#F7FAFD] px-4 py-16 md:px-6 md:py-24">
+    <section className="bg-white px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-5xl">
-        <SectionHeading
-          eyebrow="FAQs"
-          title="Frequently Asked Questions"
-          description="Short answers to the questions customers usually ask before they book."
-          centered
-        />
+        <SectionHeading eyebrow="FAQs" title="Frequently Asked Questions" description="Short answers to the questions customers usually ask before they book." centered />
         <div className="mt-12 space-y-4">
           {service.faqs.map((faq) => (
-            <details
-              key={faq.question}
-              className="group rounded-[24px] border border-[#DDE3EE] bg-white p-6 shadow-sm"
-            >
+            <details key={faq.question} className="group rounded-[24px] border border-[#DDE3EE] bg-white p-4 shadow-sm">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-bold text-[#2C3E6B]">
                 <span>{faq.question}</span>
-                <span className="text-2xl font-light text-[#3BBFBF] transition group-open:rotate-45">
-                  +
-                </span>
+                <span className="text-2xl font-light text-[#3BBFBF] transition group-open:rotate-45">+</span>
               </summary>
-              <p className="mt-4 pr-8 text-sm leading-7 text-[#5A6A8A]">
-                {faq.answer}
-              </p>
+              <p className="mt-4 pr-8 text-sm leading-7 text-[#5A6A8A]">{faq.answer}</p>
             </details>
           ))}
         </div>
@@ -453,30 +385,16 @@ function FAQSection({ service }) {
 
 function RelatedServices({ service }) {
   if (!service.relatedServices?.length) return null;
+  const cards = service.relatedServices.filter(Boolean).slice(0, 3);
 
-  const relatedCards = service.relatedServices
-    .map((related) =>
-      HOMEPAGE_SERVICES.find((homepageItem) => homepageItem.href === related.href),
-    )
-    .filter(Boolean)
-    .slice(0, 3);
-
-  if (!relatedCards.length) return null;
+  if (!cards.length) return null;
 
   return (
-    <section className="bg-white px-4 py-16 md:px-6 md:py-24">
+    <section className="bg-[#F7FAFD] px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Keep Exploring"
-          title="Related Services"
-          description="Many customers book these together to keep everything running smoothly."
-        />
+        <SectionHeading eyebrow="Keep Exploring" title="Related Services" description="Many customers book these together to keep everything running smoothly." />
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {relatedCards.map((related, index) => (
-            <div key={related.slug} className="group">
-              <ServiceCard service={related} index={index} />
-            </div>
-          ))}
+          {cards.map((related, i) => <ServiceCard key={related.slug} service={related} index={i} />)}
         </div>
       </div>
     </section>
@@ -484,76 +402,51 @@ function RelatedServices({ service }) {
 }
 
 export default function ServicePage({ service }) {
-  const heroVisual = getServiceHeroImage(service);
+  const hero = getServiceHeroImage(service);
 
   return (
     <main className="bg-white text-[#2C3E6B]">
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#F6FBFB_0%,#ffffff_42%,#EAF4FB_100%)] px-4 py-18 md:px-6 md:py-24">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-[-6%] top-20 h-52 w-52 rounded-full bg-[#3BBFBF]/10 blur-3xl md:h-72 md:w-72" />
-          <div className="absolute right-[-8%] top-10 h-64 w-64 rounded-full bg-[#2C3E6B]/10 blur-3xl md:h-96 md:w-96" />
-        </div>
+      {/* HERO SECTION */}
+      <section className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden px-4 py-24 text-white md:px-6">
+        <Image src={hero.image} alt={hero.alt} fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,14,28,0.36)_0%,rgba(9,14,28,0.5)_28%,rgba(9,14,28,0.72)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_36%)]" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div>
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
+          <p className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[0.72rem] font-black uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+            {service.category}
+          </p>
+          <h1 className="mt-8 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
+            {service.title}
+          </h1>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-white/85 md:text-xl md:leading-9">
+            {service.heroDescription}
+          </p>
+          <QuoteActions className="mt-10 justify-center" primaryLabel="Book Now" theme="light" />
+        </div>
+      </section>
+
+      {/* INTRO SECTION */}
+      <section className="bg-white px-4 py-16 md:px-6 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-6xl">
             <p className="inline-flex items-center rounded-full border border-[#3BBFBF]/20 bg-[#3BBFBF]/10 px-4 py-2 text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">
               {service.category}
             </p>
-            <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-[#2C3E6B] md:text-6xl">
-              {service.title}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-9 text-[#5A6A8A]">
-              {service.heroDescription}
+            <h2 className="mt-6 text-3xl font-semibold tracking-tight text-[#2C3E6B] md:text-5xl">
+              {service.introTitle || service.title}
+            </h2>
+            <p className="mt-6 max-w-6xl text-[0.98rem] leading-8 text-[#5A6A8A]">
+              {service.introText || "Trusted technicians, responsive booking, and practical support for homes across the UAE."}
             </p>
-            <QuoteActions className="mt-8" primaryLabel="Get a Free Quote" />
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-4 rounded-[34px] bg-[#2C3E6B]" />
-            <div className="relative overflow-hidden rounded-[34px] border border-[#DDE3EE] bg-white shadow-[0_24px_80px_rgba(44,62,107,0.16)]">
-              <div className="relative aspect-[4/4.6] min-h-[320px] w-full">
-                <Image
-                  src={heroVisual.image}
-                  alt={heroVisual.alt}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E6B]/72 via-[#2C3E6B]/16 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-8">
-                  <p className="text-[0.72rem] font-black uppercase tracking-[0.28em] text-[#3BBFBF]">
-                    Service Snapshot
-                  </p>
-                  <p className="mt-3 max-w-md text-sm leading-7 text-white/88">
-                    {service.heroImageCaption ||
-                      "Trusted technicians, responsive booking, and practical support for homes across the UAE."}
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <IntroSection service={service} />
-      <SignsSection service={service} />
-      <FeatureGrid
-        items={service.whyChooseUs}
-        eyebrow="Why Choose Us"
-        title={service.whyChooseUsTitle || `Why choose Home Experts for ${service.title}?`}
-        description={service.whyChooseUsSubtitle}
-        dark
-      />
-      <FeatureGrid
-        items={service.benefits}
-        eyebrow="Benefits"
-        title={service.benefitsTitle || "Why this service matters"}
-        description={service.benefitsSubtitle}
-      />
-      <StepsSection service={service} />
+      <SignsSection title={service.signsTitle} description={service.signsDescription || service.signsSubtitle} signs={service.signs} primaryLabel={service.signsCtaLabel} />
+      <FeatureGrid items={service.benefits} eyebrow="Benefits" title={service.benefitsTitle || "Why this service matters"} description={service.benefitsSubtitle} />
       <TopIssuesSection service={service} />
       <TrustSection service={service} />
-      <TestimonialSection service={service} />
       <FAQSection service={service} />
       <RelatedServices service={service} />
     </main>

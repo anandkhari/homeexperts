@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, MessageCircle } from "lucide-react";
 
 import Reveal from "@/components/motion/reveal";
 
@@ -31,17 +31,20 @@ export default function LandingCTA() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/quote"
+                href="/contact"
                 className="animate-shine inline-flex items-center justify-center gap-2 rounded-full bg-[#6fe0cf] px-6 py-3.5 text-sm font-semibold text-[#08111f] transition hover:-translate-y-0.5 hover:bg-[#84eadb]"
               >
                 Book a Service
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/8 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/14"
+                href="https://wa.me/971554753102"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/14"
               >
-                Talk to our team
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp us
               </Link>
             </div>
           </div>

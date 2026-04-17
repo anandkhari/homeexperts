@@ -44,7 +44,7 @@ export default function CTA() {
           <div className="flex flex-col gap-4 lg:items-end">
             <div className="flex w-full flex-col gap-3 sm:w-auto">
               <Link
-                href="/quote"
+                href="/contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#3BBFBF] px-8 py-4 text-[0.82rem] font-extrabold uppercase tracking-[0.12em] text-white transition hover:bg-[#2eacac]"
               >
                 Book a Free Quote

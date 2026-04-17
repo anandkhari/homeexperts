@@ -1,47 +1,57 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-
+import Image from "next/image";
+import { supabase } from "@/lib/supabase";
 import Reveal from "@/components/motion/reveal";
-
-const blogPosts = [
-  {
-    title: "All-Inclusive AMC With AC Parts Included: All You Need to Know",
-    date: "January 5, 2026",
-    excerpt:
-      "When it comes to keeping your home cool, safe, and stress-free, an Annual Maintenance Contract is one of the smartest choices you can make.",
-    href: "/blog",
-    image:
-      "https://images.pexels.com/photos/6196677/pexels-photo-6196677.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-  {
-    title: "AC Not Cooling? 7 Clues to Why Your Home Feels Like Summer",
-    date: "December 18, 2025",
-    excerpt:
-      "When summer temperatures have you staying indoors, you need your home to feel comfortable and cool. Here is what to check first.",
-    href: "/blog",
-    image:
-      "https://images.pexels.com/photos/4108711/pexels-photo-4108711.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-  {
-    title: "Plugging Leaks: Common Plumbing Problems in Dubai Homes",
-    date: "November 29, 2025",
-    excerpt:
-      "Plumbing is one of the most important systems in any home. Spot the warning signs early and prevent small issues from turning into bigger repairs.",
-    href: "/blog",
-    image:
-      "https://images.pexels.com/photos/2760241/pexels-photo-2760241.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-  {
-    title: "AC Not Cooling Properly? Signs Your AC Unit Needs Replacement",
-    date: "August 15, 2025",
-    excerpt:
-      "Cool air should feel effortless. If your unit is struggling, these replacement signals can help you decide before the problem gets expensive.",
-    href: "/blog",
-    image:
-      "https://images.pexels.com/photos/8470807/pexels-photo-8470807.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  },
-];
+import { Calendar, ArrowRight } from "lucide-react";
 
 export default function Blogs() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchLatestPosts = async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("id, slug, title, cover_image, created_at, excerpt, category")
+        .eq("published", true)
+        .order("created_at", { ascending: false })
+        .limit(4);
+
+      if (error) {
+        console.error("Error loading blogs:", error.message);
+      } else {
+        setPosts(data || []);
+      }
+      setLoading(false);
+    };
+
+    fetchLatestPosts();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="bg-[#F4F6F9] px-4 py-16 md:px-20 md:py-24">
+        <div className="mx-auto max-w-[1440px]">
+          <Reveal className="mx-auto max-w-[980px] text-center" y={24} blur={14}>
+            <p className="text-5xl font-medium uppercase leading-none tracking-[0.03em] text-[#2C3E6B]">
+              Our Blogs
+            </p>
+            <div className="mx-auto mt-6 h-2 w-28 bg-[#3BBFBF] md:w-48" />
+          </Reveal>
+
+          <div className="mt-14 grid gap-10 md:grid-cols-2 xl:grid-cols-4">
+            {[1, 2, 3, 4].map((n) => (
+              <div key={n} className="h-[450px] animate-pulse rounded-3xl bg-gray-50" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="bg-[#F4F6F9] px-4 py-16 md:px-20 md:py-24">
       <div className="mx-auto max-w-[1440px]">
@@ -53,45 +63,45 @@ export default function Blogs() {
         </Reveal>
 
         <div className="mt-14 grid gap-10 md:grid-cols-2 xl:grid-cols-4">
-          {blogPosts.map((post, index) => (
+          {posts.map((post, index) => (
             <Reveal
-              key={post.title}
+              key={post.id}
               className="group"
               delay={100 + index * 90}
               y={26}
               blur={14}
             >
               <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white font-medium text-gray-500 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
-              <Link href={post.href} className="relative h-[240px] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={post.image}
+              <Link href={`/blog/${post.slug}`} className="relative h-[240px] overflow-hidden">
+                <Image
+                  src={post.cover_image || "/placeholder-blog.jpg"}
                   alt={post.title}
-                  className="animate-image-drift absolute inset-0 h-full w-full object-cover transition duration-1000 group-hover:scale-110"
+                  fill
+                  className="object-cover transition duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-[#2C3E6B]/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </Link>
 
               <div className="flex flex-grow flex-col p-8">
                 <p className="mb-4 text-[10px] font-black uppercase tracking-[0.25em] text-[#3BBFBF]">
-                  {post.date}
+                  {new Date(post.created_at).toLocaleDateString('en-AE', { day: 'numeric', month: 'short', year: 'numeric' })}
                 </p>
 
                 <Link
                   className="mb-4 line-clamp-2 text-xl font-semibold leading-snug text-[#081224] transition-colors duration-300 group-hover:text-[#14284A] hover:!text-[#2C3E6B]"
-                  href={post.href}
+                  href={`/blog/${post.slug}`}
                 >
                   {post.title}
                 </Link>
 
                 <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-[#5A6A8A]">
-                  {post.excerpt}
+                  {post.excerpt || "Read our latest insights on home maintenance and expert tips."}
                 </p>
 
                 <div className="mt-auto border-t border-gray-100 pt-4">
                   <Link
                     className="group/link inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-[#0A1A33] transition-all hover:text-[#2C3E6B]"
-                    href={post.href}
+                    href={`/blog/${post.slug}`}
                   >
                     Read More
                     <span className="text-lg transition-transform duration-300 group-hover/link:translate-x-2">

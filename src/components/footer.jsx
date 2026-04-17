@@ -17,6 +17,9 @@ const footerColumns = [
       { label: "Electrical", href: "/services/electrical" },
       { label: "Plumbing", href: "/services/plumbing" },
       { label: "Handyman", href: "/services/handyman" },
+      { label: "Water Tank Cleaning", href: "/services/water-tank-cleaning" },
+      { label: "Duct & Coil Cleaning", href: "/services/ac-duct-coil-cleaning" },
+      { label: "Pet Housing Solutions", href: "/services/pet-housing-solutions" },
     ],
   },
   {
@@ -33,8 +36,8 @@ const footerColumns = [
   {
     title: "Support",
     links: [
-      { label: "Get a Quote", href: "/quote" },
-      { label: "FAQs", href: "/legal" },
+      { label: "Get a Quote", href: "/contact" },
+    
       { label: "Service Areas", href: "/services" },
       { label: "Privacy Policy", href: "/legal" },
     ],
@@ -80,13 +83,13 @@ export default function Footer() {
                 +971 4 294 5885
               </a>
               <a
-                href="mailto:info@azconinfra.com"
+                href="mailto:helpdesk@homeexperts.ae"
                 className="group flex items-center gap-3 text-[0.88rem] font-semibold text-white transition hover:text-[#3BBFBF]"
               >
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#3BBFBF] transition group-hover:border-[#3BBFBF] group-hover:bg-[#3BBFBF] group-hover:text-white">
                   <HiOutlineEnvelope className="text-sm" />
                 </span>
-                info@azconinfra.com
+               helpdesk@homeexperts.ae
               </a>
             </div>
           </div>
