@@ -8,6 +8,15 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const metadata = {
+  title: {
+    template: "%s | HomeExperts",
+    default: "HomeExperts | Services",
+  },
+  description: "Home maintenance, repair, and renovation services (AC, electrical, plumbing, renovation, cleaning).",
+};
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>

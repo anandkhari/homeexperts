@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import {
   FaFacebookF,
@@ -22,12 +23,12 @@ const serviceNavChildren = [
         href: "/services/emergency-maintenance-services",
         label: "Emergency Maintenance Services",
       },
-      { href: "/services/ac", label: "AC Servicing, Repair & Replacement" },
+      { href: "/services/ac-servicing-repair-replacement", label: "AC Servicing, Repair & Replacement" },
       {
         href: "/services/electrical-plumbing-services",
         label: "Electrical & Plumbing Services",
       },
-      { href: "/services/handyman", label: "Handyman Services" },
+      { href: "/services/handyman-services", label: "Handyman Services" },
     ],
   },
   {
@@ -46,7 +47,7 @@ const serviceNavChildren = [
     label: "Renovation & Interiors",
     items: [
       { href: "/services/renovation-works", label: "Renovation Works" },
-      { href: "/services/painting", label: "Painting Works" },
+      { href: "/services/painting-works", label: "Painting Works" },
       {
         href: "/services/glass-aluminium-carpentry-works",
         label: "Glass, Aluminium & Carpentry Works",
@@ -117,9 +118,11 @@ export default function Navbar() {
           href="/"
           className="relative z-50 transition-transform duration-300 hover:scale-105 active:scale-95"
         >
-          <img
+          <Image
             src="/Logo_Home_Clear.png"
             alt="Logo"
+            width={160}
+            height={44}
             className="h-10 md:h-11 w-auto"
           />
         </Link>

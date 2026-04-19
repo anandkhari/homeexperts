@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   Phone,
   Mail,
@@ -34,6 +36,38 @@ const acSubServices = [
 export default function ContactQuotePage() {
   const [selectedService, setSelectedService] = useState("");
   const [selectedSubService, setSelectedSubService] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const form = e.target;
+    const data = new FormData(form);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mdayzvlb", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        toast.success("Form submitted successfully! Our team will contact you soon.");
+        form.reset();
+        setSelectedService("");
+        setSelectedSubService("");
+      } else {
+        toast.error("Oops! There was a problem submitting your form. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Oops! Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -70,7 +104,7 @@ export default function ContactQuotePage() {
                 </p>
               </div>
 
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
                     <label className="mb-2 block text-[10px] font-black uppercase tracking-wider text-[#2C3E6B]">
@@ -78,6 +112,8 @@ export default function ContactQuotePage() {
                     </label>
                     <input
                       type="text"
+                      name="firstName"
+                      required
                       placeholder="First Name"
                       className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
@@ -88,6 +124,8 @@ export default function ContactQuotePage() {
                     </label>
                     <input
                       type="text"
+                      name="lastName"
+                      required
                       placeholder="Last Name"
                       className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
@@ -101,6 +139,8 @@ export default function ContactQuotePage() {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      required
                       placeholder="Email Address"
                       className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
@@ -111,6 +151,8 @@ export default function ContactQuotePage() {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
+                      required
                       placeholder="Phone Number"
                       className="w-full rounded-xl border border-[#3BBFBF] bg-[#F0FDFD] px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                     />
@@ -124,6 +166,8 @@ export default function ContactQuotePage() {
                     </label>
                     <div className="group relative">
                       <select
+                        name="service"
+                        required
                         value={selectedService}
                         onChange={(e) => setSelectedService(e.target.value)}
                         className="w-full cursor-pointer appearance-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] transition-all focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
@@ -149,6 +193,7 @@ export default function ContactQuotePage() {
                     Additional Details
                   </label>
                   <textarea
+                    name="details"
                     rows={3}
                     placeholder="Tell us more about the job..."
                     className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
@@ -161,14 +206,19 @@ export default function ContactQuotePage() {
                   </label>
                   <input
                     type="text"
+                    name="promoCode"
                     placeholder="Coupon Code (optional)"
                     className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-[#2C3E6B] placeholder:text-[#5A6A8A]/70 focus:border-[#3BBFBF] focus:outline-none focus:ring-1 focus:ring-[#3BBFBF]"
                   />
                 </div>
 
-                <button className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#3BBFBF] py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#2da9a9] hover:shadow-lg">
-                  Get My Free Quote
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-[#3BBFBF] py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:bg-[#2da9a9] hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Submitting..." : "Get My Free Quote"}
+                  {!isSubmitting && <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
                 </button>
               </form>
 
@@ -212,12 +262,22 @@ export default function ContactQuotePage() {
                   </span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BBFBF]/20 text-[#3BBFBF]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#3BBFBF]/20 text-[#3BBFBF]">
                     <Clock className="h-5 w-5" />
                   </div>
                   <div className="text-xs font-bold leading-tight">
                     Mon—Sun 24/7
-                
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#3BBFBF]/20 text-[#3BBFBF]">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div className="flex flex-col pt-1">
+                    <span className="text-sm font-bold">Home Experts</span>
+                    <span className="mt-1 text-xs font-medium text-white/70">
+                      Warehouse No 56, Office No – 2B, Jebel Ali Industrial First, Dubai, UAE
+                    </span>
                   </div>
                 </div>
               </div>
@@ -243,32 +303,16 @@ export default function ContactQuotePage() {
                 ))}
               </ul>
 
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                <div className="mb-3 flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <p className="mb-4 text-xs italic leading-relaxed text-white/80">
-                  &quot;The most reliable service I have used in Dubai.
-                  Professional technicians and very transparent pricing.&quot;
-                </p>
-                <div className="text-xs font-bold">Sarah Ahmed</div>
-                <div className="text-[10px] text-[#3BBFBF]">Google Review</div>
-              </div>
+          
             </div>
           </div>
         </div>
       </section>
 
       {/* MAP & LOCATION SECTION */}
-         {/* 3. BOTTOM: INTERACTIVE MAP */}
           <div className="h-[400px] w-full border-t transition-all duration-700">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3272.668472839297!2d55.1649983!3d24.985963599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f731cc92d8785%3A0x19410dded885d47!2sAzcon%20infra%20Technical%20Service%20L.L.C!5e1!3m2!1sen!2sin!4v1770987334667!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=25%C2%B000'41.7%22N%2055%C2%B007'55.6%22E&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -277,6 +321,7 @@ export default function ContactQuotePage() {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
+          <ToastContainer position="bottom-right" />
     </>
   );
 }

@@ -13,10 +13,10 @@ const footerColumns = [
   {
     title: "Services",
     links: [
-      { label: "AC Servicing", href: "/services/ac" },
-      { label: "Electrical", href: "/services/electrical" },
-      { label: "Plumbing", href: "/services/plumbing" },
-      { label: "Handyman", href: "/services/handyman" },
+      { label: "AC Servicing", href: "/services/ac-servicing-repair-replacement" },
+      { label: "Electrical", href: "/services/electrical-plumbing-services" },
+      { label: "Plumbing", href: "/services/electrical-plumbing-services" },
+      { label: "Handyman", href: "/services/handyman-services" },
       { label: "Water Tank Cleaning", href: "/services/water-tank-cleaning" },
       { label: "Duct & Coil Cleaning", href: "/services/ac-duct-coil-cleaning" },
       { label: "Pet Housing Solutions", href: "/services/pet-housing-solutions" },

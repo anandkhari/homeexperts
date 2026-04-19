@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "@/components/motion/reveal";
 
 const highlights = [
@@ -80,9 +81,11 @@ export default function About() {
             <div className="animate-float-soft absolute -left-3 top-10 h-24 w-1 rounded-full bg-[#3BBFBF]" />
 
             <div className="relative overflow-hidden rounded-[24px] shadow-[0_24px_64px_rgba(44,62,107,0.14)]">
-              <img
+              <Image
                 src="/about2.jpg"
                 alt="Home Experts team of professional technicians"
+                width={800}
+                height={520}
                 className="animate-image-drift h-[520px] w-full object-cover object-top transition duration-700 hover:scale-[1.02]"
               />
 
