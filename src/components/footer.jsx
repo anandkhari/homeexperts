@@ -45,10 +45,10 @@ const footerColumns = [
 ];
 
 const socialLinks = [
-  { icon: <FaFacebookF />, href: "#", label: "Facebook" },
-  { icon: <FaInstagram />, href: "#", label: "Instagram" },
-  { icon: <FaLinkedinIn />, href: "#", label: "LinkedIn" },
-  { icon: <FaYoutube />, href: "#", label: "YouTube" },
+  { icon: <FaFacebookF />, href: "https://www.facebook.com/share/1AzprnA2DP/", label: "Facebook" },
+  { icon: <FaInstagram />, href: "https://www.instagram.com/homeexpertsuae?igsh=aW84Zm5saDM2aWZn", label: "Instagram" },
+  { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/company/home_experts/", label: "LinkedIn" },
+  { icon: <FaYoutube />, href: "", label: "YouTube" },
 ];
 
 export default function Footer() {
@@ -80,7 +80,7 @@ export default function Footer() {
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#3BBFBF] transition group-hover:border-[#3BBFBF] group-hover:bg-[#3BBFBF] group-hover:text-white">
                   <HiOutlinePhone className="text-sm" />
                 </span>
-                +971 4 294 5885
+               +971 554753102
               </a>
               <a
                 href="mailto:helpdesk@homeexperts.ae"

@@ -12,8 +12,8 @@ const contacts = [
   },
   {
     label: "Call Landline",
-    value: "+971 4 294 5885",
-    href: "tel:+97142945885",
+    value: "+971 554753102",
+    href: "tel:+971554753102",
     icon: HiOutlinePhone,
     className: "bg-[#2C3E6B] text-white hover:bg-[#3BBFBF]",
   },

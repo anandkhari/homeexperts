@@ -48,7 +48,7 @@ const features = [
 
 const audienceBenefits = [
   {
-    title: "AMC Benefits for Homeowners",
+    title: "For Homeowners",
     description:
       "Skip the stress of chasing different service providers for every issue. A Home Experts annual contract bundles essential maintenance into one dependable plan, helping you protect your property, reduce surprise repair costs, and keep your home in top condition year-round.",
     icon: Home,
@@ -59,7 +59,7 @@ const audienceBenefits = [
     ],
   },
   {
-    title: "AMC Benefits for Landlords",
+    title: "For Landlords",
     description:
       "Our annual maintenance contracts make property management far easier by giving you one trusted partner for AC, plumbing, and electrical support. Instead of coordinating repeated callouts, you get faster issue resolution, clearer communication, and better protection for your rental asset.",
     icon: Building2,
@@ -70,7 +70,7 @@ const audienceBenefits = [
     ],
   },
   {
-    title: "AMC Benefits for Tenants",
+    title: "For Tenants",
     description:
       "An annual maintenance contract also brings peace of mind to tenants by ensuring essential issues are handled quickly and professionally. From faulty AC units to leaking taps and electrical problems, it helps reduce downtime, improve comfort, and avoid bigger repair headaches later.",
     icon: Users,

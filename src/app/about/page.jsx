@@ -15,6 +15,7 @@ import {
 import CTA from "@/components/homepage/cta";
 import Blog from "../blog/page";
 import Blogs from "@/components/homepage/blogs";
+import CareersApplicationSection from "@/components/about/careers-application-section";
 
 const values = [
   {
@@ -86,6 +87,49 @@ export default function About() {
         image="/abouthero.JPG"
         imageAlt="Home Experts team at work"
       />
+      <section className="bg-white px-4 py-16 md:px-6 md:pb-8 md:pt-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#3BBFBF]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#3BBFBF] md:text-xs">
+              <span className="h-0.5 w-6 bg-[#3BBFBF]" />
+              About Us
+            </span>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[#2C3E6B] md:text-4xl">
+              About Us - Home Experts
+            </h2>
+            <div className="mt-6 max-w-3xl space-y-4 text-[0.95rem] leading-[1.75] text-[#2C3E6B]/75">
+              <p>
+                Home Experts is your trusted partner for reliable home
+                maintenance, renovation, and interior solutions across the UAE.
+                We specialize in AC, plumbing, electrical, and repair services
+                delivered with precision, speed, and professionalism.
+              </p>
+              <p>
+                We do it right, the first time. As a one-stop solution for all
+                your home needs, we combine skilled workmanship with responsive
+                service to ensure every project is completed efficiently and to
+                the highest standards.
+              </p>
+              <p>
+                From quick fixes to full renovations and interior upgrades, Home
+                Experts is committed to keeping your home comfortable,
+                functional, and built to last.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative h-[320px] overflow-hidden rounded-3xl shadow-lg sm:h-[400px] lg:col-span-5 lg:h-[460px]">
+            <Image
+              src="/about.jpeg"
+              alt="Home Experts technicians delivering home maintenance services"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-white px-4 py-16 md:px-6 md:py-24">
         {/* Background Glows matching brand guide */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
@@ -103,10 +147,10 @@ export default function About() {
               {/* The main image container with teal side accent */}
               <div className="relative left-0 top-0 aspect-square h-full w-[90%] overflow-hidden rounded-l-3xl border-l-[16px] border-[#3BBFBF]">
                 <Image
-                  src="/about.jpg" // replace with your image path
+                  src="/story.JPG" // replace with your image path
                   alt="Handyman performing home maintenance"
                   fill
-                  className="object-cover object-right"
+                  className="object-cover object-center"
                 />
               </div>
 
@@ -128,9 +172,9 @@ export default function About() {
                 Our Story
               </span>
 
-              <h2 className="mt-2 mb-10 text-4xl font-semibold leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl">
-                12 years of showing up, <br className="hidden md:block" />
-                and never letting you down.
+              <h2 className="mt-2 mb-10 text-4xl font-semibold leading-[1.1] tracking-tight text-[#2C3E6B] md:text-4xl">
+                12 Years of Showing Up, <br className="hidden md:block" />
+                and Never Letting You Down.
               </h2>
 
               <div className="space-y-6 max-w-2xl text-[0.95rem] leading-[1.7] text-[#2C3E6B]/65">
@@ -172,6 +216,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <CareersApplicationSection />
 
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">

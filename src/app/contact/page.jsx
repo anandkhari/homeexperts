@@ -251,7 +251,7 @@ export default function ContactQuotePage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BBFBF]/20 text-[#3BBFBF]">
                     <Phone className="h-5 w-5" />
                   </div>
-                  <span className="text-sm font-bold">+971 4 294 5885 </span>
+                  <span className="text-sm font-bold">+971 554753102 </span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BBFBF]/20 text-[#3BBFBF]">

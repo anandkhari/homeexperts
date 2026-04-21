@@ -72,24 +72,64 @@ const eventBenefits = [
 
 const eventFaqs = [
   {
-    question: "What does an Event AMC typically cover?",
+    question: "What is an Event Installation AMC?",
     answer:
-      "It covers the ongoing upkeep of structures, kiosks, branding elements, signage, lighting, AV systems, and electrical components. We ensure that everything from the physical build to the technical equipment remains in peak condition.",
+      "An Event Installation AMC (Annual Maintenance Contract) is a service agreement that ensures continuous maintenance, monitoring, and support for all event-related installations such as staging, kiosks, lighting, and AV systems throughout the event duration.",
   },
   {
-    question: "How fast is the response time for emergency support?",
+    question: "What services are included in the AMC?",
     answer:
-      "We provide priority response for AMC clients. In fast-paced event environments, our team is on standby to provide rapid on-site support across Dubai and the UAE to resolve issues before they impact your brand image.",
+      "Our AMC typically includes:\n- On-site technical support\n- Daily inspection and maintenance\n- Preventive maintenance checks\n- Immediate troubleshooting and repairs\n- Coordination with event teams for smooth operations",
   },
   {
-    question: "Is the maintenance plan customizable?",
+    question: "Do you provide on-site support during the event?",
     answer:
-      "Yes. Every activation is unique. We design tailored packages based on your specific setup, the complexity of the installations, the duration of the activation, and your specific operational requirements.",
+      "Yes, our trained technicians remain on-site throughout the event to ensure all installations are functioning properly and to address any issues immediately.",
   },
   {
-    question: "Why do I need an AMC for temporary setups?",
+    question: "What types of installations are covered?",
     answer:
-      "Even temporary setups are prone to technical glitches, wear and tear from crowds, or electrical issues. An AMC provides peace of mind that a professional team is responsible for the performance and safety of the installation 24/7.",
+      "We cover a wide range of event setups including:\n- Stages and structural elements\n- Exhibition kiosks and booths\n- Lighting systems (decorative and functional)\n- Audio-visual equipment\n- Electrical and basic MEP components",
+  },
+  {
+    question: "How quickly can issues be resolved?",
+    answer:
+      "We provide immediate response with on-site technicians, ensuring most issues are resolved in real time without affecting the event flow.",
+  },
+  {
+    question: "Is preventive maintenance included?",
+    answer:
+      "Yes, we conduct routine checks and preventive maintenance to identify and resolve potential issues before they become major problems.",
+  },
+  {
+    question: "Can the AMC be customized based on event size?",
+    answer:
+      "Absolutely. Our AMC packages are flexible and can be tailored depending on event scale, duration, complexity, and specific requirements.",
+  },
+  {
+    question: "Do you handle emergency situations?",
+    answer:
+      "Yes, we are equipped to manage urgent repairs and unexpected breakdowns quickly to minimize downtime and ensure safety.",
+  },
+  {
+    question: "Are spare parts and materials included in the AMC?",
+    answer:
+      "Basic consumables may be included, while major materials or replacements are typically charged separately, depending on the agreement.",
+  },
+  {
+    question: "Why is AMC important for events?",
+    answer:
+      "Events involve continuous use and high foot traffic, which can lead to wear and tear. An AMC ensures:\n- Safety compliance\n- Consistent performance\n- Reduced risk of breakdowns\n- Seamless event experience for guests",
+  },
+  {
+    question: "Do you provide post-event support?",
+    answer:
+      "Yes, we can assist with dismantling support, condition checks, and reporting after the event if required.",
+  },
+  {
+    question: "How can we subscribe to your AMC services?",
+    answer:
+      "You can contact us through our website, email, or phone to discuss your event requirements, and we will propose a tailored AMC plan.",
   },
 ];
 
@@ -119,20 +159,20 @@ export default function EventMaintenancePage() {
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-1 w-10 rounded-full bg-[#3BBFBF]" />
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#3BBFBF] md:text-xs">
-                  Proactive Brand Care
+                  Event-Ready Performance
                 </span>
               </div>
 
-              <h2 className="mb-8 text-4xl font-medium  leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl">
-                Protect your <span className="text-[#3BBFBF]">brand image</span> with seamless installations
+              <h2 className="mb-8 text-3xl font-semibold leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl">
+                Keep your installations vibrant <span className="text-[#3BBFBF]">safe, and fully operational</span> 
               </h2>
 
-              <div className="space-y-6 text-base leading-relaxed text-[#5A6A8A] md:text-lg">
+              <div className="space-y-6 text-base leading-relaxed text-[#5A6A8A] ">
                 <p>
-                  In the fast-paced world of events, even a minor technical failure can disrupt your operations and impact your brand’s reputation. Our AMC solutions provide dedicated maintenance for kiosks, exhibitions, and brand activations across the UAE.
+                  In high-traffic events, constant movement and heavy usage can quickly wear down installations. Our Event Installation AMC is designed for daily maintenance, ensuring your setups—from kiosks and stages to lighting and AV—remain flawless throughout the event.
                 </p>
                 <p>
-                  Instead of reacting to breakdowns, our proactive approach ensures your assets—from lighting and AV to structural components—are regularly inspected and supported by experts. We minimize downtime so you can focus on your audience.
+                 With on-site support, routine checks, and immediate response, we proactively manage wear and tear, prevent disruptions, and maintain visual impact. From start to finish, we keep everything running smoothly so your event stays engaging, safe, and unforgettable.
                 </p>
                <div className="mt-10 flex flex-wrap gap-4">
                 <Link
@@ -196,7 +236,7 @@ export default function EventMaintenancePage() {
               </span>
               <span className="h-px w-10 bg-[#3BBFBF]/60" />
             </div>
-            <h2 className="text-3xl font-black uppercase tracking-tight text-white md:text-5xl">
+            <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
               Who we support
             </h2>
             <div className="mx-auto mt-6 h-1 w-32 rounded-full bg-[#3BBFBF]" />
@@ -211,10 +251,10 @@ export default function EventMaintenancePage() {
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3BBFBF]">
                   {item.icon}
                 </div>
-                <h3 className="max-w-[14ch] text-2xl font-black leading-tight text-[#3BBFBF]">
+                <h3 className="max-w-[14ch] text-2xl font-semibold leading-tight tracking-tight text-[#3BBFBF]">
                   {item.title}
                 </h3>
-                <p className="mt-6 text-sm leading-8 text-white/78 md:text-base">
+                <p className="mt-5 text-base leading-relaxed text-white/80">
                   {item.description}
                 </p>
               </article>
@@ -229,12 +269,12 @@ export default function EventMaintenancePage() {
           <div className="mb-20 text-center">
             <div className="mb-4 flex items-center justify-center gap-2">
               <span className="h-1 w-8 rounded-full bg-[#3BBFBF]" />
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#3BBFBF]">
-                AMC Deliverables
-              </span>
+               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#3BBFBF]">
+                 AMC Deliverables
+               </span>
               <span className="h-1 w-8 rounded-full bg-[#3BBFBF]" />
             </div>
-            <h2 className="text-4xl font-medium leading-none tracking-tight text-[#2C3E6B] md:text-5xl">
+            <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-[#2C3E6B] md:text-5xl">
               Your comprehensive <br />
               <span className="text-[#3BBFBF]">Event Maintenance Solution</span>
             </h2>
@@ -251,10 +291,10 @@ export default function EventMaintenancePage() {
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="mb-3 text-xl font-black uppercase tracking-tight text-[#2C3E6B]">
+                    <h3 className="mb-3 text-xl font-semibold leading-tight tracking-tight text-[#2C3E6B]">
                       {item.title}
                     </h3>
-                    <p className="text-sm font-medium leading-relaxed text-[#5A6A8A]">
+                    <p className="text-base leading-relaxed text-[#5A6A8A]">
                       {item.description}
                     </p>
                   </div>
@@ -267,7 +307,7 @@ export default function EventMaintenancePage() {
           <section className="relative mt-20 overflow-hidden rounded-[3rem] bg-[#2C3E6B] px-6 py-14 text-white md:px-10 md:py-18">
             <div className="relative z-10 mx-auto max-w-6xl">
               <div className="mb-10 text-center md:mb-14">
-                <h2 className="text-3xl font-black uppercase tracking-tight text-white md:text-5xl">
+                <h2 className="text-3xl font-semibold leading-[1.1] tracking-tight text-white md:text-5xl">
                   AMC FAQs
                 </h2>
                 <div className="mx-auto mt-6 h-1 w-32 rounded-full bg-[#3BBFBF]" />
@@ -288,13 +328,13 @@ export default function EventMaintenancePage() {
                             isOpen ? "rotate-90" : ""
                           }`}
                         />
-                        <span className="text-sm font-black text-white md:text-lg">
+                        <span className="text-base font-semibold text-white md:text-lg">
                           {faq.question}
                         </span>
                       </button>
                       {isOpen && (
                         <div className="pb-5 pl-8 pr-2">
-                          <p className="max-w-4xl text-sm leading-7 text-white/75 md:text-base">
+                          <p className="max-w-4xl whitespace-pre-line text-sm leading-7 text-white/75 md:text-base">
                             {faq.answer}
                           </p>
                         </div>
