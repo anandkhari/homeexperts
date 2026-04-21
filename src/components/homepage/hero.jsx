@@ -1,20 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
 import Reveal from "@/components/motion/reveal";
 
 export default function Hero() {
   return (
     <section className="relative isolate min-h-screen overflow-hidden bg-[#07111f]">
-      <Image
+      <video
         aria-hidden="true"
-        src="https://images.pexels.com/photos/6196238/pexels-photo-6196238.jpeg"
-        alt=""
-        fill
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
         className="animate-image-drift absolute inset-0 h-full w-full object-cover"
-      />
+      >
+        <source src="/hero.webm" type="video/webm" />
+      </video>
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,31,0.70)_0%,rgba(7,17,31,0.50)_38%,rgba(7,17,31,0.20)_62%,rgba(7,17,31,0.50)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,191,191,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(44,62,107,0.40),transparent_35%)]" />
