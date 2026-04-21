@@ -30,7 +30,7 @@ export const ALL_SERVICES = [
     title: "Electrical & Plumbing Services",
     href: "/services/electrical-plumbing-services",
     slug: "electrical-plumbing-services",
-    image: "/plumbing.jpg",
+    image: "/plumbing.jpeg",
     description:
       "Certified MEP support for electrical troubleshooting, leak fixes, fixture installations, and system upgrades.",
     keywords: ["electrical", "plumbing", "mep", "leak", "wiring", "repairs"],

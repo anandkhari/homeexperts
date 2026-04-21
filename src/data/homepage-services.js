@@ -28,7 +28,7 @@ export const HOMEPAGE_SERVICES = [
     title: "Plumbing",
     href: "/services/plumbing",
     slug: "plumbing",
-    image: "/plumbing.jpg",
+    image: "/plumbing.jpeg",
     description:
       "From leak detection to full fixture installations, keeping your water systems flowing.",
   },
@@ -44,7 +44,7 @@ export const HOMEPAGE_SERVICES = [
     title: "Handyman",
     href: "/services/handyman",
     slug: "handyman",
-    image: "/handyman.jpg",
+    image: "/handyman.jpeg",
     description:
       "Versatile repair and installation services for all those small jobs around the home.",
   },

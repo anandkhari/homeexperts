@@ -50,7 +50,7 @@ const routeCards = {
     title: "Plumbing",
     href: "/services/plumbing",
     slug: "plumbing",
-    image: "/plumbing.jpg",
+    image: "/plumbing.jpeg",
     description: "Leak repairs, fixture work, and practical plumbing support for everyday problems.",
     keywords: ["plumbing", "leaks", "water", "pipes", "fixtures"],
   }),
@@ -69,7 +69,7 @@ const routeCards = {
       title: "Handyman Services",
       href: "/services/handyman",
       slug: "handyman-services",
-      image: "/handyman.jpg",
+      image: "/handyman.jpeg",
       description: "Reliable help for mounting, minor repairs, adjustments, and general fixes.",
     }),
   waterTankCleaning:
@@ -259,7 +259,7 @@ export const ELECTRICAL_SERVICE = createServicePage({
 export const PLUMBING_SERVICE = createServicePage({
   ...routeCards.plumbing,
   category: "Plumbing",
-  heroImage: "/plumbing.jpg",
+  heroImage: "/plumbing.jpeg",
   heroDescription:
     "Leaks, drainage issues, fixture replacements, and everyday plumbing faults handled with responsive service and practical repair advice.",
   introTitle: "Plumbing repairs and upgrades that keep your home running smoothly",
@@ -376,7 +376,7 @@ export const PAINTING_SERVICE = createServicePage({
 export const HANDYMAN_SERVICE = createServicePage({
   ...routeCards.handyman,
   category: "Handyman",
-  heroImage: "/handyman.jpg",
+  heroImage: "/handyman.jpeg",
   heroDescription:
     "From small repairs and fittings to general home fixes, our handyman service helps you clear the to-do list efficiently.",
   introTitle: "Flexible handyman support for all the small jobs around the home",
@@ -674,7 +674,7 @@ export const ELECTRICAL_PLUMBING_SERVICE = createServicePage({
     title: "Electrical & Plumbing Services",
     href: "/quote",
     slug: "electrical-plumbing-services",
-    image: "/plumbing.jpg",
+    image: "/plumbing.jpeg",
     description: "Certified MEP support for electrical troubleshooting, leak fixes, fixture installations, and system upgrades.",
   })),
   category: "MEP Services",
