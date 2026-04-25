@@ -1,42 +1,27 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { supabase } from "@/lib/supabase";
+import { createServerClient } from "@/lib/supabase/server";
 import Reveal from "@/components/motion/reveal";
 import { Calendar, ArrowRight } from "lucide-react";
 
-export default function Blogs() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default async function Blogs() {
+  const serverSupabase = createServerClient();
+  const { data } = await serverSupabase
+    .from("blog_posts")
+    .select("id, slug, title, cover_image, created_at, excerpt, category")
+    .eq("published", true)
+    .order("created_at", { ascending: false })
+    .limit(3);
 
-  useEffect(() => {
-    const fetchLatestPosts = async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("id, slug, title, cover_image, created_at, excerpt, category")
-        .eq("published", true)
-        .order("created_at", { ascending: false })
-        .limit(4);
-
-      if (error) {
-        console.error("Error loading blogs:", error.message);
-      } else {
-        setPosts(data || []);
-      }
-      setLoading(false);
-    };
-
-    fetchLatestPosts();
-  }, []);
+  const posts = data || [];
+  const loading = false;
 
   if (loading) {
     return (
       <section className="bg-[#F4F6F9] px-4 py-16 md:px-20 md:py-24">
         <div className="mx-auto max-w-[1440px]">
           <Reveal className="mx-auto max-w-[980px] text-center" y={24} blur={14}>
-            <p className="text-5xl font-medium uppercase leading-none tracking-[0.03em] text-[#2C3E6B]">
+            <p className="text-5xl font-medium  leading-none tracking-[0.03em] text-[#2C3E6B]">
               Our Blogs
             </p>
             <div className="mx-auto mt-6 h-2 w-28 bg-[#3BBFBF] md:w-48" />
@@ -56,7 +41,7 @@ export default function Blogs() {
     <section className="bg-[#F4F6F9] px-4 py-16 md:px-20 md:py-24">
       <div className="mx-auto max-w-[1440px]">
         <Reveal className="mx-auto max-w-[980px] text-center" y={24} blur={14}>
-          <p className="text-5xl font-medium uppercase leading-none tracking-[0.03em] text-[#2C3E6B]">
+          <p className="text-5xl font-medium  leading-none tracking-[0.03em] text-[#2C3E6B]">
             Our Blogs
           </p>
           <div className="mx-auto mt-6 h-2 w-28 bg-[#3BBFBF] md:w-48" />
@@ -77,7 +62,9 @@ export default function Blogs() {
                   src={post.cover_image || "/placeholder-blog.jpg"}
                   alt={post.title}
                   fill
+                  sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover transition duration-1000 group-hover:scale-110"
+                  style={{ objectFit: "cover" }}
                 />
                 <div className="absolute inset-0 bg-[#2C3E6B]/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </Link>

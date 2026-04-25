@@ -60,6 +60,7 @@ export default function PageHero({
             fill
             sizes="100vw"
             className="object-cover opacity-50"
+            style={{ objectFit: "cover" }}
             priority
           />
         )}
@@ -67,16 +68,13 @@ export default function PageHero({
 
       <div className="absolute inset-0 bg-black/10" />
 
-      {/* Content Container - Removed text-center, added w-full */}
-      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 text-left md:px-12 lg:px-20">
-        {/* H1 - Removed mx-auto to allow left-alignment */}
-        <h1 className="max-w-[18ch] text-4xl font-medium leading-[1.15] tracking-[-0.03em] text-white md:text-6xl ">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 text-center md:px-12 lg:px-20">
+        <h1 className="mx-auto max-w-[18ch] text-4xl font-medium leading-[1.15] tracking-[-0.03em] text-white md:text-6xl">
           {renderTitle()}
         </h1>
         
-        {/* Added Subtitle handling in case you want to use it */}
         {subtitle && (
-          <p className="mt-6 max-w-[60ch] text-base font-normal leading-relaxed text-gray-300 md:text-xl">
+          <p className="mx-auto mt-6 max-w-6xl text-base font-normal leading-relaxed text-gray-300 md:text-lg">
             {subtitle}
           </p>
         )}

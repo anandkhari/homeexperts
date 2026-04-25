@@ -4,6 +4,30 @@ import PageHero from "@/components/pageshero";
 import CTA from "@/components/homepage/cta";
 import Blogs from "@/components/homepage/blogs";
 
+export const metadata = {
+  title: "AMC Packages",
+  description:
+    "Explore annual maintenance packages and choose coverage that fits your property and support needs across the UAE.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/packages`,
+  },
+  openGraph: {
+    title: "AMC Packages | Home Experts",
+    description:
+      "Annual maintenance packages for residential, commercial, and event properties across the UAE.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/packages`,
+    type: "website",
+    images: [{ url: "/aivan2.png", width: 1200, height: 630, alt: "AMC Packages" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AMC Packages | Home Experts",
+    description:
+      "Annual maintenance packages for homes and businesses across the UAE.",
+    images: ["/aivan2.png"],
+  },
+};
+
 const packageCards = [
   {
     href: "/packages/residential",
@@ -37,8 +61,31 @@ const packageCards = [
 export default function PackagesPage() {
   return (
     <main className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: process.env.NEXT_PUBLIC_SITE_URL,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "AMC Packages",
+                item: `${process.env.NEXT_PUBLIC_SITE_URL}/packages`,
+              },
+            ],
+          }),
+        }}
+      />
       <PageHero
-        title="Choose The Right"
+        title="Choose The Right "
         titleAccent="Maintenance Contract"
         subtitle="Explore our annual maintenance packages and pick the coverage that best fits your property, response expectations, and day-to-day support needs."
         image="/aivan2.png"

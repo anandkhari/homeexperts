@@ -71,9 +71,33 @@ export default function ContactQuotePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Contact Home Experts",
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
+            mainEntity: {
+              "@type": "HomeAndConstructionBusiness",
+              name: "Home Experts",
+              telephone: "+971554753102",
+              email: "helpdesk@homeexperts.ae",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress:
+                  "Warehouse No 56, Office No 2B, Jebel Ali Industrial First",
+                addressLocality: "Dubai",
+                addressCountry: "AE",
+              },
+            },
+          }),
+        }}
+      />
       <PageHero
-        title="Contact"
-        titleAccent="Home Experts"
+        title="Contact Us"
+        // titleAccent="Home Experts"
         subtitle="Have a maintenance emergency, need a routine service, or looking for an annual contract? Reach out to our dedicated team today. We guarantee a rapid 60-minute response time during business hours."
         image="/aivan2.png"
         imageAlt="Friendly Home Experts customer support representative ready to assist"

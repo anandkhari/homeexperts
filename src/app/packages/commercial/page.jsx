@@ -107,6 +107,72 @@ export default function CommercialPackagesPage() {
 
   return (
     <main className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: process.env.NEXT_PUBLIC_SITE_URL,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "AMC Packages",
+                item: `${process.env.NEXT_PUBLIC_SITE_URL}/packages`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Commercial AMC Packages",
+                item: `${process.env.NEXT_PUBLIC_SITE_URL}/packages/commercial`,
+              },
+            ],
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Commercial Annual Maintenance Contract",
+            provider: {
+              "@type": "HomeAndConstructionBusiness",
+              name: "Home Experts",
+            },
+            areaServed: "UAE",
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/packages/commercial`,
+          }),
+        }}
+      />
+
+      {Array.isArray(commercialFaqs) && commercialFaqs.length > 0 ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: commercialFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      ) : null}
       {/* <PageHero
         title="Commercial"
         titleAccent="  Maintenance Contracts"
@@ -182,6 +248,8 @@ export default function CommercialPackagesPage() {
                   alt="Commercial property maintenance team"
                   fill
                   className="object-cover"
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  style={{ objectFit: "cover" }}
                 />
 
                 <div className="absolute bottom-8 left-8 right-8 rounded-2xl bg-[#2C3E6B]/90 p-6 text-white backdrop-blur-md">

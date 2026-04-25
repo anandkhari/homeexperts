@@ -1,72 +1,103 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
+import { notFound } from "next/navigation";
+import { cache } from "react";
+import { createServerClient } from "@/lib/supabase/server";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Clock, Calendar, User, Share2 } from "lucide-react";
 
-export default function BlogPostPage() {
-  const router = useRouter();
-  const params = useParams();
-  const slug = params?.slug;
+function toMetaDescription(excerpt, content) {
+  const raw = excerpt || content || "";
+  const text = raw
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return text.length > 160 ? `${text.slice(0, 160).trim()}…` : text;
+}
 
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+const getPublishedPostBySlug = cache(async (slug) => {
+  const serverSupabase = createServerClient();
+  const { data, error } = await serverSupabase
+    .from("blog_posts")
+    .select(
+      "id, created_at, title, slug, excerpt, content, cover_image, category"
+    )
+    .eq("slug", slug)
+    .eq("published", true)
+    .single();
 
-  useEffect(() => {
-    if (!slug) return;
+  if (error) return null;
+  return data;
+});
 
-    const fetchPost = async () => {
-      setLoading(true);
-      try {
-        const { data, error } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .eq("slug", slug)
-          .eq("published", true)
-          .single();
+export async function generateStaticParams() {
+  const serverSupabase = createServerClient();
+  const { data } = await serverSupabase
+    .from("blog_posts")
+    .select("slug")
+    .eq("published", true);
+  return (data || []).map((post) => ({ slug: post.slug }));
+}
 
-        if (error || !data) {
-          setPost(null);
-        } else {
-          setPost(data);
-        }
-      } catch (err) {
-        console.error("Fetch error:", err);
-        setError("Could not load this article.");
-      } finally {
-        setLoading(false);
-      }
-    };
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  if (!slug) return {};
 
-    fetchPost();
-  }, [slug]);
+  const post = await getPublishedPostBySlug(slug);
+  if (!post) return {};
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-        <div className="w-10 h-10 border-4 border-[#3BBFBF]/20 border-t-[#3BBFBF] rounded-full animate-spin mb-4" />
-        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#2C3E6B]">Loading Insight...</p>
-      </div>
-    );
-  }
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "";
+  const canonical = siteUrl ? `${siteUrl}/blog/${post.slug}` : undefined;
+  const description = toMetaDescription(post.excerpt, post.content);
+
+  return {
+    title: post.title,
+    description,
+    alternates: canonical ? { canonical } : undefined,
+    openGraph: {
+      title: post.title,
+      description,
+      images: post.cover_image ? [{ url: post.cover_image }] : [],
+      type: "article",
+      publishedTime: post.created_at,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+      images: post.cover_image ? [post.cover_image] : [],
+    },
+  };
+}
+
+export default async function BlogPostPage({ params }) {
+  const { slug } = await params;
+  const post = slug ? await getPublishedPostBySlug(slug) : null;
 
   if (!post) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white px-6 text-center">
-        <h1 className="text-2xl font-black text-[#2C3E6B] mb-4 uppercase">Article Not Found</h1>
-        <Link href="/blog" className="flex items-center gap-2 text-[#3BBFBF] font-black uppercase text-xs tracking-widest hover:underline">
-          <ArrowLeft size={16} /> Back to Insights
-        </Link>
-      </div>
-    );
+    notFound();
   }
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "HomeExperts";
+  const canonical = siteUrl ? `${siteUrl}/blog/${post.slug}` : undefined;
+  const description = toMetaDescription(post.excerpt, post.content);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description,
+    image: post.cover_image || undefined,
+    datePublished: post.created_at,
+    author: { "@type": "Organization", name: siteName },
+    url: canonical,
+  };
 
   return (
     <article className="bg-white min-h-screen pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* HEADER SECTION */}
       <div className="relative h-[50vh] w-full min-h-[400px]">
         <Image
@@ -74,6 +105,8 @@ export default function BlogPostPage() {
           alt={post.title}
           fill
           className="object-cover"
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E6B] via-[#2C3E6B]/40 to-transparent" />

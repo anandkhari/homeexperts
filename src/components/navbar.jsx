@@ -114,7 +114,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -133,11 +133,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ease-out ${
+      className={`sticky top-0 z-50 backdrop-blur-md ${
         scrolled
-          ? "bg-white/90 py-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md"
+          ? "bg-white/90 py-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
           : "bg-white py-5"
       }`}
+      style={{
+        transition: "padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease",
+      }}
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6">
         {/* LOGO */}
@@ -146,11 +149,12 @@ export default function Navbar() {
           className="relative z-50 transition-transform duration-300 hover:scale-105 active:scale-95"
         >
           <Image
-            src="/Logo_Home_Clear.png"
+            src="/logo.png"
             alt="Logo"
-            width={160}
-            height={44}
+            width={48}
+            height={36}
             className="h-10 w-auto md:h-11"
+            style={{ height: "auto" }}
           />
         </Link>
 
@@ -263,10 +267,11 @@ export default function Navbar() {
               <Link href="/" onClick={closeMenu} className="block">
                 <Image
                   src="/Logo_Home_Clear.png"
-                  width={130}
+                  width={60}
                   height={40}
                   alt="Logo"
-                  className="h-9 w-auto"
+                  className="h-7 w-auto"
+                  style={{ height: "auto" }}
                 />
               </Link>
 

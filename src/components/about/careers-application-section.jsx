@@ -71,6 +71,7 @@ export default function CareersApplicationSection() {
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 35vw, 100vw"
+                style={{ objectFit: "cover" }}
               />
             </div>
 

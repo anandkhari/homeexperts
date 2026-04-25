@@ -1,38 +1,31 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { createServerClient } from "@/lib/supabase/server";
 import PageHero from "@/components/pageshero";
 import { Clock, ArrowRight, Calendar } from "lucide-react";
 
-export default function Blog() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+export const metadata = {
+  title: `Blog | ${process.env.NEXT_PUBLIC_SITE_NAME || "Home Experts"}`,
+  description: "Read our latest articles on home maintenance, repairs, and renovation.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
+  },
+};
 
-  useEffect(() => {
-    const fetchPublishedPosts = async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .eq("published", true)
-        .order("created_at", { ascending: false });
+export default async function Blog() {
+  const serverSupabase = createServerClient();
+  const { data } = await serverSupabase
+    .from("blog_posts")
+    .select("id, title, slug, excerpt, cover_image, category, created_at")
+    .eq("published", true)
+    .order("created_at", { ascending: false });
 
-      if (error) {
-        console.error("Error loading blogs:", error.message);
-      } else {
-        setPosts(data || []);
-      }
-      setLoading(false);
-    };
-
-    fetchPublishedPosts();
-  }, []);
+  const posts = data || [];
+  const loading = false;
 
   return (
     <main className="bg-white">
-     
+      
 
       <section className="relative px-4 py-16 md:px-6 md:py-20">
         {/* Background Ambient Glows */}
@@ -84,7 +77,9 @@ export default function Blog() {
                       src={post.cover_image || "/placeholder-blog.jpg"}
                       alt={post.title}
                       fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                      style={{ objectFit: "cover" }}
                     />
                     {/* Category Badge */}
                     <div className="absolute left-6 top-6 rounded-full bg-white/90 px-4 py-1.5 text-[9px] font-black uppercase tracking-widest text-[#2C3E6B] backdrop-blur-md shadow-sm">

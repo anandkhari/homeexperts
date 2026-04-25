@@ -184,6 +184,7 @@ export default function LandingHero() {
                     width={900}
                     height={1080}
                     className="h-[28rem] w-full object-cover md:h-[36rem]"
+                    style={{ height: "auto" }}
                     priority
                   />
                 </div>

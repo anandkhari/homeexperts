@@ -87,6 +87,7 @@ export default function About() {
                 width={800}
                 height={520}
                 className="animate-image-drift h-[520px] w-full object-cover object-top transition duration-700 hover:scale-[1.02]"
+                style={{ height: "auto" }}
               />
 
               {/* Floating stat badge */}

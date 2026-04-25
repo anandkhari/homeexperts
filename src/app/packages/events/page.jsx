@@ -138,6 +138,72 @@ export default function EventMaintenancePage() {
 
   return (
     <main className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: process.env.NEXT_PUBLIC_SITE_URL,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "AMC Packages",
+                item: `${process.env.NEXT_PUBLIC_SITE_URL}/packages`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Event & Activation AMC",
+                item: `${process.env.NEXT_PUBLIC_SITE_URL}/packages/events`,
+              },
+            ],
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Event & Activation Annual Maintenance Contract",
+            provider: {
+              "@type": "HomeAndConstructionBusiness",
+              name: "Home Experts",
+            },
+            areaServed: "UAE",
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/packages/events`,
+          }),
+        }}
+      />
+
+      {Array.isArray(eventFaqs) && eventFaqs.length > 0 ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: eventFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      ) : null}
       {/* <PageHero
         title="Event & Activation"
         titleAccent=" Maintenance Contracts"
@@ -203,6 +269,8 @@ export default function EventMaintenancePage() {
                   alt="Professional event maintenance team"
                   fill
                   className="object-cover"
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  style={{ objectFit: "cover" }}
                 />
                 <div className="absolute bottom-8 left-8 right-8 rounded-2xl bg-[#2C3E6B]/90 p-6 text-white backdrop-blur-md">
                   <div className="flex items-center gap-4">

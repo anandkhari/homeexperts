@@ -13,7 +13,9 @@ export default function ServiceCard({ service, index = 0 }) {
           src={service.image}
           alt={service.title}
           fill
+          sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover transition-transform duration-1000 group-hover:scale-110"
+          style={{ objectFit: "cover" }}
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E6B]/90 via-[#2C3E6B]/20 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-50" />

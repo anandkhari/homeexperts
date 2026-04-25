@@ -114,7 +114,7 @@ function createServicePage(service) {
       "The right maintenance and repairs improve comfort, reduce risk, and help prevent avoidable costs.",
     topIssues: [],
     trustTitle: "Why customers choose us",
-    trustImage: "/van-backview.jpg",
+    trustImage: "/abouthero.jpg",
     trustImageAlt: "Home maintenance team",
     faqs: [],
     relatedServices: [],
@@ -343,6 +343,8 @@ export const PAINTING_SERVICE = createServicePage({
     { icon: "Home", title: "Aesthetic Refresh", description: "Instantly update the mood and feel of your property with modern color schemes." },
     { icon: "Briefcase", title: "Managed Execution", description: "We handle all the preparation and cleanup, providing a stress-free experience." },
   ],
+  trustImage: "/painting2.jpeg",
+  trustImageAlt: "Professional painters applying a clean interior finish",
   trustPoints: [
     { title: "Preparation focus", description: "We spend time on sanding and filling to ensure the final finish is perfectly smooth." },
     { title: "Clean environment", description: "We use drop cloths and masking tape to protect your furniture and flooring throughout." },
@@ -699,6 +701,8 @@ export const ELECTRICAL_PLUMBING_SERVICE = createServicePage({
     { icon: "Search", title: "Precision Diagnostics", description: "We find the root cause of issues to prevent recurring mechanical failures." },
     { icon: "Zap", title: "Efficiency Upgrades", description: "Modernize your fixtures to reduce water consumption and energy costs." },
   ],
+  trustImage: "/emergency.jpeg",
+  trustImageAlt: "Certified plumber and electrician on a job",
   trustTitle: "Why customers rely on our MEP team",
   trustPoints: [
     { title: "Standardized Pricing", description: "Clear, upfront estimates without hidden costs or surprise fees." },

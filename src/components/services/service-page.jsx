@@ -332,11 +332,12 @@ function TrustSection({ service }) {
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
         <div className="relative h-[500px] w-full overflow-hidden rounded-[16px] md:h-[420px]">
           <Image
-            src={service.trustImage || "/van-backview.jpg"}
+            src={service.trustImage || "/abouthero.jpg"}
             alt={service.trustImageAlt || "Service Trust"}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
+            style={{ objectFit: "cover" }}
           />
         </div>
         <div>
@@ -408,7 +409,7 @@ export default function ServicePage({ service }) {
     <main className="bg-white text-[#2C3E6B]">
       {/* HERO SECTION */}
       <section className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden px-4 py-24 text-white md:px-6">
-        <Image src={hero.image} alt={hero.alt} fill priority sizes="100vw" className="object-cover" />
+        <Image src={hero.image} alt={hero.alt} fill priority sizes="100vw" className="object-cover" style={{ objectFit: "cover" }} />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,14,28,0.36)_0%,rgba(9,14,28,0.5)_28%,rgba(9,14,28,0.72)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_36%)]" />
 

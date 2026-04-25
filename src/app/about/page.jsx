@@ -17,6 +17,37 @@ import Blog from "../blog/page";
 import Blogs from "@/components/homepage/blogs";
 import CareersApplicationSection from "@/components/about/careers-application-section";
 
+export const metadata = {
+  title: "About Us",
+  description:
+    "Home Experts delivers reliable home maintenance, renovation, and interior solutions across the UAE with precision and professionalism.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/about`,
+  },
+  openGraph: {
+    title: "About Us | Home Experts",
+    description:
+      "Home Experts delivers reliable home maintenance, renovation, and interior solutions across the UAE.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/about`,
+    type: "website",
+    images: [
+      {
+        url: "/abouthero.JPG",
+        width: 1200,
+        height: 630,
+        alt: "About Home Experts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Home Experts",
+    description:
+      "Home Experts delivers reliable home maintenance and renovation solutions across the UAE.",
+    images: ["/abouthero.JPG"],
+  },
+};
+
 const values = [
   {
     icon: Handshake,
@@ -79,9 +110,22 @@ const milestones = [
 export default function About() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "About Home Experts",
+            description:
+              "Home Experts delivers reliable home maintenance and renovation solutions across the UAE.",
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/about`,
+          }),
+        }}
+      />
       <PageHero
-        title="About Home Experts"
-        titleAccent="Home Experts"
+        title="About Us"
+
         subtitle="Reliable home maintenance professionals delivering trusted AC, plumbing, electrical, cleaning, and repair services across the UAE with a focus on quality, speed, and customer care."
         video="/aboutvideo.mp4"
         image="/abouthero.JPG"
@@ -125,6 +169,7 @@ export default function About() {
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 40vw, 100vw"
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>
@@ -147,10 +192,12 @@ export default function About() {
               {/* The main image container with teal side accent */}
               <div className="relative left-0 top-0 aspect-square h-full w-[90%] overflow-hidden rounded-l-3xl border-l-[16px] border-[#3BBFBF]">
                 <Image
-                  src="/story.JPG" // replace with your image path
+                  src="/career.jpeg" // replace with your image path
                   alt="Handyman performing home maintenance"
                   fill
+                  sizes="(min-width: 1024px) 35vw, 90vw"
                   className="object-cover object-center"
+                  style={{ objectFit: "cover" }}
                 />
               </div>
 
