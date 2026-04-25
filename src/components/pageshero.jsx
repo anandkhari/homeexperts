@@ -41,7 +41,7 @@ export default function PageHero({
   };
 
   return (
-    <section className="relative flex h-[62vh] min-h-[500px] w-full items-center overflow-hidden bg-[#07111f]">
+    <section className="relative flex h-[62vh] min-h-[320px] w-full items-center overflow-hidden bg-[#07111f] md:min-h-[500px]">
       {/* Background media */}
       <div className="absolute inset-0 z-0">
         {video ? (

@@ -419,7 +419,7 @@ export default function AMCSection() {
         </div>
       </section>
 
-      <section className="bg-[#F8FAFC] py-24 px-6">
+      <section className="bg-[#F8FAFC] py-16 px-6 md:py-24">
         <div className="max-w-7xl mx-auto">
           {/* HEADER */}
           <div className="text-center mb-20">

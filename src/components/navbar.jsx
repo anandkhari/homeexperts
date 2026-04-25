@@ -132,6 +132,7 @@ export default function Navbar() {
   };
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 backdrop-blur-md ${
         scrolled
@@ -239,6 +240,7 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+    </header>
 
       {/* MOBILE MENU */}
       <div
@@ -399,6 +401,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

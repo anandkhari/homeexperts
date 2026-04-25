@@ -108,7 +108,7 @@ export default function ContactQuotePage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
             {/* LEFT COLUMN: THE FORM */}
-            <div className="relative overflow-hidden rounded-sm border border-gray-100 bg-white p-8 shadow-xl lg:col-span-8">
+            <div className="relative overflow-hidden rounded-sm border border-gray-100 bg-white p-4 shadow-xl md:p-8 lg:col-span-8">
               <div className="absolute left-0 top-0 h-1.5 w-full bg-[#3BBFBF]" />
 
               <div className="mb-10 text-center">
@@ -263,7 +263,7 @@ export default function ContactQuotePage() {
             </div>
 
             {/* RIGHT COLUMN: SIDEBAR */}
-            <div className="relative overflow-hidden rounded-sm bg-[#2C3E6B] p-8 text-white shadow-2xl lg:col-span-4">
+            <div className="relative overflow-hidden rounded-sm bg-[#2C3E6B] p-4 text-white shadow-2xl md:p-8 lg:col-span-4">
               <div className="absolute -right-12 -top-12 h-32 w-32 bg-[#3BBFBF] opacity-20 blur-[60px]" />
 
               <p className="mb-8 text-sm font-medium text-white/70">

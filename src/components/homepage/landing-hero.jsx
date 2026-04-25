@@ -55,7 +55,7 @@ export default function LandingHero() {
             Premium home services, on demand
           </div>
 
-          <h1 className="mt-6 max-w-[11ch] text-5xl font-semibold leading-[0.95] tracking-[-0.06em] text-white sm:text-6xl lg:text-8xl">
+          <h1 className="mt-6 max-w-[11ch] text-3xl font-semibold leading-[0.95] tracking-[-0.06em] text-white sm:text-5xl lg:text-8xl">
             Find Trusted Home Experts Instantly
           </h1>
 

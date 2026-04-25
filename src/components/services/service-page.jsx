@@ -231,7 +231,7 @@ function QuoteActions({ primaryLabel = "Get a Quote", className = "", theme = "d
 
   return (
     <div className={`flex flex-wrap gap-4 ${className}`}>
-      <Link href="/quote" className={primaryBtnClass}>
+      <Link href="/contact" className={primaryBtnClass}>
         {primaryLabel}
       </Link>
       <a
@@ -330,7 +330,7 @@ function TrustSection({ service }) {
   return (
     <section className="bg-[#F7FAFD] px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-        <div className="relative h-[500px] w-full overflow-hidden rounded-[16px] md:h-[420px]">
+        <div className="relative h-[280px] w-full overflow-hidden rounded-[16px] md:h-[420px]">
           <Image
             src={service.trustImage || "/abouthero.jpg"}
             alt={service.trustImageAlt || "Service Trust"}

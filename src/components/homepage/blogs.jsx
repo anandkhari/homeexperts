@@ -21,7 +21,7 @@ export default async function Blogs() {
       <section className="bg-[#F4F6F9] px-4 py-16 md:px-20 md:py-24">
         <div className="mx-auto max-w-[1440px]">
           <Reveal className="mx-auto max-w-[980px] text-center" y={24} blur={14}>
-            <p className="text-5xl font-medium  leading-none tracking-[0.03em] text-[#2C3E6B]">
+            <p className="text-3xl font-medium leading-none tracking-[0.03em] text-[#2C3E6B] md:text-5xl">
               Our Blogs
             </p>
             <div className="mx-auto mt-6 h-2 w-28 bg-[#3BBFBF] md:w-48" />
@@ -41,7 +41,7 @@ export default async function Blogs() {
     <section className="bg-[#F4F6F9] px-4 py-16 md:px-20 md:py-24">
       <div className="mx-auto max-w-[1440px]">
         <Reveal className="mx-auto max-w-[980px] text-center" y={24} blur={14}>
-          <p className="text-5xl font-medium  leading-none tracking-[0.03em] text-[#2C3E6B]">
+          <p className="text-3xl font-medium leading-none tracking-[0.03em] text-[#2C3E6B] md:text-5xl">
             Our Blogs
           </p>
           <div className="mx-auto mt-6 h-2 w-28 bg-[#3BBFBF] md:w-48" />

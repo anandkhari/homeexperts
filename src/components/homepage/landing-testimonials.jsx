@@ -19,30 +19,7 @@ export default function LandingTestimonials() {
           </h2>
         </Reveal>
 
-        {/* Google aggregate badge */}
-        <Reveal
-          className="mt-8 flex items-center justify-center gap-2"
-          y={16}
-          blur={10}
-          delay={60}
-        >
-          <img
-            src="https://www.google.com/favicon.ico"
-            alt="Google"
-            width={18}
-            height={18}
-            className="rounded-sm"
-          />
-          <span className="text-sm font-semibold text-[#1e3156]">
-            Google Reviews
-          </span>
-          <span className="flex items-center gap-0.5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="h-3.5 w-3.5 fill-[#f5a623] text-[#f5a623]" />
-            ))}
-          </span>
-          <span className="text-sm text-[#617086]">5.0 · 596 reviews</span>
-        </Reveal>
+      
 
         {/* Elfsight Widget */}
         <Script

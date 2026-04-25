@@ -246,17 +246,17 @@ export default function About() {
               {/* Primary & Secondary Buttons */}
               <div className="flex flex-wrap gap-4 mt-10">
                 <Link
-                  href="/our-team"
+                  href="/services"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-[#3BBFBF] bg-[#3BBFBF] px-7 py-3 text-xs font-extrabold uppercase tracking-widest text-white transition hover:bg-[#3BBFBF]/90"
                 >
-                  Meet Our Team
+                  Our Services
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="/reviews"
+                  href="/contact"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-[#2C3E6B] bg-transparent px-7 py-3 text-xs font-extrabold uppercase tracking-widest text-[#2C3E6B] transition hover:bg-[#2C3E6B] hover:text-white"
                 >
-                  Client Reviews
+                  Contact Us
                 </Link>
               </div>
             </div>

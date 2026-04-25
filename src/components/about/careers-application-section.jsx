@@ -196,7 +196,7 @@ export default function CareersApplicationSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-[#3BBFBF] px-8 py-3 text-xs font-black uppercase tracking-widest text-white transition-all hover:bg-[#2da9a9] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
+                className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-[#3BBFBF] px-8 py-4 text-xs font-black uppercase tracking-widest text-white transition-all hover:bg-[#2da9a9] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? "Submitting..." : "Apply Now"}
                 {!isSubmitting && (

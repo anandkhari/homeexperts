@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* HEADER SECTION */}
-      <div className="relative h-[50vh] w-full min-h-[400px]">
+      <div className="relative h-[50vh] w-full min-h-[280px] md:min-h-[400px]">
         <Image
           src={post.cover_image || "https://images.pexels.com/photos/4421160/pexels-photo-4421160.jpeg"}
           alt={post.title}

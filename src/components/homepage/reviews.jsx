@@ -58,7 +58,7 @@ export default function Reviews() {
         <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-[#2C3E6B]/8 blur-[100px]" />
       </div>
 
-      <div className="relative mx-auto px-24 max-w-[1440px]">
+      <div className="relative mx-auto px-4 md:px-12 lg:px-24 max-w-[1440px]">
 
         {/* ── Header ── */}
         <div className="mb-14 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">

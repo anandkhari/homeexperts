@@ -554,7 +554,7 @@ export const COIL_CLEANING_SERVICE = createServicePage({
 export const EMERGENCY_SERVICE = createServicePage({
   title: "Emergency Maintenance Services",
   category: "Emergency Support",
-  heroImage: "/emergency-maintenance.jpg",
+  heroImage: "/emergency-maintenance.jpeg",
   heroDescription:
     "Unexpected breakdowns can disrupt your home or business at any time. Our team responds quickly to resolve urgent issues safely and efficiently.",
   introTitle: "Fast response when you need it most",

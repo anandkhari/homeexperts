@@ -121,7 +121,7 @@ export default function PackagesPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="group relative flex flex-col rounded-[2.5rem] border border-gray-100 bg-white p-10 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#3BBFBF]/30 hover:shadow-[0_20px_50px_rgba(44,62,107,0.1)]"
+                className="group relative flex flex-col rounded-[2.5rem] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#3BBFBF]/30 hover:shadow-[0_20px_50px_rgba(44,62,107,0.1)] md:p-10"
               >
                 {/* Icon Container */}
                 <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8FAFC] text-[#2C3E6B] transition-colors duration-500 group-hover:bg-[#3BBFBF] group-hover:text-white">
