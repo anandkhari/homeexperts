@@ -13,13 +13,22 @@ const footerColumns = [
   {
     title: "Services",
     links: [
-      { label: "AC Servicing", href: "/services/ac-servicing-repair-replacement" },
+      {
+        label: "AC Servicing",
+        href: "/services/ac-servicing-repair-replacement",
+      },
       { label: "Electrical", href: "/services/electrical-plumbing-services" },
       { label: "Plumbing", href: "/services/electrical-plumbing-services" },
       { label: "Handyman", href: "/services/handyman-services" },
       { label: "Water Tank Cleaning", href: "/services/water-tank-cleaning" },
-      { label: "Duct & Coil Cleaning", href: "/services/ac-duct-coil-cleaning" },
-      { label: "Pet Housing Solutions", href: "/services/pet-housing-solutions" },
+      {
+        label: "Duct & Coil Cleaning",
+        href: "/services/ac-duct-coil-cleaning",
+      },
+      {
+        label: "Pet Housing Solutions",
+        href: "/services/pet-housing-solutions",
+      },
     ],
   },
   {
@@ -30,24 +39,35 @@ const footerColumns = [
       { label: "Services", href: "/services" },
       { label: "AMC Packages", href: "/packages" },
       { label: "Contact", href: "/contact" },
-      
     ],
   },
   {
     title: "Support",
     links: [
       { label: "Get a Quote", href: "/contact" },
-    
+
       { label: "Service Areas", href: "/services" },
-      { label: "Privacy Policy", href: "/legal" },
+      { label: "Terms & Conditions", href: "/legal" },
     ],
   },
 ];
 
 const socialLinks = [
-  { icon: <FaFacebookF />, href: "https://www.facebook.com/share/1AzprnA2DP/", label: "Facebook" },
-  { icon: <FaInstagram />, href: "https://www.instagram.com/homeexpertsuae?igsh=aW84Zm5saDM2aWZn", label: "Instagram" },
-  { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/company/home_experts/", label: "LinkedIn" },
+  {
+    icon: <FaFacebookF />,
+    href: "https://www.facebook.com/share/1AzprnA2DP/",
+    label: "Facebook",
+  },
+  {
+    icon: <FaInstagram />,
+    href: "https://www.instagram.com/homeexpertsuae?igsh=aW84Zm5saDM2aWZn",
+    label: "Instagram",
+  },
+  {
+    icon: <FaLinkedinIn />,
+    href: "https://www.linkedin.com/company/home_experts/",
+    label: "LinkedIn",
+  },
   { icon: <FaYoutube />, href: "", label: "YouTube" },
 ];
 
@@ -56,7 +76,6 @@ export default function Footer() {
     <footer className="bg-[#2C3E6B]">
       <div className="mx-auto max-w-[1440px] px-4 pb-10 pt-16 md:px-6 md:pt-20">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.6fr]">
-
           {/* Brand column */}
           <div className="space-y-7">
             {/* <Link href="/">
@@ -80,7 +99,7 @@ export default function Footer() {
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#3BBFBF] transition group-hover:border-[#3BBFBF] group-hover:bg-[#3BBFBF] group-hover:text-white">
                   <HiOutlinePhone className="text-sm" />
                 </span>
-               +971 554753102
+                +971 554753102
               </a>
               <a
                 href="mailto:helpdesk@homeexperts.ae"
@@ -89,7 +108,7 @@ export default function Footer() {
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#3BBFBF] transition group-hover:border-[#3BBFBF] group-hover:bg-[#3BBFBF] group-hover:text-white">
                   <HiOutlineEnvelope className="text-sm" />
                 </span>
-               helpdesk@homeexperts.ae
+                helpdesk@homeexperts.ae
               </a>
             </div>
           </div>
@@ -123,11 +142,20 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 sm:flex-row">
-          <p className="text-[0.8rem] font-medium text-white/30">
-            &copy; {new Date().getFullYear()} Home Experts UAE. All rights reserved.
+          {/* Left — operated by */}
+          <p className="text-sm text-white/20 order-2 sm:order-1">
+            Home experts is operated by{" "}
+            <span className="text-white/30">Azcon Infra Pvt Ltd</span>
           </p>
 
-          <div className="flex items-center gap-2">
+          {/* Center — copyright */}
+          <p className="text-[0.8rem] font-medium text-white/30 order-1 sm:order-2 text-center">
+            &copy; {new Date().getFullYear()} Home Experts UAE. All rights
+            reserved.
+          </p>
+
+          {/* Right — social icons */}
+          <div className="flex items-center gap-2 order-3">
             {socialLinks.map((social) => (
               <Link
                 key={social.label}
