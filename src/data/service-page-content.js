@@ -33,23 +33,23 @@ const routeCards = {
     catalogBySlug["ac-servicing-repair-replacement"] ||
     fallbackCard({
       title: "AC Servicing, Repair & Replacement",
-      href: "/services/ac",
+      href: "/services/ac-servicing-repair-replacement",
       slug: "ac-servicing-repair-replacement",
       image: "/ac_repair.jpg",
       description: "Cooling repairs, servicing, and replacement guidance for homes and businesses.",
     }),
   electrical: fallbackCard({
-    title: "Electrical",
-    href: "/services/electrical",
-    slug: "electrical",
+    title: "Electrical & Plumbing Services",
+    href: "/services/electrical-plumbing-services",
+    slug: "electrical-plumbing-services",
     image: "/electrical.jpg",
     description: "Safe troubleshooting, repairs, and installation work for common electrical issues.",
     keywords: ["electrical", "wiring", "power", "lights", "sockets"],
   }),
   plumbing: fallbackCard({
-    title: "Plumbing",
-    href: "/services/plumbing",
-    slug: "plumbing",
+    title: "Electrical & Plumbing Services",
+    href: "/services/electrical-plumbing-services",
+    slug: "electrical-plumbing-services",
     image: "/plumbing.jpeg",
     description: "Leak repairs, fixture work, and practical plumbing support for everyday problems.",
     keywords: ["plumbing", "leaks", "water", "pipes", "fixtures"],
@@ -58,7 +58,7 @@ const routeCards = {
     catalogBySlug["painting-works"] ||
     fallbackCard({
       title: "Painting Works",
-      href: "/services/painting",
+      href: "/services/painting-works",
       slug: "painting-works",
       image: "/painting.jpeg",
       description: "Clean, professional interior and exterior painting with durable finishes.",
@@ -67,7 +67,7 @@ const routeCards = {
     catalogBySlug["handyman-services"] ||
     fallbackCard({
       title: "Handyman Services",
-      href: "/services/handyman",
+      href: "/services/handyman-services",
       slug: "handyman-services",
       image: "/handyman.jpeg",
       description: "Reliable help for mounting, minor repairs, adjustments, and general fixes.",
@@ -81,22 +81,98 @@ const routeCards = {
       image: "/watertankcleaning.jpg",
       description: "Professional cleaning and sanitization to support safer stored water.",
     }),
-  ductCleaning: fallbackCard({
-    title: "Duct Cleaning",
-    href: "/services/duct-cleaning",
-    slug: "duct-cleaning",
-    image: "/duct-cleaning.jpg",
-    description: "Duct cleaning to improve airflow and support cleaner indoor air.",
-    keywords: ["duct", "cleaning", "air quality", "airflow"],
-  }),
-  coilCleaning: fallbackCard({
-    title: "Coil Cleaning",
-    href: "/services/coil-cleaning",
-    slug: "coil-cleaning",
-    image: "/coilcleaning.jpg",
-    description: "Coil cleaning that helps AC systems cool more efficiently.",
-    keywords: ["coil", "cleaning", "ac", "cooling"],
-  }),
+  ductCleaning:
+    catalogBySlug["ac-duct-coil-cleaning"] ||
+    fallbackCard({
+      title: "AC Duct & Coil Cleaning",
+      href: "/services/ac-duct-coil-cleaning",
+      slug: "ac-duct-coil-cleaning",
+      image: "/duct-cleaning.jpg",
+      description: "Duct and coil cleaning to improve airflow and support cleaner indoor air.",
+      keywords: ["duct", "coil", "cleaning", "air quality", "airflow"],
+    }),
+  coilCleaning:
+    catalogBySlug["ac-duct-coil-cleaning"] ||
+    fallbackCard({
+      title: "AC Duct & Coil Cleaning",
+      href: "/services/ac-duct-coil-cleaning",
+      slug: "ac-duct-coil-cleaning",
+      image: "/duct-cleaning.jpg",
+      description: "Coil and duct cleaning that helps AC systems cool more efficiently.",
+      keywords: ["coil", "duct", "cleaning", "ac", "cooling"],
+    }),
+  waterproofing:
+    catalogBySlug["waterproofing"] ||
+    fallbackCard({
+      title: "Waterproofing",
+      href: "/services/waterproofing",
+      slug: "waterproofing",
+      image: "/waterproofing.png",
+      description: "Specialized waterproofing for roofs, bathrooms, and balconies.",
+    }),
+  pestControl:
+    catalogBySlug["pestcontrol"] ||
+    fallbackCard({
+      title: "Pest Control",
+      href: "/services/pestcontrol",
+      slug: "pestcontrol",
+      image: "/pestcontrol.jpeg",
+      description: "Targeted pest treatment and preventive follow-up for homes and facilities.",
+    }),
+  renovation:
+    catalogBySlug["renovation-works"] ||
+    fallbackCard({
+      title: "Renovation Works",
+      href: "/services/renovation-works",
+      slug: "renovation-works",
+      image: "/home-renovation.jpg",
+      description: "Complete remodeling support covering planning, upgrades, and finishes.",
+    }),
+  landscaping:
+    catalogBySlug["landscaping-hardscaping"] ||
+    fallbackCard({
+      title: "Landscaping & Hardscaping",
+      href: "/services/landscaping-hardscaping",
+      slug: "landscaping-hardscaping",
+      image: "/landscape.jpg",
+      description: "Outdoor upgrades including planting, paving, pathways, and garden features.",
+    }),
+  glassAluminium:
+    catalogBySlug["glass-aluminium-carpentry-works"] ||
+    fallbackCard({
+      title: "Glass, Aluminium & Carpentry Works",
+      href: "/services/glass-aluminium-carpentry-works",
+      slug: "glass-aluminium-carpentry-works",
+      image: "/carpentry.jpg",
+      description: "Custom fabrication and installation of glass systems, aluminium frames, and woodwork.",
+    }),
+  smartHome:
+    catalogBySlug["smart-home-installation"] ||
+    fallbackCard({
+      title: "Smart Home Installation",
+      href: "/services/smart-home-installation",
+      slug: "smart-home-installation",
+      image: "/cctv.jpg",
+      description: "Full setup for CCTV, automation controls, and connected smart home systems.",
+    }),
+  solar:
+    catalogBySlug["solar-panel-installation-maintenance"] ||
+    fallbackCard({
+      title: "Solar Panel Installation & Maintenance",
+      href: "/services/solar-panel-installation-maintenance",
+      slug: "solar-panel-installation-maintenance",
+      image: "/solarpanel.jpg",
+      description: "Professional installation and maintenance of solar panels for sustainable energy.",
+    }),
+  petHousing:
+    catalogBySlug["pet-housing-solutions"] ||
+    fallbackCard({
+      title: "Pet Housing Solutions",
+      href: "/services/pet-housing-solutions",
+      slug: "pet-housing-solutions",
+      image: "/pet-housing.jpeg",
+      description: "Custom-designed pet housing focused on comfort and durability.",
+    }),
 };
 
 function createServicePage(service) {
@@ -188,7 +264,7 @@ faqs: [
     answer: "Most well-maintained central air systems typically last between 15 to 20 years, though coastal environments can shorten this due to salt corrosion." 
   },
 ],
-  relatedServices: [routeCards.ductCleaning, routeCards.coilCleaning, routeCards.electrical],
+  relatedServices: [routeCards.ductCleaning, routeCards.electrical, routeCards.waterTankCleaning],
 });
 
 export const ELECTRICAL_SERVICE = createServicePage({
@@ -372,7 +448,7 @@ export const PAINTING_SERVICE = createServicePage({
       answer: "We can provide high-quality paint based on your choice, or we can work with materials you have already purchased." 
     },
   ],
-  relatedServices: [routeCards.handyman, routeCards.plumbing, routeCards.electrical],
+  relatedServices: [routeCards.handyman, routeCards.electrical, routeCards.renovation],
 });
 
 export const HANDYMAN_SERVICE = createServicePage({
@@ -427,7 +503,7 @@ export const HANDYMAN_SERVICE = createServicePage({
       answer: "Absolutely. We can quickly and correctly assemble flat-pack furniture from any major retailer, ensuring it is structurally sound and level." 
     },
   ],
-  relatedServices: [routeCards.painting, routeCards.electrical, routeCards.plumbing],
+  relatedServices: [routeCards.painting, routeCards.electrical, routeCards.renovation],
 });
 
 export const WATER_TANK_CLEANING_SERVICE = createServicePage({
@@ -602,10 +678,10 @@ faqs: [
   },
   { 
     question: "Is there an additional fee for emergency callouts?", 
-    answer: "Emergency services may involve a priority dispatch fee, which covers the immediate mobilization of resources to stabilize your situation as quickly as possible." 
+    answer: "Emergency services may involve a priority dispatch fee, which covers the immediate mobilization of resources to stabilize your situation as quickly as possible."
   },
 ],
-  relatedServices: [routeCards.ac, routeCards.electrical, routeCards.plumbing],
+  relatedServices: [routeCards.ac, routeCards.electrical, routeCards.waterTankCleaning],
 });
 
 export const DUCT_COIL_CLEANING_SERVICE = createServicePage({
@@ -664,10 +740,10 @@ export const DUCT_COIL_CLEANING_SERVICE = createServicePage({
     },
     { 
       question: "How long does a standard cleaning take?", 
-      answer: "Depending on the size of the property, a thorough deep clean typically takes between 3 to 5 hours." 
+      answer: "Depending on the size of the property, a thorough deep clean typically takes between 3 to 5 hours."
     },
   ],
-  relatedServices: [routeCards.ac, routeCards.electrical, routeCards.plumbing],
+  relatedServices: [routeCards.ac, routeCards.electrical, routeCards.waterTankCleaning],
 });
 
 
@@ -728,10 +804,10 @@ export const ELECTRICAL_PLUMBING_SERVICE = createServicePage({
     },
     { 
       question: "What is included in a general MEP inspection?", 
-      answer: "We check breaker panels, grounding, pipe integrity, and fixture performance to ensure everything is up to code." 
+      answer: "We check breaker panels, grounding, pipe integrity, and fixture performance to ensure everything is up to code."
     },
   ],
-  relatedServices: [routeCards.ac, routeCards.electrical, routeCards.plumbing],
+  relatedServices: [routeCards.ac, routeCards.electrical, routeCards.handyman],
 });
 
 export const WATERPROOFING_SERVICE = createServicePage({
