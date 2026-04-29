@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { ArrowLeft, Save, Globe, Image as ImageIcon, AlertCircle, Clock } from "lucide-react";
+import { ArrowLeft, Save, Globe, Image as ImageIcon, AlertCircle, Clock, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { ALL_SERVICES } from "@/data/all-services";
 
 export default function EditBlogPost() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function EditBlogPost() {
   const [coverImage, setCoverImage] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [published, setPublished] = useState(false);
+  const [category, setCategory] = useState("general");
 
   useEffect(() => {
     if (!postId) return;
@@ -48,6 +50,7 @@ export default function EditBlogPost() {
         setContent(data.content || "");
         setCoverImage(data.cover_image || "");
         setPublished(Boolean(data.published));
+        setCategory(data.category || "general");
       } catch (err) {
         console.error("Failed to load post:", err);
         setNotFound(true);
@@ -93,6 +96,7 @@ export default function EditBlogPost() {
           excerpt,
           content,
           cover_image: nextCoverImage,
+          category,
           published
         })
         .eq("id", postId);
@@ -199,6 +203,25 @@ export default function EditBlogPost() {
                 value={excerpt}
                 onChange={(e) => setExcerpt(e.target.value)}
               />
+            </div>
+
+            {/* CATEGORY */}
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">Service Category</label>
+              <div className="relative">
+                <select
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="w-full appearance-none border-2 border-gray-100 rounded-2xl text-sm font-bold text-[#2C3E6B] px-6 py-4 focus:outline-none focus:border-[#3BBFBF] transition-all cursor-pointer bg-white"
+                >
+                  <option value="general">General / Home Tips</option>
+                  <option value="uae-lifestyle">UAE Lifestyle</option>
+                  {ALL_SERVICES.map((s) => (
+                    <option key={s.slug} value={s.slug}>{s.title}</option>
+                  ))}
+                </select>
+                <ChevronRight size={16} className="absolute right-6 top-1/2 -translate-y-1/2 text-[#3BBFBF] rotate-90 pointer-events-none" />
+              </div>
             </div>
 
             {/* COVER IMAGE */}

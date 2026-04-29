@@ -11,7 +11,7 @@ export default async function Blogs() {
     .select("id, slug, title, cover_image, created_at, excerpt, category")
     .eq("published", true)
     .order("created_at", { ascending: false })
-    .limit(3);
+    .limit(4);
 
   const posts = data || [];
   const loading = false;

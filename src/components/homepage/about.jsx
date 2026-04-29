@@ -105,14 +105,7 @@ export default function About() {
                     </p>
                   </div>
                   <div className="h-8 w-px bg-white/15" />
-                  <div>
-                    <p className="text-2xl font-black leading-none text-white">
-                      4.8★
-                    </p>
-                    <p className="mt-1 text-[0.7rem] text-white/60">
-                      google rating
-                    </p>
-                  </div>
+                
                 </div>
               </div>
             </div>

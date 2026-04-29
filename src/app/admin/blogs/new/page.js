@@ -11,6 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import { ALL_SERVICES } from "@/data/all-services";
 
 export default function NewBlogPost() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function NewBlogPost() {
   const [imageFile, setImageFile] = useState(null);
   const [published, setPublished] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [category, setCategory] = useState("maintenance");
+  const [category, setCategory] = useState("general");
 
   const generateSlug = (text) =>
     text
@@ -83,10 +84,9 @@ export default function NewBlogPost() {
   };
 
   const blogCategories = [
-    { id: "ac-tips", name: "AC & Cooling" },
-    { id: "maintenance", name: "Home Maintenance" },
-    { id: "safety", name: "Safety & Electrical" },
-    { id: "lifestyle", name: "UAE Lifestyle" },
+    { id: "general", name: "General / Home Tips" },
+    { id: "uae-lifestyle", name: "UAE Lifestyle" },
+    ...ALL_SERVICES.map((s) => ({ id: s.slug, name: s.title })),
   ];
 
   return (

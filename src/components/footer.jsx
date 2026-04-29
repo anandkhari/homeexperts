@@ -145,7 +145,7 @@ export default function Footer() {
           {/* Left — operated by */}
           <p className="text-sm text-white/20 order-2 sm:order-1">
             Home experts is operated by{" "}
-            <span className="text-white/30">Azcon Infra Pvt Ltd</span>
+            <span className="text-white/30">Azcon Infra Technical Services LLC</span>
           </p>
 
           {/* Center — copyright */}

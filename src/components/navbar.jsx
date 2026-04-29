@@ -134,10 +134,10 @@ export default function Navbar() {
   return (
     <>
     <header
-      className={`sticky top-0 z-50 backdrop-blur-md ${
+      className={`sticky top-0 z-50 bg-white ${
         scrolled
-          ? "bg-white/90 py-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
-          : "bg-white py-5"
+          ? "py-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+          : "py-5"
       }`}
       style={{
         transition: "padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease",

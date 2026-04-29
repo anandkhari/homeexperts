@@ -3,7 +3,7 @@ import { cache } from "react";
 import { createServerClient } from "@/lib/supabase/server";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Clock, Calendar, User, Share2 } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
 
 function toMetaDescription(excerpt, content) {
   const raw = excerpt || content || "";
@@ -164,17 +164,8 @@ export default async function BlogPostPage({ params }) {
               {post.content}
             </div>
 
-            {/* Footer / Share */}
-            <div className="mt-16 pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
-               <div className="flex items-center gap-4">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#5A6A8A]">Share this insight</span>
-                  <div className="flex gap-2">
-                    <button className="h-10 w-10 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#3BBFBF] hover:text-white transition-all">
-                      <Share2 size={16} />
-                    </button>
-                  </div>
-               </div>
-               
+            {/* Footer CTA */}
+            <div className="mt-16 pt-10 border-t border-gray-100 flex justify-end">
                <Link href="/contact" className="bg-[#2C3E6B] text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-[#3BBFBF] transition-all shadow-xl shadow-[#2C3E6B]/10">
                   Book A Professional Service
                </Link>
