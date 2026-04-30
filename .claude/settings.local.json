@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:mrfixer.ae)"
+      "WebFetch(domain:mrfixer.ae)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

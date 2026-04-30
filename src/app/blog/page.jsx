@@ -28,11 +28,6 @@ export default async function Blog() {
       
 
       <section className="relative px-4 py-16 md:px-6 md:py-20">
-        {/* Background Ambient Glows */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.03]">
-          <div className="absolute left-[-5%] top-20 h-96 w-96 rounded-full bg-[#3BBFBF] blur-[120px]" />
-          <div className="absolute bottom-20 right-[-5%] h-96 w-96 rounded-full bg-[#2C3E6B] blur-[120px]" />
-        </div>
 
         <div className="relative z-10 mx-auto max-w-7xl">
           {/* HEADER SECTION */}

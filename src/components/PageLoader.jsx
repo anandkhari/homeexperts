@@ -48,7 +48,7 @@ export default function PageLoader() {
           position: "fixed",
           inset: 0,
           zIndex: 9999,
-          backgroundColor: "#1e3156",
+          backgroundColor: "#F7FAFC",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -107,7 +107,7 @@ export default function PageLoader() {
               width: 140,
               height: 3,
               borderRadius: 999,
-              backgroundColor: "rgba(255,255,255,0.12)",
+              backgroundColor: "rgba(44,62,107,0.12)",
               overflow: "hidden",
             }}
           >

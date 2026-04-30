@@ -136,8 +136,8 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 bg-white ${
         scrolled
-          ? "py-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
-          : "py-5"
+          ? "py-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+          : "py-4"
       }`}
       style={{
         transition: "padding 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease",
@@ -152,8 +152,8 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Logo"
-            width={48}
-            height={36}
+            width={56}
+            height={56}
             className="h-10 w-auto md:h-11"
             style={{ height: "auto" }}
           />
@@ -234,9 +234,9 @@ export default function Navbar() {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F3F8FB] text-[#2C3E6B] transition-all duration-300 hover:bg-[#3BBFBF] hover:text-white lg:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3F8FB] text-[#2C3E6B] transition-all duration-300 hover:bg-[#3BBFBF] hover:text-white lg:hidden"
           >
-            {menuOpen ? <HiOutlineXMark size={20} /> : <HiBars3 size={20} />}
+            {menuOpen ? <HiOutlineXMark size={28} /> : <HiBars3 size={28} />}
           </button>
         </div>
       </div>
@@ -268,9 +268,9 @@ export default function Navbar() {
             <div className="flex items-center justify-between border-b border-[#EEF2F6] px-6 py-4">
               <Link href="/" onClick={closeMenu} className="block">
                 <Image
-                  src="/Logo_Home_Clear.png"
-                  width={60}
-                  height={40}
+                  src="/logo.png"
+                  width={64}
+                  height={48}
                   alt="Logo"
                   className="h-7 w-auto"
                   style={{ height: "auto" }}
@@ -288,14 +288,14 @@ export default function Navbar() {
 
             {/* content */}
             <div className="flex-1 overflow-y-auto px-6 py-6">
-              <div className="space-y-6">
+              <div className="divide-y divide-gray-400">
                 {navItems.map((item) => (
-                  <div key={item.label} className="border-b border-[#F2F4F7] pb-5">
+                  <div key={item.label} className="py-2">
                     {!item.children ? (
                       <Link
                         href={item.href}
                         onClick={closeMenu}
-                        className="text-lg font-black text-[#2C3E6B]"
+                        className="block w-full rounded-lg px-2 py-3 text-lg font-black text-[#2C3E6B] transition-colors hover:bg-[#F3F8FB]"
                       >
                         {item.label}
                       </Link>
@@ -308,7 +308,7 @@ export default function Navbar() {
                               prev === item.label ? null : item.label
                             )
                           }
-                          className="flex w-full items-center justify-between text-left text-lg font-black text-[#2C3E6B]"
+                          className="flex w-full items-center justify-between rounded-lg px-2 py-3 text-left text-lg font-black text-[#2C3E6B] transition-colors hover:bg-[#F3F8FB]"
                         >
                           <span>{item.label}</span>
                           <HiChevronDown
