@@ -48,6 +48,7 @@ const footerColumns = [
 
       { label: "Service Areas", href: "/services" },
       { label: "Terms & Conditions", href: "/legal" },
+      { label: "Privacy Policy", href: "/privacy" },
     ],
   },
 ];
