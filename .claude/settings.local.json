@@ -3,7 +3,13 @@
     "allow": [
       "WebFetch(domain:mrfixer.ae)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(node -e \"console.log\\(require\\('./package.json'\\).dependencies.next\\)\")",
+      "Bash(ls next.config.*)",
+      "Bash(cat next.config.*)",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{try{const j=JSON.parse\\(d\\);console.log\\(Object.keys\\(j.routes||{}\\)\\);console.log\\('---dynamicRoutes---'\\);console.log\\(Object.keys\\(j.dynamicRoutes||{}\\)\\);}catch\\(e\\){console.log\\('parse err',e.message\\)}}\\)\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{try{const j=JSON.parse\\(d\\);console.log\\(JSON.stringify\\(j.dynamicRoutes||[],null,1\\).slice\\(0,500\\)\\)}catch\\(e\\){console.log\\(e.message\\)}}\\)\")",
+      "Bash(cd \"d:/web design projects/homeexperts\" && rm -rf .next/prerender-manifest.json 2>/dev/null; timeout 180 npx next build 2>&1 | tail -40)"
     ]
   }
 }

@@ -29,14 +29,7 @@ const getPublishedPostBySlug = cache(async (slug) => {
   return data;
 });
 
-export async function generateStaticParams() {
-  const serverSupabase = createServerClient();
-  const { data } = await serverSupabase
-    .from("blog_posts")
-    .select("slug")
-    .eq("published", true);
-  return (data || []).map((post) => ({ slug: post.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
