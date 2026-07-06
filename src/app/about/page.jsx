@@ -236,7 +236,7 @@ export default function About() {
                   Through thousands of jobs, countless referrals, and over a
                   decade of hard-earned trust, we've remained committed to one
                   thing: doing the job right. Not just fast. Not just cheap.
-                  Right. That's the standard we set in 2008 — and the one we
+                  Right. That's the standard we set in 2014 — and the one we
                   hold ourselves to every single day.
                 </p>
               </div>

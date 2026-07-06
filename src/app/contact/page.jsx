@@ -267,7 +267,7 @@ export default function ContactQuotePage() {
               <div className="absolute -right-12 -top-12 h-32 w-32 bg-[#3BBFBF] opacity-20 blur-[60px]" />
 
               <p className="mb-8 text-sm font-medium text-white/70">
-                UAE&apos;s premium home maintenance partner since 2008.
+                UAE&apos;s premium home maintenance partner since 2014.
               </p>
 
               <div className="mb-10 space-y-4">
