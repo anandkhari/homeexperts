@@ -72,7 +72,7 @@ a {
   position: absolute;
   inset: -120% auto -120% -35%;
   width: 35%;
-  transform: rotate(18deg);
+  transform: translateX(0%) rotate(18deg);
   background: linear-gradient(
     90deg,
     transparent,
@@ -81,6 +81,7 @@ a {
   );
   animation: shine-sweep 6.5s linear infinite;
   pointer-events: none;
+  will-change: transform;
 }
 
 @keyframes float-soft {
@@ -115,10 +116,10 @@ a {
 
 @keyframes shine-sweep {
   0% {
-    left: -45%;
+    transform: translateX(0%) rotate(18deg);
   }
   100% {
-    left: 135%;
+    transform: translateX(514.29%) rotate(18deg);
   }
 }
 

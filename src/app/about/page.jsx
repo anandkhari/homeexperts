@@ -32,7 +32,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/abouthero.JPG",
+        url: "/abouthero.jpg",
         width: 1200,
         height: 630,
         alt: "About Home Experts",
@@ -44,7 +44,7 @@ export const metadata = {
     title: "About Us | Home Experts",
     description:
       "Home Experts delivers reliable home maintenance and renovation solutions across the UAE.",
-    images: ["/abouthero.JPG"],
+    images: ["/abouthero.jpg"],
   },
 };
 
@@ -128,7 +128,7 @@ export default function About() {
 
         subtitle="Reliable home maintenance professionals delivering trusted AC, plumbing, electrical, cleaning, and repair services across the UAE with a focus on quality, speed, and customer care."
         video="/aboutvideo.mp4"
-        image="/abouthero.JPG"
+        image="/abouthero.jpg"
         imageAlt="Home Experts team at work"
       />
       <section className="bg-white px-4 py-16 md:px-6 md:pb-8 md:pt-20">

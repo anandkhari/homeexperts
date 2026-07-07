@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --version)",
+      "PowerShell(Get-Command choco,winget,ffmpeg -ErrorAction SilentlyContinue)",
+      "Bash(winget install *)",
+      "Bash(/c/Users/guestacc/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.2-full_build/bin/ffmpeg.exe -y -i hero.webm -vf scale=1280:720 -c:v libvpx-vp9 -crf 36 -b:v 0 -deadline good -cpu-used 2 -pix_fmt yuv420p -an hero-compressed.webm)",
+      "Bash(/c/Users/guestacc/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.2-full_build/bin/ffmpeg.exe -y -i hero.webm -vf scale=960:540 -c:v libvpx-vp9 -crf 42 -b:v 0 -deadline good -cpu-used 2 -pix_fmt yuv420p -an hero-compressed-v2.webm)",
+      "Bash(/c/Users/guestacc/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.2-full_build/bin/ffmpeg.exe -y -i aboutvideo.mp4 -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -an aboutvideo-compressed.mp4)",
+      "Bash(/c/Users/guestacc/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.2-full_build/bin/ffmpeg.exe -y -i aboutvideo.mp4 -c:v libx264 -crf 22 -preset slow -pix_fmt yuv420p -an aboutvideo-compressed-hq.mp4)",
+      "Bash(node \"C:\\\\Users\\\\guestacc\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--web-design-projects-homeexperts\\\\a1c31bed-961b-4ab4-a779-95455f34c8f3\\\\scratchpad\\\\compress-images.mjs\")",
+      "Bash(git check-ignore *)",
+      "Bash(rm -f hero.webm hero-compressed.webm)",
+      "Bash(mv hero-compressed-v2.webm hero.webm)",
+      "Bash(rm -f aboutvideo.mp4 aboutvideo-compressed-hq.mp4)",
+      "Bash(mv aboutvideo-compressed.mp4 aboutvideo.mp4)",
+      "Bash(rm -f abouthero.jpg)"
+    ]
+  }
+}
