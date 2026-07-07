@@ -16,7 +16,21 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
-  const routes = ["", "/about", "/services", "/packages", "/blog", "/contact"].map((route) => ({
+  const routes = [
+    "",
+    "/about",
+    "/services",
+    "/packages",
+    "/packages/residential",
+    "/packages/commercial",
+    "/packages/events",
+    "/blog",
+    "/contact",
+    "/quote",
+    "/gallery",
+    "/privacy",
+    "/legal",
+  ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "monthly",

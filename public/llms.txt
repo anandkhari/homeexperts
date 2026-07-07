@@ -1,0 +1,30 @@
+# Home Experts
+
+Home Experts is a home maintenance and repair company based in Dubai, UAE, operating since 2014. It provides both on-demand and contracted (AMC) maintenance services for homes, offices, and events, covering AC servicing, electrical and plumbing work, waterproofing, pest control, renovation, painting, handyman work, water tank cleaning, landscaping, carpentry and glass/aluminium work, smart home installation, solar panel installation, and pet housing solutions.
+
+## Key pages
+
+- [Home](https://homeexperts.ae/): Overview of Home Experts and its home maintenance services in Dubai.
+- [Services](https://homeexperts.ae/services): Directory of all individual maintenance services offered.
+- [Emergency Maintenance Services](https://homeexperts.ae/services/emergency-maintenance-services): Rapid-response maintenance for urgent faults that need immediate professional attention 24/7.
+- [AC Servicing, Repair & Replacement](https://homeexperts.ae/services/ac-servicing-repair-replacement): Routine servicing, diagnostics, and full unit replacements for AC systems.
+- [AC Duct & Coil Cleaning](https://homeexperts.ae/services/ac-duct-coil-cleaning): Deep cleaning of ducts and coils to improve airflow, indoor air quality, and system efficiency.
+- [Electrical & Plumbing Services](https://homeexperts.ae/services/electrical-plumbing-services): Certified MEP support for electrical troubleshooting, leak fixes, fixture installations, and system upgrades.
+- [Waterproofing](https://homeexperts.ae/services/waterproofing): Waterproofing for roofs, bathrooms, and balconies to prevent seepage and long-term damage.
+- [Pest Control](https://homeexperts.ae/services/pestcontrol): Targeted pest treatment programs and preventive follow-up support for homes and facilities.
+- [Renovation Works](https://homeexperts.ae/services/renovation-works): Remodeling support covering planning, structural upgrades, and high-end finishes.
+- [Painting Works](https://homeexperts.ae/services/painting-works): Interior and exterior painting services with premium finishes.
+- [Handyman Services](https://homeexperts.ae/services/handyman-services): Support for minor repairs, fittings, and general home improvement tasks.
+- [Water Tank Cleaning](https://homeexperts.ae/services/water-tank-cleaning): Water tank cleaning and sanitization to ensure stored water is safe and hygienic.
+- [Landscaping & Hardscaping](https://homeexperts.ae/services/landscaping-hardscaping): Outdoor upgrades including planting layouts, paving, pathways, and garden structural elements.
+- [Glass, Aluminium & Carpentry Works](https://homeexperts.ae/services/glass-aluminium-carpentry-works): Fabrication and installation of glass systems, aluminium frames, and woodwork.
+- [Smart Home Installation](https://homeexperts.ae/services/smart-home-installation): Setup for CCTV security, smart automation controls, and connected home systems.
+- [Solar Panel Installation & Maintenance](https://homeexperts.ae/services/solar-panel-installation-maintenance): Installation and periodic maintenance of solar panels.
+- [Pet Housing Solutions](https://homeexperts.ae/services/pet-housing-solutions): Custom-designed pet housing and utility-friendly setups.
+- [AMC Packages](https://homeexperts.ae/packages): Overview of annual maintenance contract packages for residential, commercial, and event properties.
+- [Residential AMC](https://homeexperts.ae/packages/residential): Annual maintenance packages for villas and apartments.
+- [Commercial AMC](https://homeexperts.ae/packages/commercial): Annual maintenance coverage for offices, retail units, and commercial spaces.
+- [Event & Activation AMC](https://homeexperts.ae/packages/events): On-site maintenance support for event installations and activations.
+- [Blog](https://homeexperts.ae/blog): Articles on home maintenance, repairs, and renovation.
+- [About](https://homeexperts.ae/about): Background information about Home Experts.
+- [Contact](https://homeexperts.ae/contact): Contact details and service request form.

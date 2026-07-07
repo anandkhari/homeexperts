@@ -14,7 +14,12 @@
       "Bash(mv hero-compressed-v2.webm hero.webm)",
       "Bash(rm -f aboutvideo.mp4 aboutvideo-compressed-hq.mp4)",
       "Bash(mv aboutvideo-compressed.mp4 aboutvideo.mp4)",
-      "Bash(rm -f abouthero.jpg)"
+      "Bash(rm -f abouthero.jpg)",
+      "Bash(node -e ' *)",
+      "Bash(pkill -f \"next-server.*3050\")",
+      "Bash(pkill -f \"next start -p 3050\")",
+      "Bash(netstat -ano)",
+      "Bash(powershell -Command \"Stop-Process -Id 1940 -Force\")"
     ]
   }
 }
