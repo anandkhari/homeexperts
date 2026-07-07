@@ -10,7 +10,7 @@ import LandingTestimonials from "@/components/homepage/landing-testimonials";
 export const metadata = {
   title: "Home Experts | Home Maintenance & AMC Services in UAE",
   description:
-    "Reliable home maintenance, repair, and renovation services across the UAE. AC, plumbing, electrical, cleaning and AMC packages.",
+    "Professional home maintenance services across Dubai. AC servicing, plumbing, electrical, painting, renovation, and AMC packages. Call Home Experts UAE today on 055 475 3102.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
   },

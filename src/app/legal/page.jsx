@@ -1,11 +1,16 @@
 import PageHero from "@/components/pageshero";
 
+const url = `${process.env.NEXT_PUBLIC_SITE_URL}/legal`;
+
 export const metadata = {
   title: "Terms & Conditions",
   description:
     "Terms of Use for HomeExperts — operated by Azcon Infra Technical Services LLC. Read our full terms governing the use of our website and home maintenance services.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/legal`,
+    canonical: url,
+  },
+  openGraph: {
+    url,
   },
 };
 

@@ -78,13 +78,18 @@ export default async function DynamicServicePage({ params }) {
             "@context": "https://schema.org",
             "@type": "Service",
             name: service.title,
+            serviceType: service.title,
             description,
             provider: {
               "@type": "HomeAndConstructionBusiness",
               name: "Home Experts",
               url: process.env.NEXT_PUBLIC_SITE_URL,
+              telephone: "+971554753102",
             },
-            areaServed: "UAE",
+            areaServed: {
+              "@type": "Place",
+              name: "Dubai",
+            },
             url: serviceUrl,
           }),
         }}

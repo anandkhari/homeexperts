@@ -49,6 +49,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: post.title,
       description,
+      url: canonical,
       images: post.cover_image ? [{ url: post.cover_image }] : [],
       type: "article",
       publishedTime: post.created_at,

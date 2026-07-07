@@ -1,11 +1,16 @@
 import PageHero from "@/components/pageshero";
 
+const url = `${process.env.NEXT_PUBLIC_SITE_URL}/privacy`;
+
 export const metadata = {
   title: "Privacy Policy",
   description:
     "Privacy Policy for HomeExperts — operated by Azcon Infra Technical Services LLC. Learn how we collect, use, and protect your personal data in accordance with UAE law.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/privacy`,
+    canonical: url,
+  },
+  openGraph: {
+    url,
   },
 };
 

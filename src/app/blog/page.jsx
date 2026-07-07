@@ -4,11 +4,16 @@ import { createServerClient } from "@/lib/supabase/server";
 import PageHero from "@/components/pageshero";
 import { Clock, ArrowRight, Calendar } from "lucide-react";
 
+const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog`;
+
 export const metadata = {
   title: `Blog | ${process.env.NEXT_PUBLIC_SITE_NAME || "Home Experts"}`,
   description: "Read our latest articles on home maintenance, repairs, and renovation.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
+    canonical: url,
+  },
+  openGraph: {
+    url,
   },
 };
 

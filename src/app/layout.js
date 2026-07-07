@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/app-shell";
 import PageLoader from "@/components/PageLoader";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,18 +28,32 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
+      {
+        url: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
-    apple: { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
+    apple: {
+      url: "/web-app-manifest-192x192.png",
+      sizes: "192x192",
+      type: "image/png",
+    },
     shortcut: "/web-app-manifest-192x192.png",
   },
   robots: {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "YzaOf66FpxY0YnrClefGD7YXcR2lUk31bheaAsw1VsY",
+  },
 };
-
 
 export default function RootLayout({ children }) {
   return (
@@ -62,13 +77,32 @@ export default function RootLayout({ children }) {
                 addressLocality: "Dubai",
                 addressCountry: "AE",
               },
-              areaServed: "UAE",
+              areaServed: {
+                "@type": "Place",
+                name: "Dubai",
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                opens: "00:00",
+                closes: "23:59",
+              },
               priceRange: "$$",
             }),
           }}
         />
         <PageLoader />
         <AppShell>{children}</AppShell>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
       </body>
     </html>
   );

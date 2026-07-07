@@ -36,7 +36,7 @@ export default function Hero() {
 
             <Reveal delay={180} y={28} blur={14}>
               <h1 className="max-w-2xl text-4xl font-semibold leading-[1.2] tracking-[-0.04em] text-white uppercase sm:text-5xl md:text-6xl">
-                Your home, managed by experts
+               Professional Home Maintenance Services in Dubai
               </h1>
             </Reveal>
 
