@@ -57,9 +57,10 @@ export default function Home() {
       />
       <Hero />
       <Stats />
+        <LandingTestimonials />
       <About />
       <Services />
-      <LandingTestimonials />
+    
       <LandingCTA />
   
 
