@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { ALL_SERVICES } from "@/data/all-services";
+import RichTextEditor from "@/components/RichTextEditor";
 
 export default function NewBlogPost() {
   const router = useRouter();
@@ -219,12 +220,7 @@ export default function NewBlogPost() {
               <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">
                 Article Body
               </label>
-              <textarea
-                className="w-full border-2 border-gray-100 rounded-[2rem] px-8 py-8 min-h-[400px] text-base text-[#2C3E6B] leading-relaxed focus:outline-none focus:border-[#3BBFBF] transition-all shadow-inner bg-gray-50/30"
-                placeholder="Start writing your maintenance guide here..."
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
+           <RichTextEditor value={content} onChange={setContent} />
             </div>
 
             {/* PUBLISH TOGGLE */}

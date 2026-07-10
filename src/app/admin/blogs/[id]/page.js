@@ -6,6 +6,8 @@ import { supabase } from "@/lib/supabase";
 import { ArrowLeft, Save, Globe, Image as ImageIcon, AlertCircle, Clock, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { ALL_SERVICES } from "@/data/all-services";
+import RichTextEditor from "@/components/RichTextEditor";
+
 
 export default function EditBlogPost() {
   const router = useRouter();
@@ -24,6 +26,8 @@ export default function EditBlogPost() {
   const [imageFile, setImageFile] = useState(null);
   const [published, setPublished] = useState(false);
   const [category, setCategory] = useState("general");
+  
+  
 
   useEffect(() => {
     if (!postId) return;
@@ -256,15 +260,14 @@ export default function EditBlogPost() {
               </div>
             </div>
 
-            {/* CONTENT */}
-            <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">Article Body</label>
-              <textarea
-                className="w-full border-2 border-gray-100 rounded-[2rem] px-8 py-8 min-h-[400px] text-base text-[#2C3E6B] leading-relaxed focus:outline-none focus:border-[#3BBFBF] transition-all bg-gray-50/30 shadow-inner"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
-            </div>
+       
+    {/* CONTENT */}
+<div className="space-y-3">
+  <label className="text-[10px] font-black uppercase tracking-widest text-[#2C3E6B] ml-1">
+    Article Body
+  </label>
+  <RichTextEditor value={content} onChange={setContent} />
+</div>
 
             {/* PUBLISH STATUS */}
             <div className="flex items-center gap-4 bg-[#2C3E6B] p-6 rounded-2xl text-white">
