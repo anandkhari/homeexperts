@@ -3,6 +3,7 @@ import "./globals.css";
 import AppShell from "@/components/app-shell";
 import PageLoader from "@/components/PageLoader";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -103,6 +104,11 @@ export default function RootLayout({ children }) {
         <AppShell>{children}</AppShell>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="9gUZJhj9Zl/6Kf5awM4Qrw"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

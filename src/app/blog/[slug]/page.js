@@ -67,6 +67,8 @@ export default async function BlogPostPage({ params }) {
   const { slug } = await params;
   const post = slug ? await getPublishedPostBySlug(slug) : null;
 
+
+
   if (!post) {
     notFound();
   }
@@ -154,9 +156,10 @@ export default async function BlogPostPage({ params }) {
             )}
 
             {/* Content Body */}
-            <div className="prose prose-lg max-w-none text-[#2C3E6B] leading-[1.8] whitespace-pre-line font-medium">
-              {post.content}
-            </div>
+          <div
+  className="prose prose-lg max-w-none text-[#2C3E6B] font-medium"
+  dangerouslySetInnerHTML={{ __html: post.content }}
+/>
 
             {/* Footer CTA */}
             <div className="mt-16 pt-10 border-t border-gray-100 flex justify-end">
