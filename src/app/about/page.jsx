@@ -16,6 +16,7 @@ import CTA from "@/components/homepage/cta";
 import Blog from "../blog/page";
 import Blogs from "@/components/homepage/blogs";
 import CareersApplicationSection from "@/components/about/careers-application-section";
+import MissionVisionSection from "@/components/about/MissionVisionSection";
 
 export const metadata = {
   title: "About Us",
@@ -263,6 +264,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <MissionVisionSection />
 
       <CareersApplicationSection />
 
