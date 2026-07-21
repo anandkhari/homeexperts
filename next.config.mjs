@@ -16,16 +16,6 @@ const nextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.homeexperts.ae" }],
-        destination: "https://homeexperts.ae/:path*",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
