@@ -306,6 +306,31 @@ function FeatureGrid({ items, eyebrow, title, description }) {
   );
 }
 
+function EditorialSections({ sections }) {
+  if (!sections?.length) return null;
+
+  return (
+    <section className="bg-white px-4 py-16 md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl space-y-8">
+        {sections.map((section, index) => {
+          const paragraphs = normalizeParagraphs(section.text || section.description);
+
+          return (
+            <div key={section.title || index} className="rounded-[24px] border border-[#DDE3EE] bg-[#F7FAFD] p-8 md:p-12">
+              <h2 className="text-2xl font-semibold tracking-tight text-[#2C3E6B] md:text-3xl">{section.title}</h2>
+              <div className="mt-6 space-y-5 text-[0.98rem] leading-8 text-[#5A6A8A]">
+                {paragraphs.map((paragraph, paragraphIndex) => (
+                  <p key={`${section.title}-${paragraphIndex}`}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function TopIssuesSection({ service }) {
   if (!service.topIssues?.length) return null;
   return (
@@ -418,7 +443,7 @@ export default function ServicePage({ service }) {
             {service.category}
           </p>
           <h1 className="mt-8 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
-            {service.title}
+            {service.heroTitle || service.title}
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-8 text-white/85 md:text-xl md:leading-9">
             {service.heroDescription}
@@ -444,6 +469,7 @@ export default function ServicePage({ service }) {
         </div>
       </section>
 
+      <EditorialSections sections={service.additionalSections} />
       <SignsSection title={service.signsTitle} description={service.signsDescription || service.signsSubtitle} signs={service.signs} primaryLabel={service.signsCtaLabel} />
       <FeatureGrid items={service.benefits} eyebrow="Benefits" title={service.benefitsTitle || "Why this service matters"} description={service.benefitsSubtitle} />
       <TopIssuesSection service={service} />

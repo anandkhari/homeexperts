@@ -9,12 +9,12 @@ export const ALL_SERVICES = [
     keywords: ["emergency", "urgent", "maintenance", "24/7", "repair"],
   },
   {
-    title: "AC Servicing, Repair & Replacement",
+    title: "AC Repair Dubai | 60-Min Response, No Call-Out Fee | Home Experts",
     href: "/services/ac",
     slug: "ac-servicing-repair-replacement",
     image: "/ac_repair.jpg",
     description:
-      "Comprehensive cooling solutions including routine servicing, diagnostics, and full unit replacements.",
+      "AC repair, servicing & replacement across Dubai. 60-minute emergency response, certified technicians, no call-out fees. Book on WhatsApp or get a free quote.",
     keywords: ["ac", "service", "repair", "installation", "replacement", "cooling"],
   },
   {

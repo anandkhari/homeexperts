@@ -2,7 +2,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/app-shell";
 import PageLoader from "@/components/PageLoader";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import {
+  GoogleAnalytics,
+  GoogleTagManager,
+} from "@next/third-parties/google";
 import Script from "next/script";
 
 const inter = Inter({
@@ -13,20 +16,31 @@ const inter = Inter({
 
 export const metadata = {
   metadataBase: new URL("https://homeexperts.ae"),
+
   title: {
     default: "Home Experts | Home Maintenance & AMC Services in UAE",
     template: "%s | Home Experts",
   },
+
   description:
     "Reliable home maintenance, repair, and renovation services across the UAE. AC, plumbing, electrical, cleaning and AMC packages.",
+
   openGraph: {
     siteName: "Home Experts",
     type: "website",
-    images: [{ url: "/aivan2.png", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/aivan2.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
   },
+
   icons: {
     icon: [
       {
@@ -40,17 +54,20 @@ export const metadata = {
         type: "image/png",
       },
     ],
+
     apple: {
       url: "/web-app-manifest-192x192.png",
       sizes: "192x192",
-      type: "image/png",
     },
+
     shortcut: "/web-app-manifest-192x192.png",
   },
+
   robots: {
     index: true,
     follow: true,
   },
+
   verification: {
     google: "YzaOf66FpxY0YnrClefGD7YXcR2lUk31bheaAsw1VsY",
   },
@@ -60,6 +77,51 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <body>
+        {/* =========================
+            META PIXEL
+        ========================== */}
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '1043722025253194');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+
+        {/* Meta Pixel Fallback */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1043722025253194&ev=PageView&noscript=1"
+            alt="meta-pixel"
+          />
+        </noscript>
+
+        {/* =========================
+            HUBSPOT
+        ========================== */}
+        <Script
+          id="hs-script-loader"
+          src="https://js-eu1.hs-scripts.com/149045215.js"
+          strategy="afterInteractive"
+        />
+
+        {/* =========================
+            STRUCTURED DATA
+        ========================== */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -100,8 +162,16 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+
+        {/* =========================
+            CORE APP UI
+        ========================== */}
         <PageLoader />
         <AppShell>{children}</AppShell>
+
+        {/* =========================
+            OTHER ANALYTICS
+        ========================== */}
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         <Script

@@ -200,13 +200,17 @@ function createServicePage(service) {
 
 export const AC_SERVICE = createServicePage({
   ...routeCards.ac,
+  title: "AC Repair Dubai | 60-Min Response, No Call-Out Fee | Home Experts",
+  description:
+    "AC repair, servicing & replacement across Dubai. 60-minute emergency response, certified technicians, no call-out fees. Book on WhatsApp or get a free quote.",
   category: "Air Conditioning",
   heroImage: "/ac_repair.jpg",
+  heroTitle: "AC Repair in Dubai Fixed Fast, Done Honestly",
   heroDescription:
     "From weak airflow to full replacement decisions, we handle AC servicing, repair, and system upgrades with clear recommendations.",
   introTitle: "Complete AC solutions for long-term comfort and performance",
   introText:
-    "Maintaining your air conditioning system through regular, professional servicing is the most effective way to ensure peak efficiency and consistent cooling performance throughout the year. While timely repairs act as a critical safeguard against catastrophic system failures, we recognize that as units age, a strategic replacement often emerges as the more sustainable and cost-effective long-term solution. Our technicians provide transparent, data-driven insights to help you navigate these decisions with confidence, ensuring you receive honest recommendations tailored to your home’s specific needs—completely free from guesswork or the pressure of unnecessary upselling",
+    "Home Experts provides AC repair, servicing, and full unit replacement across Dubai for villas, apartments, and commercial spaces. Emergency breakdowns get a technician to your door within 60 minutes, there's no call-out fee, and every recommendation is honest: if it doesn't need replacing, we won't tell you it does.",
   signsTitle: "Is your AC in need of repair?",
  signsDescription: [
   "From subtle drops in temperature to more obvious issues like restricted airflow, unusual cycling, or persistent moisture pooling around your indoor unit, these symptoms are your system's way of signaling underlying mechanical or electrical stress. Ignoring these early warning signs often leads to more extensive component damage, such as compressor failure or evaporator coil leaks, which are significantly more complex and costly to resolve.",
@@ -219,7 +223,7 @@ export const AC_SERVICE = createServicePage({
     { text: "Low Airflow", icon: "Fan" },
     { text: "Leaks or Humidity", icon: "Droplet" },
   ],
-  benefitsTitle: "Benefits of servicing, repairing, or upgrading your AC",
+  benefitsTitle:"Benefits of servicing, repairing, or upgrading your AC",
   benefitsSubtitle: "The right decision at the right time improves comfort and reduces repeat issues.",
   benefits: [
     { icon: "Fan", title: "Better Cooling", description: "Restore more even and reliable airflow." },
@@ -242,26 +246,36 @@ export const AC_SERVICE = createServicePage({
     { title: "Clear communication", description: "You understand the issue, options, and likely outcome before work begins." },
     { title: "Clean service", description: "Our technicians work carefully and leave the area tidy." },
   ],
+  additionalSections: [
+    {
+      title: "Repair or Replace? We'll Tell You Straight",
+      text: "The most common worry we hear is \"will they push me to replace a unit that just needs a repair?\" We won't. Our technicians assess the fault, the age of your system, and the running-cost impact on your DEWA bill, then give you a clear recommendation with the reasoning behind it. If a repair is the smarter economic choice, that's what we'll recommend, no pressure, no upselling.",
+    },
+    {
+      title: "Emergency AC Repair - 60-Minute Response, 24/7",
+      text: "A dead AC in a Dubai summer is not a wait-until-Monday problem. Our emergency line runs 24/7, including weekends and public holidays, with a technician dispatched to reach you within 60 minutes. Emergency visits carry no call-out fee, you pay for the fix, not the arrival.",
+    },
+  ],
 faqs: [
-  { 
-    question: "How do I know if I should repair or replace my AC?", 
-    answer: "Newer systems with isolated faults are often worth repairing. Older units with recurring issues are often better replaced." 
+  {
+    question: "How often should I service my AC in Dubai?",
+    answer: "Twice a year is the practical minimum for Dubai's climate, once before summer (March to April) and once after peak season. Homes with heavy usage, pets, or dust exposure benefit from quarterly checks, which is what our Residential AMC provides."
   },
-  { 
-    question: "How often should I service my AC?", 
-    answer: "Regular servicing during heavy-use periods helps maintain performance and reduces the chance of breakdowns." 
+  {
+    question: "Why is my AC still not cooling even though I service it every year?",
+    answer: "The most common causes are dirty coils and ducts (not covered by basic servicing), low refrigerant from a slow leak, or an ageing compressor. A proper diagnosis identifies which one — guessing leads to paying for the wrong fix."
   },
-  { 
-    question: "What are the signs that my AC needs immediate attention?", 
-    answer: "Keep an eye out for unusual noises, weak airflow, or unexpected spikes in your utility bills, as these often signal internal mechanical stress." 
+  {
+    question: "How do I know if I need a repair or a full replacement?",
+    answer: "As a rule of thumb: if the unit is over 8 to 10 years old and the repair costs a large share of a new unit's price, replacement usually wins on running costs alone. Our technician will show you the numbers for your specific unit so the decision is yours."
   },
-  { 
-    question: "Can I improve my AC's efficiency on my own?", 
-    answer: "Yes, simple steps like keeping the outdoor unit clear of debris and ensuring your home is properly sealed can significantly reduce the workload on your system." 
+  {
+    question: "Do you charge a call-out fee?",
+    answer: "No. There is no call-out fee for standard or emergency visits. You receive a clear quote before any work begins, and you only pay for work you approve."
   },
-  { 
-    question: "What is the average lifespan of a modern AC unit?", 
-    answer: "Most well-maintained central air systems typically last between 15 to 20 years, though coastal environments can shorten this due to salt corrosion." 
+  {
+    question: "Is emergency AC repair really available 24/7?",
+    answer: "Yes, including weekends and public holidays, with a 60-minute response target across Dubai."
   },
 ],
   relatedServices: [routeCards.ductCleaning, routeCards.electrical, routeCards.waterTankCleaning],
