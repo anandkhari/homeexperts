@@ -7,6 +7,7 @@ import {
   GoogleTagManager,
 } from "@next/third-parties/google";
 import Script from "next/script";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -168,6 +169,9 @@ export default function RootLayout({ children }) {
         ========================== */}
         <PageLoader />
         <AppShell>{children}</AppShell>
+
+          <Analytics />
+
 
         {/* =========================
             OTHER ANALYTICS
