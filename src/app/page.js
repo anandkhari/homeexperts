@@ -6,6 +6,7 @@ import Stats from "@/components/homepage/stats";
 import About from "@/components/homepage/about";
 import LandingCTA from "@/components/homepage/landing-cta"; 
 import LandingTestimonials from "@/components/homepage/landing-testimonials";
+import InstagramReels from "@/components/homepage/instagram-reels";
 
 export const metadata = {
   title: "Home Experts | Home Maintenance & AMC Services in UAE",
@@ -58,6 +59,7 @@ export default function Home() {
       <Hero />
       <Stats />
         <LandingTestimonials />
+        <InstagramReels />
       <About />
       <Services />
     
